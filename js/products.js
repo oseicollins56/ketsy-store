@@ -1,99 +1,473 @@
-// ===================================================
-// KETSY STORE – Products Data
-// ===================================================
+// ─── Ketsy Store — Product Catalogue ───────────────────────────────────────
+const products = [
 
-const PRODUCTS = [
-  // T-SHIRTS
-  { id: 1, name: "Classic Ketsy Logo Tee", category: "tshirts", categoryLabel: "T-Shirts", price: 80, originalPrice: null, icon: "👕", badge: "New", rating: 4.8, reviews: 24, sizes: ["S","M","L","XL","XXL"], colors: ["#000","#fff","#FF6B35","#2D3142"], description: "Premium quality cotton t-shirt with Ketsy Store signature logo. Soft, breathable and perfectly cut.", inStock: true },
-  { id: 2, name: "Graphic Print Tee – Wave", category: "tshirts", categoryLabel: "T-Shirts", price: 95, originalPrice: 120, icon: "👕", badge: "Sale", rating: 4.6, reviews: 18, sizes: ["S","M","L","XL"], colors: ["#fff","#000","#4ECDC4"], description: "Bold graphic wave print t-shirt. Eye-catching design made with eco-friendly inks.", inStock: true },
-  { id: 3, name: "Oversized Street Tee", category: "tshirts", categoryLabel: "T-Shirts", price: 100, originalPrice: null, icon: "👕", badge: null, rating: 4.9, reviews: 32, sizes: ["M","L","XL","XXL"], colors: ["#1a1a1a","#F5F5F5","#FF6B35"], description: "Trendy oversized fit for a relaxed street-style look. Premium cotton blend fabric.", inStock: true },
-  { id: 4, name: "Afro Culture Tee", category: "tshirts", categoryLabel: "T-Shirts", price: 90, originalPrice: null, icon: "👕", badge: "New", rating: 4.7, reviews: 14, sizes: ["S","M","L","XL","XXL"], colors: ["#000","#FFD700","#008000"], description: "Celebrate African culture with this vibrant print tee. Inspired by Ghanaian heritage.", inStock: true },
+  // ── T-SHIRTS ──────────────────────────────────────────────────────────────
+  {
+    id: 1, name: 'Classic Plain Tee', category: 'tshirts',
+    price: 85, oldPrice: null, rating: 4.8, reviews: 124,
+    badge: 'Bestseller', icon: '👕',
+    img: 'images/tshirts/tshirt-1.jpg',
+    colors: ['#1a1a1a','#4a4a4a','#6c8ebf','#d9d9d9'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 2, name: 'Essential Black & White Tee', category: 'tshirts',
+    price: 80, oldPrice: 100, rating: 4.7, reviews: 89,
+    badge: 'Sale', icon: '👕',
+    img: 'images/tshirts/tshirt-2.jpg',
+    colors: ['#1a1a1a','#ffffff'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 3, name: 'Diesel Sleeveless Tee – White', category: 'tshirts',
+    price: 120, oldPrice: null, rating: 4.9, reviews: 56,
+    badge: 'New', icon: '👕',
+    img: 'images/tshirts/tshirt-3.jpg',
+    colors: ['#ffffff'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 4, name: 'Diesel Sleeveless Tee – Black', category: 'tshirts',
+    price: 120, oldPrice: null, rating: 4.9, reviews: 48,
+    badge: 'New', icon: '👕',
+    img: 'images/tshirts/tshirt-4.jpg',
+    colors: ['#1a1a1a'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 5, name: 'Vibrant Colour-Pack Tee', category: 'tshirts',
+    price: 75, oldPrice: 90, rating: 4.6, reviews: 73,
+    badge: 'Sale', icon: '👕',
+    img: 'images/tshirts/tshirt-5.jpg',
+    colors: ['#f5c518','#5c3a1e','#1a6dc0','#5b2d8e'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 6, name: 'Graphic Flag Tee', category: 'tshirts',
+    price: 95, oldPrice: null, rating: 4.5, reviews: 41,
+    badge: null, icon: '👕',
+    img: 'images/tshirts/tshirt-6.jpg',
+    colors: ['#3a3a3a'], sizes: ['S','M','L','XL']
+  },
 
-  // JOGGERS
-  { id: 5, name: "Slim-Fit Jogger Pants", category: "joggers", categoryLabel: "Joggers", price: 150, originalPrice: null, icon: "🩳", badge: "New", rating: 4.8, reviews: 27, sizes: ["S","M","L","XL","XXL"], colors: ["#1a1a1a","#888","#2D3142","#FF6B35"], description: "Tapered slim-fit joggers with elastic waistband and drawstring. Perfect for gym or casual wear.", inStock: true },
-  { id: 6, name: "Premium Track Joggers", category: "joggers", categoryLabel: "Joggers", price: 180, originalPrice: 220, icon: "🩳", badge: "Sale", rating: 4.7, reviews: 19, sizes: ["S","M","L","XL"], colors: ["#1a1a1a","#fff","#444"], description: "High-quality track joggers with side pockets and cuffed ankles. Great for both sport and leisure.", inStock: true },
-  { id: 7, name: "Cargo Jogger Pants", category: "joggers", categoryLabel: "Joggers", price: 165, originalPrice: null, icon: "🩳", badge: null, rating: 4.5, reviews: 11, sizes: ["M","L","XL","XXL"], colors: ["#1a1a1a","#4a5568","#808080"], description: "Functional cargo joggers with multiple pockets and adjustable waist. Urban street style.", inStock: true },
+  // ── SHORTS ────────────────────────────────────────────────────────────────
+  {
+    id: 7, name: 'Brown Fleece Shorts', category: 'shorts',
+    price: 70, oldPrice: null, rating: 4.5, reviews: 38,
+    badge: null, icon: '🩲',
+    img: 'images/shorts/shorts-1.jpg',
+    colors: ['#5c3a1e'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 8, name: 'Black Sport Shorts', category: 'shorts',
+    price: 65, oldPrice: null, rating: 4.6, reviews: 52,
+    badge: 'Bestseller', icon: '🩲',
+    img: 'images/shorts/shorts-2.jpg',
+    colors: ['#1a1a1a'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 9, name: 'Fleece Cargo Shorts', category: 'shorts',
+    price: 75, oldPrice: 95, rating: 4.4, reviews: 29,
+    badge: 'Sale', icon: '🩲',
+    img: 'images/shorts/shorts-3.jpg',
+    colors: ['#5c3a1e','#1a1a1a'], sizes: ['S','M','L','XL']
+  },
 
-  // SHORTS
-  { id: 8, name: "Athletic Training Shorts", category: "shorts", categoryLabel: "Shorts", price: 75, originalPrice: null, icon: "🩲", badge: "New", rating: 4.6, reviews: 21, sizes: ["S","M","L","XL","XXL"], colors: ["#1a1a1a","#fff","#FF6B35","#0096D6"], description: "Lightweight and breathable training shorts with mesh inner lining. Great for workouts.", inStock: true },
-  { id: 9, name: "Casual Chino Shorts", category: "shorts", categoryLabel: "Shorts", price: 85, originalPrice: 100, icon: "🩲", badge: "Sale", rating: 4.4, reviews: 16, sizes: ["S","M","L","XL"], colors: ["#C8A97E","#1a1a1a","#2D4A7A"], description: "Smart casual chino shorts perfect for everyday wear. Versatile and comfortable fit.", inStock: true },
-  { id: 10, name: "Swim Board Shorts", category: "shorts", categoryLabel: "Shorts", price: 80, originalPrice: null, icon: "🩲", badge: null, rating: 4.3, reviews: 9, sizes: ["S","M","L","XL","XXL"], colors: ["#0096D6","#FF6B35","#1a1a1a"], description: "Quick-dry swim shorts with tropical print. Great for the beach or pool.", inStock: true },
+  // ── JOGGERS ───────────────────────────────────────────────────────────────
+  {
+    id: 10, name: 'Brown Fleece Joggers', category: 'joggers',
+    price: 110, oldPrice: null, rating: 4.7, reviews: 61,
+    badge: 'Bestseller', icon: '🩳',
+    img: 'images/joggers/joggers-1.jpg',
+    colors: ['#5c3a1e'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 11, name: 'Premium Fleece Joggers', category: 'joggers',
+    price: 110, oldPrice: 130, rating: 4.6, reviews: 44,
+    badge: 'Sale', icon: '🩳',
+    img: 'images/joggers/joggers-2.jpg',
+    colors: ['#5c3a1e'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 12, name: 'Black Cargo Joggers', category: 'joggers',
+    price: 115, oldPrice: null, rating: 4.8, reviews: 77,
+    badge: 'New', icon: '🩳',
+    img: 'images/joggers/joggers-3.jpg',
+    colors: ['#1a1a1a'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 13, name: 'Multi-Colour Sweat Joggers', category: 'joggers',
+    price: 100, oldPrice: 120, rating: 4.5, reviews: 35,
+    badge: 'Sale', icon: '🩳',
+    img: 'images/joggers/joggers-4.jpg',
+    colors: ['#1a1a1a','#c0392b','#2c6e49','#ffffff','#2d3142'], sizes: ['S','M','L','XL']
+  },
 
-  // CAPS
-  { id: 11, name: "Ketsy Signature Cap", category: "caps", categoryLabel: "Caps", price: 55, originalPrice: null, icon: "🧢", badge: "New", rating: 4.9, reviews: 38, sizes: ["One Size"], colors: ["#1a1a1a","#fff","#FF6B35","#2D3142"], description: "Premium 6-panel cap with Ketsy Store embroidered logo. Adjustable strap for perfect fit.", inStock: true },
-  { id: 12, name: "Flat Brim Snapback", category: "caps", categoryLabel: "Caps", price: 65, originalPrice: null, icon: "🧢", badge: null, rating: 4.7, reviews: 22, sizes: ["One Size"], colors: ["#1a1a1a","#fff","#FF6B35"], description: "Street-style flat brim snapback with graphic logo. Adjustable snap closure.", inStock: true },
-  { id: 13, name: "Vintage Dad Cap", category: "caps", categoryLabel: "Caps", price: 50, originalPrice: 65, icon: "🧢", badge: "Sale", rating: 4.5, reviews: 17, sizes: ["One Size"], colors: ["#C8A97E","#1a1a1a","#2D4A7A","#888"], description: "Classic unstructured dad cap with soft front panel. Retro look with modern comfort.", inStock: true },
+  // ── LONG SLEEVES ──────────────────────────────────────────────────────────
+  {
+    id: 14, name: 'Olive Button-Down Shirt', category: 'longsleeves',
+    price: 130, oldPrice: null, rating: 4.8, reviews: 53,
+    badge: 'New', icon: '👔',
+    img: 'images/longsleeves/longsleeve-1.jpg',
+    colors: ['#4a6741'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 15, name: 'Black Oxford Shirt', category: 'longsleeves',
+    price: 125, oldPrice: 150, rating: 4.7, reviews: 67,
+    badge: 'Sale', icon: '👔',
+    img: 'images/longsleeves/longsleeve-2.jpg',
+    colors: ['#1a1a1a'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 16, name: 'Brown Zara Long Sleeve', category: 'longsleeves',
+    price: 140, oldPrice: null, rating: 4.9, reviews: 42,
+    badge: 'Bestseller', icon: '👔',
+    img: 'images/longsleeves/longsleeve-3.jpg',
+    colors: ['#7d4e1e'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 17, name: 'White Classic Shirt', category: 'longsleeves',
+    price: 120, oldPrice: null, rating: 4.6, reviews: 58,
+    badge: null, icon: '👔',
+    img: 'images/longsleeves/longsleeve-4.jpg',
+    colors: ['#ffffff'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 18, name: 'White Slim Fit Shirt', category: 'longsleeves',
+    price: 115, oldPrice: 135, rating: 4.5, reviews: 34,
+    badge: 'Sale', icon: '👔',
+    img: 'images/longsleeves/longsleeve-5.jpg',
+    colors: ['#ffffff'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 19, name: 'White & Black Smart Shirt', category: 'longsleeves',
+    price: 120, oldPrice: null, rating: 4.7, reviews: 49,
+    badge: null, icon: '👔',
+    img: 'images/longsleeves/longsleeve-6.jpg',
+    colors: ['#ffffff','#1a1a1a'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 20, name: 'Maroon Oxford Shirt', category: 'longsleeves',
+    price: 130, oldPrice: null, rating: 4.8, reviews: 36,
+    badge: 'New', icon: '👔',
+    img: 'images/longsleeves/longsleeve-7.jpg',
+    colors: ['#7b1a2e'], sizes: ['S','M','L','XL']
+  },
 
-  // CUPS
-  { id: 14, name: "Custom Name Mug", category: "cups", categoryLabel: "Cups", price: 45, originalPrice: null, icon: "☕", badge: "New", rating: 4.8, reviews: 31, sizes: ["11oz","15oz"], colors: ["#fff","#1a1a1a","#FF6B35"], description: "Personalized ceramic mug with your name or custom text. Microwave and dishwasher safe.", inStock: true },
-  { id: 15, name: "Photo Print Travel Mug", category: "cups", categoryLabel: "Cups", price: 60, originalPrice: null, icon: "☕", badge: null, rating: 4.6, reviews: 15, sizes: ["12oz"], colors: ["#1a1a1a","#FF6B35"], description: "Insulated travel mug with custom photo print. Keeps drinks hot for 6 hours.", inStock: true },
-  { id: 16, name: "Ketsy Branded Mug Set", category: "cups", categoryLabel: "Cups", price: 85, originalPrice: 110, icon: "☕", badge: "Sale", rating: 4.7, reviews: 12, sizes: ["Set of 2"], colors: ["#fff","#1a1a1a"], description: "Set of 2 Ketsy branded mugs. Perfect as a gift or for home use.", inStock: true },
+  // ── HOODIES ───────────────────────────────────────────────────────────────
+  {
+    id: 21, name: 'Navy Pullover Hoodie', category: 'hoodies',
+    price: 150, oldPrice: null, rating: 4.8, reviews: 82,
+    badge: 'Bestseller', icon: '🧥',
+    img: 'images/hoodies/hoodie-1.jpg',
+    colors: ['#1a2a5e'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 22, name: '"81" Graphic Hoodie', category: 'hoodies',
+    price: 160, oldPrice: 190, rating: 4.7, reviews: 55,
+    badge: 'Sale', icon: '🧥',
+    img: 'images/hoodies/hoodie-2.jpg',
+    colors: ['#f5f0e8'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 23, name: 'Black Zip-Up Hoodie', category: 'hoodies',
+    price: 170, oldPrice: null, rating: 4.9, reviews: 63,
+    badge: 'New', icon: '🧥',
+    img: 'images/hoodies/hoodie-3.jpg',
+    colors: ['#1a1a1a'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 24, name: 'Baby Blue Graphic Hoodie', category: 'hoodies',
+    price: 155, oldPrice: null, rating: 4.6, reviews: 40,
+    badge: null, icon: '🧥',
+    img: 'images/hoodies/hoodie-4.jpg',
+    colors: ['#a8d8ea'], sizes: ['S','M','L','XL']
+  },
 
-  // LADIES CROP TOPS
-  { id: 17, name: "Ribbed Crop Top", category: "croptops", categoryLabel: "Crop Tops", price: 65, originalPrice: null, icon: "👚", badge: "New", rating: 4.9, reviews: 45, sizes: ["XS","S","M","L","XL"], colors: ["#fff","#1a1a1a","#FF6B35","#E91E8C"], description: "Trendy ribbed crop top with a fitted silhouette. Super soft fabric, perfect for everyday wear.", inStock: true },
-  { id: 18, name: "Graphic Crop Tee", category: "croptops", categoryLabel: "Crop Tops", price: 70, originalPrice: 90, icon: "👚", badge: "Sale", rating: 4.7, reviews: 28, sizes: ["XS","S","M","L"], colors: ["#fff","#FFC0CB","#1a1a1a"], description: "Fun graphic print crop tee. Relaxed fit with bold front print.", inStock: true },
-  { id: 19, name: "Off-Shoulder Crop", category: "croptops", categoryLabel: "Crop Tops", price: 80, originalPrice: null, icon: "👚", badge: null, rating: 4.8, reviews: 33, sizes: ["S","M","L","XL"], colors: ["#fff","#E91E8C","#9B59B6","#1a1a1a"], description: "Elegant off-shoulder crop top. Perfect for nights out or casual daytime looks.", inStock: true },
-  { id: 20, name: "Tie-Dye Crop Top", category: "croptops", categoryLabel: "Crop Tops", price: 75, originalPrice: null, icon: "👚", badge: "New", rating: 4.6, reviews: 20, sizes: ["XS","S","M","L","XL"], colors: ["#FF6B35","#9B59B6","#4ECDC4"], description: "Vibrant tie-dye crop top. Each piece is unique. Fun, colorful, and trendy.", inStock: true },
+  // ── MEN FULL SET ──────────────────────────────────────────────────────────
+  {
+    id: 25, name: 'Smart Quarter-Zip Set', category: 'fullset',
+    price: 280, oldPrice: null, rating: 4.9, reviews: 37,
+    badge: 'New', icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-1.jpg',
+    colors: ['#b5a99a','#1a1a1a'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 26, name: 'Blue Elegant Suit Set', category: 'fullset',
+    price: 450, oldPrice: 550, rating: 4.8, reviews: 29,
+    badge: 'Sale', icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-2.jpg',
+    colors: ['#1a2a5e','#3d5a80','#4a6fa5'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 27, name: 'Brown Tee & Chinos Set', category: 'fullset',
+    price: 220, oldPrice: null, rating: 4.7, reviews: 51,
+    badge: null, icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-3.jpg',
+    colors: ['#5c3a1e','#f5f0e8'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 28, name: 'Olive Tee & Denim Set', category: 'fullset',
+    price: 230, oldPrice: null, rating: 4.8, reviews: 44,
+    badge: 'Bestseller', icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-4.jpg',
+    colors: ['#4a6741','#5b8ad4'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 29, name: 'Striped Sweater & Denim Set', category: 'fullset',
+    price: 260, oldPrice: 300, rating: 4.6, reviews: 33,
+    badge: 'Sale', icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-5.jpg',
+    colors: ['#3a3a3a','#5b8ad4'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 30, name: 'Black Polo & Khaki Set', category: 'fullset',
+    price: 240, oldPrice: null, rating: 4.7, reviews: 48,
+    badge: null, icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-6.jpg',
+    colors: ['#1a1a1a','#c9a96e'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 31, name: 'Navy Ribbed Polo Set (Zara)', category: 'fullset',
+    price: 300, oldPrice: null, rating: 4.9, reviews: 62,
+    badge: 'Bestseller', icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-7.jpg',
+    colors: ['#1a2a5e','#f5f0e8'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 32, name: 'Light Blue Suit Set', category: 'fullset',
+    price: 420, oldPrice: 500, rating: 4.8, reviews: 25,
+    badge: 'Sale', icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-8.jpg',
+    colors: ['#a8d8ea','#ffffff'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 33, name: 'Nike Sport Set', category: 'fullset',
+    price: 350, oldPrice: null, rating: 4.9, reviews: 71,
+    badge: 'New', icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-9.jpg',
+    colors: ['#3a3a3a','#1a1a1a'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 34, name: 'Baby Blue Nike Tracksuit', category: 'fullset',
+    price: 380, oldPrice: 450, rating: 4.8, reviews: 58,
+    badge: 'Sale', icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-10.jpg',
+    colors: ['#a8d8ea','#ffffff'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 35, name: 'Business Casual Uniform Set', category: 'fullset',
+    price: 320, oldPrice: null, rating: 4.7, reviews: 39,
+    badge: null, icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-11.jpg',
+    colors: ['#6b8cba','#1a1a1a','#888888'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 36, name: 'White Tee & Grey Denim Set', category: 'fullset',
+    price: 210, oldPrice: null, rating: 4.6, reviews: 43,
+    badge: null, icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-12.jpg',
+    colors: ['#ffffff','#888888'], sizes: ['S','M','L','XL','XXL']
+  },
+  {
+    id: 37, name: 'Slate Quarter-Zip Matching Set', category: 'fullset',
+    price: 290, oldPrice: null, rating: 4.8, reviews: 47,
+    badge: 'New', icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-13.jpg',
+    colors: ['#5a7a8a'], sizes: ['S','M','L','XL']
+  },
+  {
+    id: 38, name: 'Black Formal Suit Set', category: 'fullset',
+    price: 480, oldPrice: 580, rating: 4.9, reviews: 31,
+    badge: 'Sale', icon: '🧑‍🎤',
+    img: 'images/fullset/fullset-14.jpg',
+    colors: ['#1a1a1a','#ffffff'], sizes: ['S','M','L','XL']
+  },
 
-  // CUSTOMIZED FRAMES
-  { id: 21, name: "Custom Photo Frame – A4", category: "frames", categoryLabel: "Custom Frames", price: 90, originalPrice: null, icon: "🖼️", badge: "New", rating: 4.9, reviews: 52, sizes: ["A4"], colors: ["#1a1a1a","#C8A97E","#fff"], description: "High-quality custom A4 frame with your personal photo or message. Perfect for gifts.", inStock: true },
-  { id: 22, name: "Collage Frame – 4 Photos", category: "frames", categoryLabel: "Custom Frames", price: 120, originalPrice: 150, icon: "🖼️", badge: "Sale", rating: 4.8, reviews: 29, sizes: ["A4","A3"], colors: ["#1a1a1a","#fff","#C8A97E"], description: "Beautiful 4-photo collage frame. Capture your favorite memories in one stunning piece.", inStock: true },
-  { id: 23, name: "LED Light Frame", category: "frames", categoryLabel: "Custom Frames", price: 150, originalPrice: null, icon: "🖼️", badge: "Popular", rating: 4.9, reviews: 41, sizes: ["A4","A3"], colors: ["#1a1a1a"], description: "Glowing LED border frame with your custom photo. USB powered. Stunning night effect.", inStock: true },
-  { id: 24, name: "Couple Memory Frame", category: "frames", categoryLabel: "Custom Frames", price: 100, originalPrice: null, icon: "🖼️", badge: null, rating: 4.7, reviews: 35, sizes: ["A4"], colors: ["#fff","#C8A97E","#1a1a1a","#E91E8C"], description: "Romantic custom frame for couples. Add names, dates, and your favorite photo.", inStock: true },
+  // ── CAPS ──────────────────────────────────────────────────────────────────
+  {
+    id: 39, name: 'Fitted MLB Snapback Caps', category: 'caps',
+    price: 90, oldPrice: null, rating: 4.7, reviews: 94,
+    badge: 'Bestseller', icon: '🧢',
+    img: 'images/caps/caps-1.jpg',
+    colors: ['#c0392b','#1a1a1a'], sizes: ['S/M','L/XL']
+  },
+  {
+    id: 40, name: 'Camo Military Cap', category: 'caps',
+    price: 80, oldPrice: null, rating: 4.6, reviews: 67,
+    badge: null, icon: '🧢',
+    img: 'images/caps/caps-2.jpg',
+    colors: ['#4a5e3a'], sizes: ['One Size']
+  },
+  {
+    id: 41, name: 'Black Rebel Trucker Cap', category: 'caps',
+    price: 85, oldPrice: 100, rating: 4.5, reviews: 53,
+    badge: 'Sale', icon: '🧢',
+    img: 'images/caps/caps-3.jpg',
+    colors: ['#7b1a2e','#1a1a1a','#2d3142'], sizes: ['One Size']
+  },
+  {
+    id: 42, name: 'Green MA Trucker Cap', category: 'caps',
+    price: 95, oldPrice: null, rating: 4.8, reviews: 41,
+    badge: 'New', icon: '🧢',
+    img: 'images/caps/caps-4.jpg',
+    colors: ['#2c6e49'], sizes: ['One Size']
+  },
+
+  // ── CROP TOPS ─────────────────────────────────────────────────────────────
+  {
+    id: 43, name: 'Black Graphic Crop Top', category: 'croptops',
+    price: 75, oldPrice: null, rating: 4.7, reviews: 66,
+    badge: 'New', icon: '👚',
+    img: 'images/croptops/croptop-1.jpg',
+    colors: ['#1a1a1a'], sizes: ['XS','S','M','L']
+  },
+  {
+    id: 44, name: '"Be Kind" Blue Crop Top', category: 'croptops',
+    price: 70, oldPrice: 85, rating: 4.8, reviews: 82,
+    badge: 'Sale', icon: '👚',
+    img: 'images/croptops/croptop-2.jpg',
+    colors: ['#a8d8ea'], sizes: ['XS','S','M','L']
+  },
+  {
+    id: 45, name: 'Pink Square-Neck Crop Top', category: 'croptops',
+    price: 72, oldPrice: null, rating: 4.9, reviews: 74,
+    badge: 'Bestseller', icon: '👚',
+    img: 'images/croptops/croptop-3.jpg',
+    colors: ['#f5c5c5'], sizes: ['XS','S','M','L']
+  },
+
+  // ── CUPS (add images when available) ──────────────────────────────────────
+  {
+    id: 46, name: 'Custom Printed Mug', category: 'cups',
+    price: 55, oldPrice: null, rating: 4.6, reviews: 38,
+    badge: 'Custom', icon: '☕', img: null,
+    colors: ['#ffffff','#1a1a1a'], sizes: ['11oz','15oz']
+  },
+  {
+    id: 47, name: 'Travel Tumbler', category: 'cups',
+    price: 75, oldPrice: null, rating: 4.7, reviews: 29,
+    badge: null, icon: '🥤', img: null,
+    colors: ['#1a1a1a','#c0392b','#2d3142'], sizes: ['16oz','20oz']
+  },
+
+  // ── FRAMES (add images when available) ────────────────────────────────────
+  {
+    id: 48, name: 'Custom Photo Frame', category: 'frames',
+    price: 120, oldPrice: null, rating: 4.8, reviews: 45,
+    badge: 'Custom', icon: '🖼️', img: null,
+    colors: ['#1a1a1a','#c9a96e','#ffffff'], sizes: ['4×6','5×7','8×10']
+  },
+  {
+    id: 49, name: 'LED Light Frame', category: 'frames',
+    price: 180, oldPrice: 220, rating: 4.9, reviews: 31,
+    badge: 'Sale', icon: '🖼️', img: null,
+    colors: ['#1a1a1a','#ffffff'], sizes: ['5×7','8×10']
+  }
 ];
 
-// Helper: get products by category
-function getProductsByCategory(cat) {
-  if (!cat || cat === 'all') return PRODUCTS;
-  return PRODUCTS.filter(p => p.category === cat);
-}
-
-// Helper: get product by ID
-function getProductById(id) {
-  return PRODUCTS.find(p => p.id === parseInt(id));
-}
-
-// Helper: render product card HTML
+// ─── Render a single product card ──────────────────────────────────────────
 function renderProductCard(product) {
-  const stars = renderStars(product.rating);
-  const badge = product.badge ? `<span class="product-badge ${product.badge === 'Sale' ? 'sale' : product.badge === 'New' ? 'new' : ''}">${product.badge}</span>` : '';
-  const originalPrice = product.originalPrice ? `<span class="price-original">GHS ${product.originalPrice.toFixed(2)}</span>` : '';
+  const imgHTML = product.img
+    ? `<img src="${product.img}" alt="${product.name}"
+           style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:inherit"
+           onerror="this.style.display='none';document.getElementById('icon-${product.id}').style.display='flex'">
+       <span id="icon-${product.id}" style="display:none;font-size:4rem;width:100%;height:100%;align-items:center;justify-content:center;position:absolute;inset:0">${product.icon}</span>`
+    : `<span style="font-size:4rem;width:100%;height:100%;display:flex;align-items:center;justify-content:center">${product.icon}</span>`;
+
+  const categoryLabel = {
+    tshirts:'T-Shirts', shorts:'Shorts', joggers:'Joggers',
+    longsleeves:'Long Sleeves', hoodies:'Hoodies', fullset:'Men Full Set',
+    caps:'Caps', cups:'Cups', croptops:'Crop Tops', frames:'Frames'
+  }[product.category] || product.category;
 
   return `
-    <div class="product-card" data-id="${product.id}">
-      <div class="product-img">
-        <span style="font-size:4rem">${product.icon}</span>
-        ${badge}
-        <div class="product-actions">
-          <button class="product-action-btn" onclick="addToWishlist(${product.id})" title="Add to wishlist"><i class="fas fa-heart"></i></button>
-          <a href="product.html?id=${product.id}" class="product-action-btn" title="Quick view"><i class="fas fa-eye"></i></a>
-        </div>
-      </div>
-      <div class="product-info">
-        <p class="product-category">${product.categoryLabel}</p>
-        <h3 class="product-name">${product.name}</h3>
-        <div class="product-rating">
-          ${stars}
-          <span>(${product.reviews})</span>
-        </div>
-        <div class="product-price">
-          <span class="price-current">GHS ${product.price.toFixed(2)}</span>
-          ${originalPrice}
-        </div>
-        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">
-          <i class="fas fa-cart-plus"></i> Add to Cart
+  <div class="product-card" data-id="${product.id}" data-category="${product.category}" data-price="${product.price}">
+    <div class="product-image" style="position:relative;overflow:hidden;background:#f8f8f8">
+      ${imgHTML}
+      ${product.badge ? `<span class="product-badge badge-${product.badge.toLowerCase().replace(/\s/g,'-')}">${product.badge}</span>` : ''}
+      <div class="product-overlay">
+        <button class="btn btn-primary btn-sm quick-add" data-id="${product.id}">
+          <i class="fas fa-shopping-cart"></i> Add to Cart
         </button>
+        <a href="product.html?id=${product.id}" class="btn btn-outline btn-sm">
+          <i class="fas fa-eye"></i> View
+        </a>
       </div>
+      <button class="wishlist-btn ${isWishlisted(product.id) ? 'active' : ''}" data-id="${product.id}" title="Wishlist">
+        <i class="fa${isWishlisted(product.id) ? 's' : 'r'} fa-heart"></i>
+      </button>
     </div>
-  `;
+    <div class="product-info">
+      <p class="product-category">${categoryLabel}</p>
+      <h3 class="product-name"><a href="product.html?id=${product.id}">${product.name}</a></h3>
+      <div class="product-rating">
+        <span class="stars" style="color:#FF6B35">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}</span>
+        <span style="font-size:.8rem;color:var(--text-muted)">(${product.reviews})</span>
+      </div>
+      <div class="product-price">
+        <span class="price-current">GHS ${product.price.toFixed(2)}</span>
+        ${product.oldPrice ? `<span class="price-old">GHS ${product.oldPrice.toFixed(2)}</span>` : ''}
+      </div>
+      ${product.colors && product.colors.length ? `
+      <div class="product-colors">
+        ${product.colors.map(c=>`<span class="color-dot" style="background:${c};border:${c==='#ffffff'||c==='#f5f0e8'?'1px solid #ddd':'none'}" title="${c}"></span>`).join('')}
+      </div>` : ''}
+    </div>
+  </div>`;
 }
 
-function renderStars(rating) {
-  let html = '';
-  for (let i = 1; i <= 5; i++) {
-    if (i <= Math.floor(rating)) html += '<i class="fas fa-star" style="color:#F4A800"></i>';
-    else if (i - 0.5 <= rating) html += '<i class="fas fa-star-half-alt" style="color:#F4A800"></i>';
-    else html += '<i class="far fa-star" style="color:#F4A800"></i>';
-  }
-  return html;
+// ─── Wishlist helper ────────────────────────────────────────────────────────
+function isWishlisted(id) {
+  try {
+    const w = JSON.parse(localStorage.getItem('ketsy_wishlist') || '[]');
+    return w.includes(id);
+  } catch { return false; }
 }
+
+// ─── Filter & render products into a grid ──────────────────────────────────
+function renderProducts(containerId, opts = {}) {
+  const { category = 'all', maxPrice = 9999, sort = 'featured', limit = null } = opts;
+  let filtered = products.filter(p =>
+    (category === 'all' || p.category === category) && p.price <= maxPrice
+  );
+  if (sort === 'price-asc')  filtered.sort((a,b) => a.price - b.price);
+  if (sort === 'price-desc') filtered.sort((a,b) => b.price - a.price);
+  if (sort === 'rating')     filtered.sort((a,b) => b.rating - a.rating);
+  if (sort === 'newest')     filtered.sort((a,b) => b.id - a.id);
+  if (limit) filtered = filtered.slice(0, limit);
+  const el = document.getElementById(containerId);
+  if (!el) return 0;
+  el.innerHTML = filtered.length
+    ? filtered.map(renderProductCard).join('')
+    : '<p style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--text-muted)">No products found.</p>';
+  bindProductCardEvents(el);
+  return filtered.length;
+}
+
+// ─── Bind add-to-cart & wishlist events on rendered cards ──────────────────
+function bindProductCardEvents(container) {
+  container.querySelectorAll('.quick-add').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const p = products.find(x => x.id === +btn.dataset.id);
+      if (p && typeof addToCart === 'function') addToCart(p);
+    });
+  });
+  container.querySelectorAll('.wishlist-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const id = +btn.dataset.id;
+      let w = JSON.parse(localStorage.getItem('ketsy_wishlist') || '[]');
+      if (w.includes(id)) {
+        w = w.filter(x => x !== id);
+        btn.classList.remove('active');
+        btn.innerHTML = '<i class="far fa-heart"></i>';
+      } else {
+        w.push(id);
+        btn.classList.add('active');
+        btn.innerHTML = '<i class="fas fa-heart"></i>';
+      }
+      localStorage.setItem('ketsy_wishlist', JSON.stringify(w));
+      document.querySelectorAll('#wishlist-count').forEach(el => el.textContent = w.length);
+    });
+  });
+}
+
+// Keep backward-compatible alias (some pages may reference PRODUCTS)
+const PRODUCTS = products;

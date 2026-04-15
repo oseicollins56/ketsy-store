@@ -18,7 +18,20 @@
     <nav class="nav" id="nav">
       <ul class="nav-list">
         <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li class="dropdown">
+          <a href="shop.html" class="nav-link">Shop <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
+            <li><a href="shop.html?cat=shorts">Shorts</a></li>
+            <li><a href="shop.html?cat=joggers">Joggers</a></li>
+            <li><a href="shop.html?cat=longsleeves">Long Sleeves</a></li>
+            <li><a href="shop.html?cat=hoodies">Hoodies</a></li>
+            <li><a href="shop.html?cat=fullset">Men Full Set</a></li>
+            <li style="border-top:1px solid var(--border);margin-top:.3rem;padding-top:.3rem"><a href="shop.html?cat=caps" style="color:var(--text-muted);font-size:.83rem">↳ Caps</a></li>
+            <li><a href="shop.html?cat=cups" style="color:var(--text-muted);font-size:.83rem">↳ Cups</a></li>
+            <li><a href="shop.html?cat=frames" style="color:var(--text-muted);font-size:.83rem">↳ Frames</a></li>
+          </ul>
+        </li>
         <li><a href="custom-order.html" class="nav-link">Custom Order</a></li>
         <li><a href="about.html" class="nav-link active">About</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>

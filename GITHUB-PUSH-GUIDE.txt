@@ -94,6 +94,37 @@ Your GitHub repository and GitHub Pages site will update automatically.
 
 
 ====================================================
+ ROUND 4 UPDATE – Push Commands
+ (Added: Long Sleeves, Hoodies, Men Full Set)
+====================================================
+
+After saving your product photos to the images/ folders
+(see IMAGE-SAVE-GUIDE.txt), run these commands:
+
+  git add .
+  git commit -m "Add Long Sleeves, Hoodies, Men Full Set categories with product images"
+  git push
+
+What changed in this update:
+  • products.js  — 36 products now (added Long Sleeves, Hoodies, Men Full Set)
+  • index.html   — 3 new category cards in the Browse Categories panel
+  • index.html   — Nav dropdown updated with new categories
+  • shop.html    — Filter pills updated (3 new category buttons)
+  • shop.html    — Nav dropdown updated
+  • product.html — Nav dropdown updated
+  • checkout.html      — Nav dropdown updated
+  • custom-order.html  — Nav dropdown updated
+  • about.html         — Nav dropdown updated
+  • contact.html       — Nav dropdown updated
+  • faq.html           — Nav dropdown updated
+  • images/tshirts/    — Folder ready for tshirt-1.jpg to tshirt-6.jpg
+  • images/longsleeves/— Folder ready for longsleeve-1.jpg to longsleeve-3.jpg
+  • images/hoodies/    — Folder ready for hoodie-1.jpg
+  • images/fullset/    — Folder ready for fullset-1.jpg to fullset-8.jpg
+  • IMAGE-SAVE-GUIDE.txt — Step-by-step photo saving instructions
+
+
+====================================================
  FILES INCLUDED IN THIS PROJECT
 ====================================================
 
@@ -109,19 +140,27 @@ ketsy-store/
 ├── css/
 │   └── style.css        ← All styles (responsive, mobile-first)
 ├── js/
-│   ├── products.js      ← Product data (24 products, 7 categories)
+│   ├── products.js      ← Product data (36 products, 10 categories)
 │   ├── cart.js          ← Shopping cart logic
 │   └── main.js          ← Main site functionality
-└── images/              ← Add product images here
+├── images/
+│   ├── tshirts/         ← tshirt-1.jpg to tshirt-6.jpg
+│   ├── longsleeves/     ← longsleeve-1.jpg to longsleeve-3.jpg
+│   ├── hoodies/         ← hoodie-1.jpg
+│   ├── fullset/         ← fullset-1.jpg to fullset-8.jpg
+│   ├── shorts/          ← (no photos yet – emoji placeholder)
+│   └── joggers/         ← (no photos yet – emoji placeholder)
+├── IMAGE-SAVE-GUIDE.txt ← How to save your product photos
+└── GITHUB-PUSH-GUIDE.txt← This file
 
 
 ====================================================
  FEATURES BUILT INTO KETSY STORE
 ====================================================
 
-✅ 7 Product Categories (T-Shirts, Joggers, Shorts, Caps,
-   Cups, Crop Tops, Custom Frames)
-✅ 24 Products with ratings, badges, variants
+✅ 10 Product Categories (T-Shirts, Shorts, Joggers, Long Sleeves,
+   Hoodies, Men Full Set, Caps, Cups, Crop Tops, Frames)
+✅ 36 Products with ratings, badges, variants
 ✅ Shopping Cart with quantity controls
 ✅ Wishlist functionality
 ✅ Product Detail pages with size/color selection

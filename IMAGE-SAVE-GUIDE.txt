@@ -1,0 +1,104 @@
+============================================================
+  KETSY STORE — IMAGE SAVE GUIDE
+  How to put your photos into the website
+============================================================
+
+Your website is already set up to load images automatically.
+You just need to save each photo into the correct folder
+with the exact filename shown below.
+
+------------------------------------------------------------
+FOLDER STRUCTURE (inside your KETSY STORE project folder)
+------------------------------------------------------------
+
+KETSY STORE (1)/
+└── images/
+    ├── tshirts/
+    ├── longsleeves/
+    ├── hoodies/
+    ├── fullset/
+    ├── shorts/       ← no photos yet (emoji placeholder used)
+    └── joggers/      ← no photos yet (emoji placeholder used)
+
+------------------------------------------------------------
+STEP-BY-STEP: HOW TO SAVE EACH PHOTO
+------------------------------------------------------------
+
+1. Open the chat where you uploaded the photos.
+2. Right-click each photo → "Save Image As..."
+3. Navigate to the correct folder (see list below).
+4. Save it with the EXACT filename shown (must match exactly).
+
+------------------------------------------------------------
+T-SHIRTS  →  save inside:  images/tshirts/
+------------------------------------------------------------
+
+  Photo description                         → Save as filename
+  ─────────────────────────────────────────────────────────
+  Stack of plain tees (white/olive/black)   → tshirt-1.jpg
+  Black & white tees on hanger              → tshirt-2.jpg
+  White sleeveless/muscle tee               → tshirt-3.jpg
+  Black sleeveless/muscle tee               → tshirt-4.jpg
+  Colorful tees (yellow/brown/blue/purple)  → tshirt-5.jpg
+  Dark grey graphic / flag tee              → tshirt-6.jpg
+
+------------------------------------------------------------
+LONG SLEEVES  →  save inside:  images/longsleeves/
+------------------------------------------------------------
+
+  Photo description                         → Save as filename
+  ─────────────────────────────────────────────────────────
+  Green button-down long sleeve outfit      → longsleeve-1.jpg
+  Black/grey striped knit sweater + jeans   → longsleeve-2.jpg
+  Black long sleeve shirt + light blue jeans→ longsleeve-3.jpg
+
+------------------------------------------------------------
+HOODIES  →  save inside:  images/hoodies/
+------------------------------------------------------------
+
+  Photo description                         → Save as filename
+  ─────────────────────────────────────────────────────────
+  Tan/grey ribbed quarter-zip pullover      → hoodie-1.jpg
+
+  (If you have more hoodie photos, name them hoodie-2.jpg,
+   hoodie-3.jpg etc. and let me know to add them to the site)
+
+------------------------------------------------------------
+MEN FULL SET  →  save inside:  images/fullset/
+------------------------------------------------------------
+
+  Photo description                         → Save as filename
+  ─────────────────────────────────────────────────────────
+  Olive tee + jeans + cap flatlay           → fullset-1.jpg
+  Black polo + khaki trousers flatlay       → fullset-2.jpg
+  Navy ribbed polo + cream jeans + cap      → fullset-3.jpg
+  Light blue suit + white shirt             → fullset-4.jpg
+  Nike sport set (tee + shorts + cap)       → fullset-5.jpg
+  Baby blue Nike tracksuit                  → fullset-6.jpg
+  White tee + grey jeans + white cap        → fullset-7.jpg
+  Blue-grey ribbed quarter-zip + pants      → fullset-8.jpg
+
+------------------------------------------------------------
+SHORTS & JOGGERS — NO PHOTOS YET
+------------------------------------------------------------
+
+  The website currently shows emoji placeholders (🩲 / 🩳)
+  for Shorts and Joggers products.
+
+  When you have photos for them, save them as:
+    images/shorts/shorts-1.jpg, shorts-2.jpg, etc.
+    images/joggers/joggers-1.jpg, joggers-2.jpg, etc.
+
+  Then let me know and I'll wire them up in products.js.
+
+------------------------------------------------------------
+IMPORTANT NOTES
+------------------------------------------------------------
+
+✅  Filenames are CASE-SENSITIVE — use all lowercase letters.
+✅  Use .jpg extension (not .jpeg or .JPG).
+✅  The folders already exist in your project folder.
+✅  After saving, just open index.html in your browser
+    and the images will appear automatically.
+
+============================================================
