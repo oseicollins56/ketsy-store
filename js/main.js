@@ -4,6 +4,32 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ----- Categories Expand/Collapse -----
+  const catToggle = document.getElementById('categories-toggle');
+  const catPanel = document.getElementById('categories-panel');
+  const customTrigger = document.getElementById('custom-items-trigger');
+  const customSubitems = document.getElementById('custom-subitems');
+
+  if (catToggle && catPanel) {
+    catToggle.addEventListener('click', () => {
+      const isOpen = catPanel.classList.toggle('open');
+      catToggle.setAttribute('aria-expanded', isOpen);
+      // Close sub-items if panel closes
+      if (!isOpen && customSubitems) {
+        customSubitems.classList.remove('open');
+        customTrigger?.classList.remove('sub-open');
+      }
+    });
+  }
+
+  if (customTrigger && customSubitems) {
+    customTrigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isSubOpen = customSubitems.classList.toggle('open');
+      customTrigger.classList.toggle('sub-open', isSubOpen);
+    });
+  }
+
   // ----- Hamburger / Mobile Nav -----
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('nav');

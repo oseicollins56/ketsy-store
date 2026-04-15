@@ -30,12 +30,11 @@
           <a href="shop.html" class="nav-link">Shop <i class="fas fa-chevron-down"></i></a>
           <ul class="dropdown-menu">
             <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
-            <li><a href="shop.html?cat=joggers">Joggers</a></li>
             <li><a href="shop.html?cat=shorts">Shorts</a></li>
-            <li><a href="shop.html?cat=caps">Caps</a></li>
-            <li><a href="shop.html?cat=cups">Cups</a></li>
-            <li><a href="shop.html?cat=croptops">Ladies Crop Tops</a></li>
-            <li><a href="shop.html?cat=frames">Customized Frames</a></li>
+            <li><a href="shop.html?cat=joggers">Joggers</a></li>
+            <li style="border-top:1px solid var(--border);margin-top:.3rem;padding-top:.3rem"><a href="shop.html?cat=caps" style="color:var(--text-muted);font-size:.83rem">↳ Caps</a></li>
+            <li><a href="shop.html?cat=cups" style="color:var(--text-muted);font-size:.83rem">↳ Cups</a></li>
+            <li><a href="shop.html?cat=frames" style="color:var(--text-muted);font-size:.83rem">↳ Frames</a></li>
           </ul>
         </li>
         <li><a href="custom-order.html" class="nav-link">Custom Order</a></li>
@@ -139,45 +138,62 @@
   </div>
 </section>
 
-<!-- ===== CATEGORIES ===== -->
-<section class="section categories-section">
+<!-- ===== CATEGORIES EXPAND/COLLAPSE ===== -->
+<div class="categories-bar">
   <div class="container">
-    <div class="section-header">
-      <h2>Shop by Category</h2>
-      <p>Find exactly what you're looking for</p>
-    </div>
-    <div class="categories-grid">
-      <a href="shop.html?cat=tshirts" class="category-card">
-        <div class="category-icon" style="background:#FFE5D9"><i class="fas fa-tshirt" style="color:#FF6B35"></i></div>
-        <span>T-Shirts</span>
-      </a>
-      <a href="shop.html?cat=joggers" class="category-card">
-        <div class="category-icon" style="background:#D9F0FF"><i class="fas fa-running" style="color:#0096D6"></i></div>
-        <span>Joggers</span>
-      </a>
-      <a href="shop.html?cat=shorts" class="category-card">
-        <div class="category-icon" style="background:#D9FFE5"><i class="fas fa-socks" style="color:#00B050"></i></div>
-        <span>Shorts</span>
-      </a>
-      <a href="shop.html?cat=caps" class="category-card">
-        <div class="category-icon" style="background:#FFF3D9"><i class="fas fa-hat-cowboy" style="color:#F4A800"></i></div>
-        <span>Caps</span>
-      </a>
-      <a href="shop.html?cat=cups" class="category-card">
-        <div class="category-icon" style="background:#F3D9FF"><i class="fas fa-mug-hot" style="color:#9B59B6"></i></div>
-        <span>Cups</span>
-      </a>
-      <a href="shop.html?cat=croptops" class="category-card">
-        <div class="category-icon" style="background:#FFD9EC"><i class="fas fa-female" style="color:#E91E8C"></i></div>
-        <span>Crop Tops</span>
-      </a>
-      <a href="shop.html?cat=frames" class="category-card">
-        <div class="category-icon" style="background:#D9FFF3"><i class="fas fa-image" style="color:#00C896"></i></div>
-        <span>Custom Frames</span>
-      </a>
+    <button class="categories-toggle" id="categories-toggle" aria-expanded="false" aria-controls="categories-panel">
+      <span class="categories-toggle-left">
+        <i class="fas fa-th-large"></i>
+        Browse Categories
+      </span>
+      <span class="categories-toggle-right">
+        <span class="cat-preview">T-Shirts &nbsp;·&nbsp; Shorts &nbsp;·&nbsp; Joggers &nbsp;·&nbsp; Customized Items</span>
+        <i class="fas fa-chevron-down categories-chevron"></i>
+      </span>
+    </button>
+  </div>
+  <div class="categories-panel" id="categories-panel">
+    <div class="container">
+      <div class="categories-grid-new">
+        <!-- T-Shirts -->
+        <a href="shop.html?cat=tshirts" class="category-card-new">
+          <div class="category-icon-new" style="background:#FFE5D9"><i class="fas fa-tshirt" style="color:#FF6B35"></i></div>
+          <span>T-Shirts</span>
+        </a>
+        <!-- Shorts -->
+        <a href="shop.html?cat=shorts" class="category-card-new">
+          <div class="category-icon-new" style="background:#D9FFE5"><i class="fas fa-socks" style="color:#00B050"></i></div>
+          <span>Shorts</span>
+        </a>
+        <!-- Joggers -->
+        <a href="shop.html?cat=joggers" class="category-card-new">
+          <div class="category-icon-new" style="background:#D9F0FF"><i class="fas fa-running" style="color:#0096D6"></i></div>
+          <span>Joggers</span>
+        </a>
+        <!-- Customized Items (expandable) -->
+        <div class="category-card-new category-card-custom" id="custom-items-trigger">
+          <div class="category-icon-new" style="background:#FFF3D9"><i class="fas fa-paint-brush" style="color:#F4A800"></i></div>
+          <span>Customized Items <i class="fas fa-chevron-down" id="custom-chevron" style="font-size:.65rem;margin-left:.3rem;transition:transform .3s"></i></span>
+        </div>
+      </div>
+      <!-- Sub-items for Customized Items -->
+      <div class="custom-subitems" id="custom-subitems">
+        <a href="shop.html?cat=caps" class="custom-subitem">
+          <div class="subitem-icon" style="background:#FFF3D9"><i class="fas fa-hat-cowboy" style="color:#F4A800"></i></div>
+          <span>Caps</span>
+        </a>
+        <a href="shop.html?cat=cups" class="custom-subitem">
+          <div class="subitem-icon" style="background:#F3D9FF"><i class="fas fa-mug-hot" style="color:#9B59B6"></i></div>
+          <span>Cups</span>
+        </a>
+        <a href="shop.html?cat=frames" class="custom-subitem">
+          <div class="subitem-icon" style="background:#D9FFF3"><i class="fas fa-image" style="color:#00C896"></i></div>
+          <span>Frames</span>
+        </a>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ===== FEATURED PRODUCTS ===== -->
 <section class="section" style="background:#f8f9fa">
@@ -206,42 +222,6 @@
         <i class="fas fa-mug-hot"></i>
         <i class="fas fa-image"></i>
         <i class="fas fa-hat-cowboy"></i>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TESTIMONIALS ===== -->
-<section class="section testimonials-section">
-  <div class="container">
-    <div class="section-header">
-      <h2>What Our Customers Say</h2>
-      <p>Real reviews from happy shoppers</p>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p>"Got my custom frame as a gift — it was stunning! Super fast delivery too."</p>
-        <div class="testimonial-author">
-          <div class="avatar">A</div>
-          <span>Abena K.</span>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p>"The joggers are super comfortable and stylish. Already ordered two more pairs!"</p>
-        <div class="testimonial-author">
-          <div class="avatar">K</div>
-          <span>Kwame D.</span>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-        <p>"Loved the crop tops! Great quality at amazing prices. Will definitely shop again."</p>
-        <div class="testimonial-author">
-          <div class="avatar">E</div>
-          <span>Esi M.</span>
-        </div>
       </div>
     </div>
   </div>
@@ -290,11 +270,10 @@
         <h4>Categories</h4>
         <ul>
           <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
-          <li><a href="shop.html?cat=joggers">Joggers</a></li>
           <li><a href="shop.html?cat=shorts">Shorts</a></li>
+          <li><a href="shop.html?cat=joggers">Joggers</a></li>
           <li><a href="shop.html?cat=caps">Caps</a></li>
           <li><a href="shop.html?cat=cups">Cups</a></li>
-          <li><a href="shop.html?cat=croptops">Crop Tops</a></li>
           <li><a href="shop.html?cat=frames">Frames</a></li>
         </ul>
       </div>
