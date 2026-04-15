@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ketsy Store – Fashion & Custom Gifts</title>
+  <meta name="description" content="Shop the latest t-shirts, joggers, shorts, caps, cups, ladies crop tops and customized frames at Ketsy Store."/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ===== ANNOUNCEMENT BAR ===== -->
+<div class="announcement-bar">
+  🎉 Free delivery on orders above GHS 200 &nbsp;|&nbsp; 📦 Custom orders welcome &nbsp;|&nbsp; 💳 Pay via Mobile Money
+</div>
+
+<!-- ===== HEADER / NAVBAR ===== -->
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="logo-k">K</span>etsy <span class="logo-store">Store</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li class="dropdown">
+          <a href="shop.html" class="nav-link">Shop <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
+            <li><a href="shop.html?cat=joggers">Joggers</a></li>
+            <li><a href="shop.html?cat=shorts">Shorts</a></li>
+            <li><a href="shop.html?cat=caps">Caps</a></li>
+            <li><a href="shop.html?cat=cups">Cups</a></li>
+            <li><a href="shop.html?cat=croptops">Ladies Crop Tops</a></li>
+            <li><a href="shop.html?cat=frames">Customized Frames</a></li>
+          </ul>
+        </li>
+        <li><a href="custom-order.html" class="nav-link">Custom Order</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="search.html" class="icon-btn" title="Search"><i class="fas fa-search"></i></a>
+      <a href="account.html" class="icon-btn" title="Account"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" class="icon-btn" title="Wishlist"><i class="fas fa-heart"></i><span class="badge" id="wishlist-count">0</span></a>
+      <button class="icon-btn cart-btn" id="cart-toggle" title="Cart">
+        <i class="fas fa-shopping-cart"></i><span class="badge" id="cart-count">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== CART SIDEBAR ===== -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+    <button id="cart-close" class="cart-close"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <div class="cart-empty"><i class="fas fa-shopping-bag"></i><p>Your cart is empty</p></div>
+  </div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-total">
+      <span>Subtotal:</span>
+      <span id="cart-total">GHS 0.00</span>
+    </div>
+    <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+    <a href="shop.html" class="btn btn-outline btn-block">Continue Shopping</a>
+  </div>
+</aside>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background: linear-gradient(135deg,#FF6B35 0%,#F7C59F 100%);">
+      <div class="hero-content">
+        <span class="hero-tag">New Arrivals 🔥</span>
+        <h1>Wear Your <br><span>Style</span></h1>
+        <p>Discover our fresh collection of t-shirts, joggers, shorts and more.</p>
+        <div class="hero-btns">
+          <a href="shop.html" class="btn btn-primary">Shop Now</a>
+          <a href="custom-order.html" class="btn btn-outline-white">Custom Order</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-shape">
+          <i class="fas fa-tshirt hero-icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+
+<!-- ===== FEATURES STRIP ===== -->
+<section class="features-strip">
+  <div class="container">
+    <div class="feature-item">
+      <i class="fas fa-truck"></i>
+      <div>
+        <strong>Fast Delivery</strong>
+        <span>Nationwide shipping</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-mobile-alt"></i>
+      <div>
+        <strong>Mobile Money</strong>
+        <span>MTN & Telecel Pay</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-paint-brush"></i>
+      <div>
+        <strong>Custom Designs</strong>
+        <span>Personalize anything</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-undo"></i>
+      <div>
+        <strong>Easy Returns</strong>
+        <span>7-day return policy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="section categories-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Shop by Category</h2>
+      <p>Find exactly what you're looking for</p>
+    </div>
+    <div class="categories-grid">
+      <a href="shop.html?cat=tshirts" class="category-card">
+        <div class="category-icon" style="background:#FFE5D9"><i class="fas fa-tshirt" style="color:#FF6B35"></i></div>
+        <span>T-Shirts</span>
+      </a>
+      <a href="shop.html?cat=joggers" class="category-card">
+        <div class="category-icon" style="background:#D9F0FF"><i class="fas fa-running" style="color:#0096D6"></i></div>
+        <span>Joggers</span>
+      </a>
+      <a href="shop.html?cat=shorts" class="category-card">
+        <div class="category-icon" style="background:#D9FFE5"><i class="fas fa-socks" style="color:#00B050"></i></div>
+        <span>Shorts</span>
+      </a>
+      <a href="shop.html?cat=caps" class="category-card">
+        <div class="category-icon" style="background:#FFF3D9"><i class="fas fa-hat-cowboy" style="color:#F4A800"></i></div>
+        <span>Caps</span>
+      </a>
+      <a href="shop.html?cat=cups" class="category-card">
+        <div class="category-icon" style="background:#F3D9FF"><i class="fas fa-mug-hot" style="color:#9B59B6"></i></div>
+        <span>Cups</span>
+      </a>
+      <a href="shop.html?cat=croptops" class="category-card">
+        <div class="category-icon" style="background:#FFD9EC"><i class="fas fa-female" style="color:#E91E8C"></i></div>
+        <span>Crop Tops</span>
+      </a>
+      <a href="shop.html?cat=frames" class="category-card">
+        <div class="category-icon" style="background:#D9FFF3"><i class="fas fa-image" style="color:#00C896"></i></div>
+        <span>Custom Frames</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURED PRODUCTS ===== -->
+<section class="section" style="background:#f8f9fa">
+  <div class="container">
+    <div class="section-header">
+      <h2>Featured Products</h2>
+      <a href="shop.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="products-grid" id="featured-products">
+      <!-- Dynamically filled by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== CUSTOM ORDER BANNER ===== -->
+<section class="custom-banner">
+  <div class="container">
+    <div class="custom-banner-content">
+      <div>
+        <h2>Want Something Unique? 🎨</h2>
+        <p>Request a custom product — we'll design and create it just for you. Perfect for gifts, events, and branding.</p>
+        <a href="custom-order.html" class="btn btn-white">Place a Custom Order</a>
+      </div>
+      <div class="custom-banner-icons">
+        <i class="fas fa-tshirt"></i>
+        <i class="fas fa-mug-hot"></i>
+        <i class="fas fa-image"></i>
+        <i class="fas fa-hat-cowboy"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section testimonials-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>What Our Customers Say</h2>
+      <p>Real reviews from happy shoppers</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Got my custom frame as a gift — it was stunning! Super fast delivery too."</p>
+        <div class="testimonial-author">
+          <div class="avatar">A</div>
+          <span>Abena K.</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"The joggers are super comfortable and stylish. Already ordered two more pairs!"</p>
+        <div class="testimonial-author">
+          <div class="avatar">K</div>
+          <span>Kwame D.</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <p>"Loved the crop tops! Great quality at amazing prices. Will definitely shop again."</p>
+        <div class="testimonial-author">
+          <div class="avatar">E</div>
+          <span>Esi M.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="newsletter-section">
+  <div class="container">
+    <h2>Stay in the Loop 📬</h2>
+    <p>Subscribe for new arrivals, exclusive deals, and style tips.</p>
+    <form class="newsletter-form" id="newsletter-form">
+      <input type="email" placeholder="Enter your email address" required/>
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo">
+          <span class="logo-k">K</span>etsy <span class="logo-store">Store</span>
+        </a>
+        <p>Your one-stop shop for trendy fashion and personalized gifts in Ghana.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="custom-order.html">Custom Order</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
+          <li><a href="shop.html?cat=joggers">Joggers</a></li>
+          <li><a href="shop.html?cat=shorts">Shorts</a></li>
+          <li><a href="shop.html?cat=caps">Caps</a></li>
+          <li><a href="shop.html?cat=cups">Cups</a></li>
+          <li><a href="shop.html?cat=croptops">Crop Tops</a></li>
+          <li><a href="shop.html?cat=frames">Frames</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="shipping.html">Shipping Info</a></li>
+          <li><a href="returns.html">Returns Policy</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+        <h4 style="margin-top:1.5rem">Contact</h4>
+        <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+        <p><i class="fas fa-envelope"></i> hello@ketsystore.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Ketsy Store. All rights reserved.</p>
+      <div class="payment-badges">
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> MTN MoMo</span>
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> Telecel Cash</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== BACK TO TOP ===== -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

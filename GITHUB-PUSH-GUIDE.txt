@@ -1,0 +1,164 @@
+====================================================
+ KETSY STORE – GitHub Push Guide
+====================================================
+
+STEP 1: Install Git (if not already installed)
+-----------------------------------------------
+Download Git from: https://git-scm.com/downloads
+After installing, open Terminal (Mac/Linux) or Git Bash (Windows).
+
+Verify it's installed:
+  git --version
+
+
+STEP 2: Create a GitHub Account
+--------------------------------
+Go to: https://github.com
+Sign up for a free account if you don't have one.
+
+
+STEP 3: Create a New Repository on GitHub
+------------------------------------------
+1. Log in to GitHub
+2. Click the "+" icon at the top right → "New repository"
+3. Repository name: ketsy-store
+4. Description: Ketsy Store – Fashion & Custom Gifts E-Commerce Website
+5. Set to Public (or Private if preferred)
+6. Do NOT check "Add a README file" (we already have our files)
+7. Click "Create repository"
+8. Copy the repository URL, e.g.:
+   https://github.com/YOUR-USERNAME/ketsy-store.git
+
+
+STEP 4: Open Terminal and Navigate to Your Project
+----------------------------------------------------
+Mac/Linux:
+  cd ~/Documents/Claude/Projects/KETSY\ STORE\ \(1\)
+
+Windows (Git Bash):
+  cd "C:/Users/YourName/Documents/Claude/Projects/KETSY STORE (1)"
+
+
+STEP 5: Initialize Git and Push
+---------------------------------
+Run these commands one by one in your terminal:
+
+  # Initialize git in the project folder
+  git init
+
+  # Add all project files
+  git add .
+
+  # Create your first commit
+  git commit -m "Initial commit: Ketsy Store e-commerce website"
+
+  # Connect to your GitHub repository (replace YOUR-USERNAME)
+  git remote add origin https://github.com/YOUR-USERNAME/ketsy-store.git
+
+  # Push to GitHub
+  git branch -M main
+  git push -u origin main
+
+  ✅ Done! Your website is now on GitHub.
+
+
+STEP 6: View Your Repository
+------------------------------
+Go to: https://github.com/YOUR-USERNAME/ketsy-store
+You'll see all your project files there.
+
+
+STEP 7: (Optional) Deploy Your Website FREE with GitHub Pages
+--------------------------------------------------------------
+1. Go to your repository on GitHub
+2. Click "Settings" (top right area)
+3. Scroll down to "Pages" in the left sidebar
+4. Under "Source", select "Deploy from a branch"
+5. Choose branch: "main", folder: "/ (root)"
+6. Click Save
+7. Wait ~2 minutes, then your site will be live at:
+   https://YOUR-USERNAME.github.io/ketsy-store/
+
+🌐 Your Ketsy Store website will be publicly accessible!
+
+
+FUTURE UPDATES – How to Push Changes
+--------------------------------------
+Whenever you make changes to the website, run:
+
+  git add .
+  git commit -m "Update: describe what you changed"
+  git push
+
+Your GitHub repository and GitHub Pages site will update automatically.
+
+
+====================================================
+ FILES INCLUDED IN THIS PROJECT
+====================================================
+
+ketsy-store/
+├── index.html           ← Home page
+├── shop.html            ← All products / shop page
+├── product.html         ← Individual product detail page
+├── checkout.html        ← Checkout with Mobile Money payment
+├── custom-order.html    ← Custom order request form
+├── about.html           ← About Ketsy Store page
+├── contact.html         ← Contact us page
+├── faq.html             ← Frequently asked questions
+├── css/
+│   └── style.css        ← All styles (responsive, mobile-first)
+├── js/
+│   ├── products.js      ← Product data (24 products, 7 categories)
+│   ├── cart.js          ← Shopping cart logic
+│   └── main.js          ← Main site functionality
+└── images/              ← Add product images here
+
+
+====================================================
+ FEATURES BUILT INTO KETSY STORE
+====================================================
+
+✅ 7 Product Categories (T-Shirts, Joggers, Shorts, Caps,
+   Cups, Crop Tops, Custom Frames)
+✅ 24 Products with ratings, badges, variants
+✅ Shopping Cart with quantity controls
+✅ Wishlist functionality
+✅ Product Detail pages with size/color selection
+✅ Checkout page with Mobile Money (MTN MoMo + Telecel Cash)
+✅ Promo code support (try KETSY10)
+✅ Custom Order request form
+✅ Shop page with filters and sorting
+✅ About, Contact, and FAQ pages
+✅ Newsletter subscription
+✅ Fully responsive (mobile, tablet, desktop)
+✅ Sticky navigation with cart sidebar
+✅ Bright, modern design with Poppins font
+✅ Announcement bar
+✅ Toast notifications & success modals
+✅ Back-to-top button
+
+
+====================================================
+ CUSTOMIZATION – Things to Update Before Going Live
+====================================================
+
+1. Phone number: Search for "+233 XX XXX XXXX" and replace with your real number
+2. Email: Search for "hello@ketsystore.com" and replace with your email
+3. WhatsApp: Search for "233XXXXXXXXX" and replace with your WhatsApp number
+4. Location: Update "Accra, Ghana" if different
+5. Product images: Add real product photos to /images/ folder and update
+   the icon emoji in js/products.js with <img> tags
+6. Social links: Update Facebook, Instagram, Twitter URLs
+7. Mobile Money: Add your actual MoMo merchant account number
+8. Prices: Update product prices in js/products.js to match your real prices
+
+
+====================================================
+ SUPPORT
+====================================================
+
+Website built by Claude (Anthropic) for Ketsy Store.
+For technical help, contact your developer.
+
+====================================================

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product – Ketsy Store</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="announcement-bar">🎉 Free delivery on orders above GHS 200 &nbsp;|&nbsp; 💳 Pay via Mobile Money</div>
+
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="shop.html" class="nav-link active">Shop</a></li>
+        <li><a href="custom-order.html" class="nav-link">Custom Order</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="search.html" class="icon-btn"><i class="fas fa-search"></i></a>
+      <a href="account.html" class="icon-btn"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" class="icon-btn"><i class="fas fa-heart"></i><span class="badge" id="wishlist-count">0</span></a>
+      <button class="icon-btn" id="cart-toggle"><i class="fas fa-shopping-cart"></i><span class="badge" id="cart-count">0</span></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header"><h3><i class="fas fa-shopping-cart"></i> Your Cart</h3><button id="cart-close" class="cart-close"><i class="fas fa-times"></i></button></div>
+  <div class="cart-items" id="cart-items"><div class="cart-empty"><i class="fas fa-shopping-bag"></i><p>Your cart is empty</p></div></div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-total"><span>Subtotal:</span><span id="cart-total">GHS 0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+  </div>
+</aside>
+
+<!-- Breadcrumb -->
+<div style="background:var(--bg-light);padding:.75rem 0;border-bottom:1px solid var(--border)">
+  <div class="container">
+    <nav class="breadcrumb" style="justify-content:flex-start">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="shop.html">Shop</a>
+      <i class="fas fa-chevron-right"></i>
+      <span id="breadcrumb-name">Product</span>
+    </nav>
+  </div>
+</div>
+
+<!-- Product Detail -->
+<div class="container product-detail">
+  <div id="product-detail-root"></div>
+</div>
+
+<!-- Related Products -->
+<section class="section" style="background:var(--bg-light)">
+  <div class="container">
+    <div class="section-header">
+      <h2>You Might Also Like</h2>
+      <a href="shop.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="products-grid" id="related-products"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+        <p>Your one-stop shop for trendy fashion and personalized gifts in Ghana.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="custom-order.html">Custom Order</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+        <p><i class="fas fa-envelope"></i> hello@ketsystore.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Ketsy Store. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Update breadcrumb
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const product = getProductById(params.get('id'));
+    if (product) {
+      document.getElementById('breadcrumb-name').textContent = product.name;
+    }
+  });
+</script>
+</body>
+</html>

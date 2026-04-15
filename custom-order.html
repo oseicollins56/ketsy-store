@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Custom Order – Ketsy Store</title>
+  <meta name="description" content="Request a custom product from Ketsy Store. We'll design and create it just for you."/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="announcement-bar">🎨 Custom orders for events, gifts & branding &nbsp;|&nbsp; 💳 Pay via Mobile Money</div>
+
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li class="dropdown">
+          <a href="shop.html" class="nav-link">Shop <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
+            <li><a href="shop.html?cat=joggers">Joggers</a></li>
+            <li><a href="shop.html?cat=shorts">Shorts</a></li>
+            <li><a href="shop.html?cat=caps">Caps</a></li>
+            <li><a href="shop.html?cat=cups">Cups</a></li>
+            <li><a href="shop.html?cat=croptops">Ladies Crop Tops</a></li>
+            <li><a href="shop.html?cat=frames">Customized Frames</a></li>
+          </ul>
+        </li>
+        <li><a href="custom-order.html" class="nav-link active">Custom Order</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="search.html" class="icon-btn"><i class="fas fa-search"></i></a>
+      <a href="account.html" class="icon-btn"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" class="icon-btn"><i class="fas fa-heart"></i><span class="badge" id="wishlist-count">0</span></a>
+      <button class="icon-btn" id="cart-toggle"><i class="fas fa-shopping-cart"></i><span class="badge" id="cart-count">0</span></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header"><h3><i class="fas fa-shopping-cart"></i> Your Cart</h3><button id="cart-close" class="cart-close"><i class="fas fa-times"></i></button></div>
+  <div class="cart-items" id="cart-items"><div class="cart-empty"><i class="fas fa-shopping-bag"></i><p>Your cart is empty</p></div></div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-total"><span>Subtotal:</span><span id="cart-total">GHS 0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+  </div>
+</aside>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <h1>🎨 Custom Order Request</h1>
+    <p>Tell us what you want — we'll design and create it just for you</p>
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Custom Order</span>
+    </nav>
+  </div>
+</section>
+
+<!-- How it works -->
+<section style="padding:3rem 0;background:#fff">
+  <div class="container">
+    <div class="section-header">
+      <h2>How Custom Orders Work</h2>
+      <p>Simple, easy, and fast</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center">
+      <div>
+        <div style="width:60px;height:60px;background:#FFF0EA;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.4rem;color:var(--primary)"><i class="fas fa-file-alt"></i></div>
+        <div style="width:28px;height:28px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;margin:0 auto .75rem">1</div>
+        <h4 style="font-weight:700;margin-bottom:.4rem">Submit Request</h4>
+        <p style="font-size:.85rem;color:var(--text-light)">Fill out the form with your product details and design ideas.</p>
+      </div>
+      <div>
+        <div style="width:60px;height:60px;background:#D9F0FF;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.4rem;color:#0096D6"><i class="fas fa-phone"></i></div>
+        <div style="width:28px;height:28px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;margin:0 auto .75rem">2</div>
+        <h4 style="font-weight:700;margin-bottom:.4rem">We Contact You</h4>
+        <p style="font-size:.85rem;color:var(--text-light)">Our team reaches out within 24 hours with a quote and timeline.</p>
+      </div>
+      <div>
+        <div style="width:60px;height:60px;background:#D9FFE5;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.4rem;color:var(--success)"><i class="fas fa-paint-brush"></i></div>
+        <div style="width:28px;height:28px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;margin:0 auto .75rem">3</div>
+        <h4 style="font-weight:700;margin-bottom:.4rem">We Design & Create</h4>
+        <p style="font-size:.85rem;color:var(--text-light)">After approval, we bring your vision to life with premium quality.</p>
+      </div>
+      <div>
+        <div style="width:60px;height:60px;background:#FFF3D9;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.4rem;color:var(--warning)"><i class="fas fa-truck"></i></div>
+        <div style="width:28px;height:28px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;margin:0 auto .75rem">4</div>
+        <h4 style="font-weight:700;margin-bottom:.4rem">Delivered to You</h4>
+        <p style="font-size:.85rem;color:var(--text-light)">Your custom product is delivered straight to your door.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Custom Order Form -->
+<section style="background:var(--bg-light);padding:4rem 0">
+  <div class="container">
+    <div class="custom-order-grid">
+      <!-- Form -->
+      <div class="custom-form-card">
+        <h2>Place Your Custom Order</h2>
+        <p class="subtitle">Fill in the details below and we'll get back to you within 24 hours.</p>
+
+        <form id="custom-order-form" novalidate>
+          <!-- Personal Info -->
+          <div style="border-bottom:1px solid var(--border);padding-bottom:1.25rem;margin-bottom:1.25rem">
+            <h4 style="font-size:.95rem;font-weight:700;margin-bottom:1rem;color:var(--secondary)"><i class="fas fa-user" style="color:var(--primary);margin-right:.4rem"></i> Personal Information</h4>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" placeholder="Your full name" required/>
+              </div>
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" placeholder="+233 XX XXX XXXX" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" placeholder="your@email.com" required/>
+            </div>
+          </div>
+
+          <!-- Product Info -->
+          <div style="border-bottom:1px solid var(--border);padding-bottom:1.25rem;margin-bottom:1.25rem">
+            <h4 style="font-size:.95rem;font-weight:700;margin-bottom:1rem;color:var(--secondary)"><i class="fas fa-box" style="color:var(--primary);margin-right:.4rem"></i> Product Details</h4>
+            <div class="form-group">
+              <label>Product Type *</label>
+              <select required>
+                <option value="">Select product type</option>
+                <option>T-Shirt</option>
+                <option>Jogger Pants</option>
+                <option>Shorts</option>
+                <option>Cap / Hat</option>
+                <option>Cup / Mug</option>
+                <option>Ladies Crop Top</option>
+                <option>Customized Frame</option>
+                <option>Multiple Products</option>
+                <option>Other (specify below)</option>
+              </select>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label>Quantity *</label>
+                <input type="number" min="1" placeholder="e.g. 10" required/>
+              </div>
+              <div class="form-group">
+                <label>Budget (GHS, optional)</label>
+                <input type="text" placeholder="e.g. 500"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Preferred Size(s)</label>
+              <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem">
+                <label style="display:flex;align-items:center;gap:.3rem;font-size:.85rem"><input type="checkbox" style="accent-color:var(--primary)"> XS</label>
+                <label style="display:flex;align-items:center;gap:.3rem;font-size:.85rem"><input type="checkbox" style="accent-color:var(--primary)"> S</label>
+                <label style="display:flex;align-items:center;gap:.3rem;font-size:.85rem"><input type="checkbox" style="accent-color:var(--primary)"> M</label>
+                <label style="display:flex;align-items:center;gap:.3rem;font-size:.85rem"><input type="checkbox" style="accent-color:var(--primary)"> L</label>
+                <label style="display:flex;align-items:center;gap:.3rem;font-size:.85rem"><input type="checkbox" style="accent-color:var(--primary)"> XL</label>
+                <label style="display:flex;align-items:center;gap:.3rem;font-size:.85rem"><input type="checkbox" style="accent-color:var(--primary)"> XXL</label>
+                <label style="display:flex;align-items:center;gap:.3rem;font-size:.85rem"><input type="checkbox" style="accent-color:var(--primary)"> One Size</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Preferred Color(s)</label>
+              <input type="text" placeholder="e.g. Black, White, Red"/>
+            </div>
+          </div>
+
+          <!-- Design Info -->
+          <div style="border-bottom:1px solid var(--border);padding-bottom:1.25rem;margin-bottom:1.25rem">
+            <h4 style="font-size:.95rem;font-weight:700;margin-bottom:1rem;color:var(--secondary)"><i class="fas fa-paint-brush" style="color:var(--primary);margin-right:.4rem"></i> Design & Customization</h4>
+            <div class="form-group">
+              <label>Design Description *</label>
+              <textarea placeholder="Describe your design: text, logos, images, patterns, placement, colors, etc." required style="min-height:120px"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Occasion / Purpose</label>
+              <select>
+                <option value="">Select occasion</option>
+                <option>Personal Gift</option>
+                <option>Corporate Branding</option>
+                <option>Event / Party</option>
+                <option>School / University</option>
+                <option>Sports Team</option>
+                <option>Wedding / Anniversary</option>
+                <option>Birthday</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Reference Image / Logo (describe or share link)</label>
+              <input type="text" placeholder="Paste Google Drive / WhatsApp link or describe your logo"/>
+            </div>
+            <div class="form-group">
+              <label>Upload Design File (if any)</label>
+              <div style="border:2px dashed var(--border);border-radius:var(--border-radius);padding:2rem;text-align:center;color:var(--text-muted);font-size:.85rem;cursor:pointer" onclick="document.getElementById('design-file').click()">
+                <i class="fas fa-cloud-upload-alt" style="font-size:2rem;margin-bottom:.5rem;display:block;color:var(--primary)"></i>
+                Click to upload or drag & drop<br><small>PNG, JPG, PDF, AI (max 10MB)</small>
+                <input type="file" id="design-file" accept=".png,.jpg,.jpeg,.pdf,.ai,.svg" style="display:none"/>
+              </div>
+            </div>
+          </div>
+
+          <!-- Delivery Info -->
+          <div style="margin-bottom:1.5rem">
+            <h4 style="font-size:.95rem;font-weight:700;margin-bottom:1rem;color:var(--secondary)"><i class="fas fa-calendar" style="color:var(--primary);margin-right:.4rem"></i> Delivery Preference</h4>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label>Needed By Date</label>
+                <input type="date"/>
+              </div>
+              <div class="form-group">
+                <label>Delivery Region *</label>
+                <select required>
+                  <option value="">Select region</option>
+                  <option>Greater Accra</option>
+                  <option>Ashanti</option>
+                  <option>Western</option>
+                  <option>Eastern</option>
+                  <option>Central</option>
+                  <option>Northern</option>
+                  <option>Upper East</option>
+                  <option>Upper West</option>
+                  <option>Volta</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Additional Notes</label>
+              <textarea placeholder="Any other specific requirements or questions?"></textarea>
+            </div>
+          </div>
+
+          <!-- Terms -->
+          <div class="form-group">
+            <label style="display:flex;align-items:flex-start;gap:.6rem;font-weight:400;font-size:.85rem;cursor:pointer;line-height:1.5">
+              <input type="checkbox" required style="accent-color:var(--primary);margin-top:2px;flex-shrink:0"/>
+              I agree that this is a request form and not a final order. Ketsy Store will contact me with a quote and I will confirm before any payment is made.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" style="padding:1rem;font-size:1rem">
+            <i class="fas fa-paper-plane"></i> Submit Custom Order Request
+          </button>
+        </form>
+      </div>
+
+      <!-- Info Cards -->
+      <div>
+        <div class="custom-info-cards">
+          <div class="custom-info-card">
+            <div class="custom-info-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <strong>Quick Response</strong>
+              <p>We respond to all custom order requests within 24 hours with a detailed quote.</p>
+            </div>
+          </div>
+          <div class="custom-info-card">
+            <div class="custom-info-icon"><i class="fas fa-trophy"></i></div>
+            <div>
+              <strong>Premium Quality</strong>
+              <p>We use only high-quality materials and printing techniques for all custom products.</p>
+            </div>
+          </div>
+          <div class="custom-info-card">
+            <div class="custom-info-icon"><i class="fas fa-users"></i></div>
+            <div>
+              <strong>Bulk Orders Welcome</strong>
+              <p>Special discounts available for bulk orders of 10+ pieces. Perfect for events and businesses.</p>
+            </div>
+          </div>
+          <div class="custom-info-card">
+            <div class="custom-info-icon"><i class="fas fa-undo"></i></div>
+            <div>
+              <strong>Satisfaction Guaranteed</strong>
+              <p>We preview your design before production. Not happy? We'll revise until it's perfect.</p>
+            </div>
+          </div>
+          <div class="custom-info-card">
+            <div class="custom-info-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div>
+              <strong>Easy Payment</strong>
+              <p>Pay via MTN MoMo or Telecel Cash. 50% deposit to start, balance on delivery.</p>
+            </div>
+          </div>
+          <div class="custom-info-card" style="background:linear-gradient(135deg,var(--primary),#ff8f65);color:#fff">
+            <div class="custom-info-icon" style="background:rgba(255,255,255,.25);color:#fff"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <strong style="color:#fff">Chat on WhatsApp</strong>
+              <p style="color:rgba(255,255,255,.9)">Prefer a quick chat? Reach us directly on WhatsApp for custom order discussions.</p>
+              <a href="https://wa.me/233XXXXXXXXX" class="btn btn-white btn-sm" style="margin-top:.75rem">Chat Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+        <p>Your one-stop shop for trendy fashion and personalized gifts in Ghana.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="custom-order.html">Custom Order</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+        <p><i class="fas fa-envelope"></i> hello@ketsystore.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Ketsy Store. All rights reserved.</p>
+      <div class="payment-badges">
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> MTN MoMo</span>
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> Telecel Cash</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

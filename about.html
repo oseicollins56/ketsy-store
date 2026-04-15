@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – Ketsy Store</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="announcement-bar">🎉 Free delivery on orders above GHS 200 &nbsp;|&nbsp; 💳 Pay via Mobile Money</div>
+
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="custom-order.html" class="nav-link">Custom Order</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="cart-toggle"><i class="fas fa-shopping-cart"></i><span class="badge" id="cart-count">0</span></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header"><h3><i class="fas fa-shopping-cart"></i> Your Cart</h3><button id="cart-close" class="cart-close"><i class="fas fa-times"></i></button></div>
+  <div class="cart-items" id="cart-items"><div class="cart-empty"><i class="fas fa-shopping-bag"></i><p>Your cart is empty</p></div></div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-total"><span>Subtotal:</span><span id="cart-total">GHS 0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+  </div>
+</aside>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <h1>About Ketsy Store</h1>
+    <p>Fashion, quality, and customization — made in Ghana, for Ghana</p>
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>About</span>
+    </nav>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span style="color:var(--primary);font-weight:600;font-size:.9rem;letter-spacing:.05em;text-transform:uppercase">Our Story</span>
+        <h2>We Are Ketsy Store</h2>
+        <p>Ketsy Store started with a simple idea — make trendy, quality fashion accessible to everyone in Ghana, while offering the personal touch of custom-made products that tell your story.</p>
+        <p>We believe everyone deserves to wear something that feels uniquely theirs. Whether it's a classic t-shirt, matching joggers for you and your partner, a personalized mug for your morning coffee, or a custom frame to capture a memory — we've got you covered.</p>
+        <p>From our humble beginnings in Accra, we've grown into a loved brand known for quality products, fast delivery, and outstanding customer service.</p>
+        <div style="display:flex;gap:1rem;margin-top:1.5rem">
+          <a href="shop.html" class="btn btn-primary">Shop Now</a>
+          <a href="custom-order.html" class="btn btn-outline">Custom Order</a>
+        </div>
+      </div>
+      <div>
+        <div class="about-image-box">
+          <span style="font-size:6rem">🛍️</span>
+          <p style="font-size:1.1rem;font-weight:700;margin-top:1rem;color:var(--secondary)">Fashion for Everyone</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section style="background:var(--bg-light);padding:3rem 0">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24</div>
+        <div class="stat-label">Products in Store</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Product Categories</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Values</h2>
+      <p>What drives everything we do</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem">
+      <div style="text-align:center;padding:2rem">
+        <div style="width:70px;height:70px;background:#FFF0EA;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.8rem;color:var(--primary)"><i class="fas fa-star"></i></div>
+        <h3 style="font-weight:700;margin-bottom:.5rem">Quality First</h3>
+        <p style="color:var(--text-light);font-size:.9rem">We use premium materials and top-quality printing for every product we make.</p>
+      </div>
+      <div style="text-align:center;padding:2rem">
+        <div style="width:70px;height:70px;background:#D9F0FF;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.8rem;color:#0096D6"><i class="fas fa-heart"></i></div>
+        <h3 style="font-weight:700;margin-bottom:.5rem">Customer Love</h3>
+        <p style="color:var(--text-light);font-size:.9rem">Every order is packed with care. Your satisfaction is our greatest reward.</p>
+      </div>
+      <div style="text-align:center;padding:2rem">
+        <div style="width:70px;height:70px;background:#D9FFE5;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.8rem;color:var(--success)"><i class="fas fa-leaf"></i></div>
+        <h3 style="font-weight:700;margin-bottom:.5rem">Made in Ghana</h3>
+        <p style="color:var(--text-light);font-size:.9rem">Proud to serve Ghana. We celebrate African identity and support local talent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="custom-banner">
+  <div class="container">
+    <div class="custom-banner-content">
+      <div>
+        <h2>Ready to Shop?</h2>
+        <p>Explore our full collection of t-shirts, joggers, caps, cups, crop tops, and customized frames.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="shop.html" class="btn btn-white">Browse Shop</a>
+          <a href="custom-order.html" class="btn btn-outline-white">Custom Order</a>
+        </div>
+      </div>
+      <div class="custom-banner-icons">
+        <i class="fas fa-tshirt"></i>
+        <i class="fas fa-mug-hot"></i>
+        <i class="fas fa-image"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+        <p>Your one-stop shop for trendy fashion and personalized gifts in Ghana.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="custom-order.html">Custom Order</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+        <p><i class="fas fa-envelope"></i> hello@ketsystore.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Ketsy Store. All rights reserved.</p>
+      <div class="payment-badges">
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> MTN MoMo</span>
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> Telecel Cash</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

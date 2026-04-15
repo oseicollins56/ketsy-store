@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ – Ketsy Store</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="announcement-bar">🎉 Free delivery on orders above GHS 200 &nbsp;|&nbsp; 💳 Pay via Mobile Money</div>
+
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="custom-order.html" class="nav-link">Custom Order</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="cart-toggle"><i class="fas fa-shopping-cart"></i><span class="badge" id="cart-count">0</span></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header"><h3><i class="fas fa-shopping-cart"></i> Your Cart</h3><button id="cart-close" class="cart-close"><i class="fas fa-times"></i></button></div>
+  <div class="cart-items" id="cart-items"><div class="cart-empty"><i class="fas fa-shopping-bag"></i><p>Your cart is empty</p></div></div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-total"><span>Subtotal:</span><span id="cart-total">GHS 0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+  </div>
+</aside>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Frequently Asked Questions</h1>
+    <p>Everything you need to know about Ketsy Store</p>
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>FAQ</span>
+    </nav>
+  </div>
+</section>
+
+<style>
+  .faq-section { padding: 4rem 0; }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .faq-category h3 { font-size: 1.1rem; font-weight: 800; color: var(--secondary); margin-bottom: 1.25rem; padding-bottom: .5rem; border-bottom: 2px solid var(--primary); }
+  .faq-item { margin-bottom: .75rem; border: 1px solid var(--border); border-radius: var(--border-radius); overflow: hidden; }
+  .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; cursor: pointer; font-weight: 600; font-size: .9rem; background: #fff; transition: var(--transition); }
+  .faq-question:hover { background: #FFF8F5; color: var(--primary); }
+  .faq-question i { transition: var(--transition); color: var(--primary); }
+  .faq-answer { display: none; padding: 0 1.25rem 1rem; font-size: .88rem; color: var(--text-light); line-height: 1.7; }
+  .faq-item.open .faq-question { color: var(--primary); background: #FFF8F5; }
+  .faq-item.open .faq-question i { transform: rotate(180deg); }
+  .faq-item.open .faq-answer { display: block; }
+  @media(max-width:768px){.faq-grid{grid-template-columns:1fr}}
+</style>
+
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-category">
+        <h3><i class="fas fa-shopping-cart" style="color:var(--primary);margin-right:.4rem"></i> Orders & Payments</h3>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">How do I place an order? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Browse our shop, select your products, choose size/color, and add to cart. Then proceed to checkout and fill in your delivery info and payment details.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">What payment methods are accepted? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">We accept MTN Mobile Money (MoMo), Telecel Cash, and cash on delivery (Accra only). Just enter your number at checkout and approve the payment prompt.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Is it safe to pay with Mobile Money? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Yes, completely safe! You'll receive a prompt directly on your phone to authorize the payment. We never store your MoMo PIN.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Can I cancel or modify an order? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Contact us within 1 hour of placing your order to cancel or modify. After that, your order may have already been processed for production/delivery.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Do you offer discounts or promo codes? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Yes! Subscribe to our newsletter for exclusive discount codes. You can also try the code KETSY10 at checkout for 10% off your first order.</div>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <h3><i class="fas fa-truck" style="color:var(--primary);margin-right:.4rem"></i> Shipping & Delivery</h3>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">How long does delivery take? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Standard delivery: 2–4 business days. Express delivery (Accra only): same day or next day. Store pickup is also available at no charge.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Do you deliver outside Accra? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Yes! We deliver nationwide across all regions in Ghana. Delivery fee and time may vary by location.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">How much is delivery? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Standard delivery is GHS 20. Express delivery is GHS 40. Orders above GHS 200 qualify for FREE standard delivery!</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">How do I track my order? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Once your order is dispatched, you'll receive an SMS/WhatsApp with tracking info. You can also contact us directly for updates.</div>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <h3><i class="fas fa-undo" style="color:var(--primary);margin-right:.4rem"></i> Returns & Refunds</h3>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">What is your return policy? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">We offer a 7-day return policy for unused items in their original packaging. Items must be unworn, unwashed, and with tags attached.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">How do I initiate a return? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Contact us within 7 days of receiving your order via phone, WhatsApp, or email. We'll guide you through the return process.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">When will I get my refund? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Refunds are processed within 3–5 business days after we receive and inspect the returned item. Refunds are sent via Mobile Money.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Can I return custom orders? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Custom/personalized orders are non-refundable unless there's a defect or error on our part. We always send a preview before production to ensure satisfaction.</div>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <h3><i class="fas fa-paint-brush" style="color:var(--primary);margin-right:.4rem"></i> Custom Orders</h3>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">How do I request a custom product? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Visit our <a href="custom-order.html" style="color:var(--primary)">Custom Order page</a> and fill out the request form with your product details, design description, and contact info. We'll reach out within 24 hours.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">How long do custom orders take? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Custom orders typically take 3–7 business days depending on complexity and quantity. Rush orders may be accommodated — just let us know your deadline.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Is there a minimum order for custom products? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">No minimum for most products! However, bulk orders of 10+ pieces get special discounted pricing. Great for events, businesses, and schools.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Do I pay upfront for custom orders? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">We require a 50% deposit via Mobile Money to start production, with the remaining balance paid on delivery or before shipping.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Still have questions -->
+    <div style="text-align:center;margin-top:3rem;padding:2.5rem;background:var(--bg-light);border-radius:var(--border-radius-lg)">
+      <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:.5rem">Still have questions?</h3>
+      <p style="color:var(--text-light);margin-bottom:1.5rem">We're here to help. Reach out through any of our channels.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Us</a>
+        <a href="https://wa.me/233XXXXXXXXX" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>&copy; 2024 Ketsy Store. All rights reserved.</p>
+      <div class="payment-badges">
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> MTN MoMo</span>
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> Telecel Cash</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+  function toggleFaq(questionEl) {
+    const item = questionEl.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    // Open this one if it was closed
+    if (!wasOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>

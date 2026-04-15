@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop – Ketsy Store</title>
+  <meta name="description" content="Shop t-shirts, joggers, shorts, caps, cups, crop tops and customized frames at Ketsy Store."/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="announcement-bar">🎉 Free delivery on orders above GHS 200 &nbsp;|&nbsp; 💳 Pay via Mobile Money</div>
+
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li class="dropdown">
+          <a href="shop.html" class="nav-link active">Shop <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
+            <li><a href="shop.html?cat=joggers">Joggers</a></li>
+            <li><a href="shop.html?cat=shorts">Shorts</a></li>
+            <li><a href="shop.html?cat=caps">Caps</a></li>
+            <li><a href="shop.html?cat=cups">Cups</a></li>
+            <li><a href="shop.html?cat=croptops">Ladies Crop Tops</a></li>
+            <li><a href="shop.html?cat=frames">Customized Frames</a></li>
+          </ul>
+        </li>
+        <li><a href="custom-order.html" class="nav-link">Custom Order</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="search.html" class="icon-btn" title="Search"><i class="fas fa-search"></i></a>
+      <a href="account.html" class="icon-btn" title="Account"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" class="icon-btn" title="Wishlist"><i class="fas fa-heart"></i><span class="badge" id="wishlist-count">0</span></a>
+      <button class="icon-btn cart-btn" id="cart-toggle" title="Cart"><i class="fas fa-shopping-cart"></i><span class="badge" id="cart-count">0</span></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+    <button id="cart-close" class="cart-close"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <div class="cart-empty"><i class="fas fa-shopping-bag"></i><p>Your cart is empty</p></div>
+  </div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-total"><span>Subtotal:</span><span id="cart-total">GHS 0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+    <a href="shop.html" class="btn btn-outline btn-block">Continue Shopping</a>
+  </div>
+</aside>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <h1>Our Shop</h1>
+    <p>Quality fashion & custom gifts for everyone</p>
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Shop</span>
+    </nav>
+  </div>
+</section>
+
+<!-- Category Filter Pills -->
+<div style="background:#fff;border-bottom:1px solid var(--border);padding:1rem 0;position:sticky;top:70px;z-index:50">
+  <div class="container" style="display:flex;gap:.6rem;overflow-x:auto;padding-bottom:.25rem;flex-wrap:nowrap">
+    <button class="cat-filter-btn btn btn-sm" data-cat="all" style="white-space:nowrap;border-radius:20px">All Products</button>
+    <button class="cat-filter-btn btn btn-sm" data-cat="tshirts" style="white-space:nowrap;border-radius:20px">👕 T-Shirts</button>
+    <button class="cat-filter-btn btn btn-sm" data-cat="joggers" style="white-space:nowrap;border-radius:20px">🩳 Joggers</button>
+    <button class="cat-filter-btn btn btn-sm" data-cat="shorts" style="white-space:nowrap;border-radius:20px">🩲 Shorts</button>
+    <button class="cat-filter-btn btn btn-sm" data-cat="caps" style="white-space:nowrap;border-radius:20px">🧢 Caps</button>
+    <button class="cat-filter-btn btn btn-sm" data-cat="cups" style="white-space:nowrap;border-radius:20px">☕ Cups</button>
+    <button class="cat-filter-btn btn btn-sm" data-cat="croptops" style="white-space:nowrap;border-radius:20px">👚 Crop Tops</button>
+    <button class="cat-filter-btn btn btn-sm" data-cat="frames" style="white-space:nowrap;border-radius:20px">🖼️ Frames</button>
+  </div>
+</div>
+
+<style>
+  .cat-filter-btn { background:#fff; color:var(--text); border:2px solid var(--border); }
+  .cat-filter-btn.active, .cat-filter-btn:hover { background:var(--primary); color:#fff; border-color:var(--primary); }
+</style>
+
+<!-- Shop Layout -->
+<div class="container">
+  <div class="shop-layout">
+    <!-- Sidebar -->
+    <aside class="filter-sidebar">
+      <div class="filter-card">
+        <h4><i class="fas fa-sliders-h" style="color:var(--primary);margin-right:.4rem"></i> Filters</h4>
+        <div class="price-range">
+          <label style="font-size:.85rem;font-weight:600;color:var(--secondary)">Price Range: <span id="price-label">GHS 300</span></label>
+          <input type="range" id="price-range" min="30" max="300" value="300" step="5" style="margin-top:.5rem"/>
+          <div class="price-labels"><span>GHS 30</span><span>GHS 300</span></div>
+        </div>
+      </div>
+
+      <div class="filter-card">
+        <h4>Category</h4>
+        <label class="filter-option"><input type="checkbox" checked onchange="filterByCategory(this,'all')"> All Products</label>
+        <label class="filter-option"><input type="checkbox"> T-Shirts</label>
+        <label class="filter-option"><input type="checkbox"> Joggers</label>
+        <label class="filter-option"><input type="checkbox"> Shorts</label>
+        <label class="filter-option"><input type="checkbox"> Caps</label>
+        <label class="filter-option"><input type="checkbox"> Cups</label>
+        <label class="filter-option"><input type="checkbox"> Crop Tops</label>
+        <label class="filter-option"><input type="checkbox"> Frames</label>
+      </div>
+
+      <div class="filter-card">
+        <h4>Availability</h4>
+        <label class="filter-option"><input type="checkbox" checked> In Stock</label>
+        <label class="filter-option"><input type="checkbox"> On Sale</label>
+        <label class="filter-option"><input type="checkbox"> New Arrivals</label>
+      </div>
+
+      <div class="filter-card">
+        <h4>Color</h4>
+        <div class="color-swatches">
+          <span class="color-swatch" style="background:#1a1a1a" title="Black"></span>
+          <span class="color-swatch" style="background:#fff;border:1px solid #ddd" title="White"></span>
+          <span class="color-swatch" style="background:#FF6B35" title="Orange"></span>
+          <span class="color-swatch" style="background:#2D3142" title="Navy"></span>
+          <span class="color-swatch" style="background:#E91E8C" title="Pink"></span>
+          <span class="color-swatch" style="background:#4ECDC4" title="Teal"></span>
+        </div>
+      </div>
+
+      <a href="custom-order.html" class="btn btn-primary btn-block" style="margin-top:1rem">
+        <i class="fas fa-paint-brush"></i> Custom Order
+      </a>
+    </aside>
+
+    <!-- Main content -->
+    <main>
+      <div class="shop-main-header">
+        <p class="results-count" id="results-count">Loading...</p>
+        <select class="sort-select" id="sort-select">
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+          <option value="newest">Newest</option>
+        </select>
+      </div>
+      <div class="products-grid" id="shop-products-grid"></div>
+      <div class="pagination" id="pagination"></div>
+    </main>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+        <p>Your one-stop shop for trendy fashion and personalized gifts in Ghana.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="custom-order.html">Custom Order</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+        <p><i class="fas fa-envelope"></i> hello@ketsystore.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Ketsy Store. All rights reserved.</p>
+      <div class="payment-badges">
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> MTN MoMo</span>
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> Telecel Cash</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
