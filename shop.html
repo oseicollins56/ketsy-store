@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shop – Ketsy Store</title>
-  <meta name="description" content="Shop t-shirts, joggers, shorts, caps, cups, crop tops and customized frames at Ketsy Store."/>
+  <meta name="description" content="Shop men's full sets, t-shirts, joggers, hoodies, caps, cups, crop tops and customized frames at Ketsy Store."/>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -23,7 +23,6 @@
           <a href="shop.html" class="nav-link active">Shop <i class="fas fa-chevron-down"></i></a>
           <ul class="dropdown-menu">
             <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
-            <li><a href="shop.html?cat=shorts">Shorts</a></li>
             <li><a href="shop.html?cat=joggers">Joggers</a></li>
             <li><a href="shop.html?cat=hoodies">Hoodies</a></li>
             <li><a href="shop.html?cat=fullset">Men Full Set</a></li>
@@ -87,11 +86,10 @@
 <div style="background:#fff;border-bottom:1px solid var(--border);padding:1rem 0;position:sticky;top:70px;z-index:50">
   <div class="container" style="display:flex;gap:.6rem;overflow-x:auto;padding-bottom:.25rem;flex-wrap:nowrap">
     <button class="cat-filter-btn btn btn-sm" data-cat="all" style="white-space:nowrap;border-radius:20px">All Products</button>
+    <button class="cat-filter-btn btn btn-sm" data-cat="fullset" style="white-space:nowrap;border-radius:20px">🧑‍🎤 Men Full Set</button>
     <button class="cat-filter-btn btn btn-sm" data-cat="tshirts" style="white-space:nowrap;border-radius:20px">👕 T-Shirts</button>
-    <button class="cat-filter-btn btn btn-sm" data-cat="shorts" style="white-space:nowrap;border-radius:20px">🩲 Shorts</button>
     <button class="cat-filter-btn btn btn-sm" data-cat="joggers" style="white-space:nowrap;border-radius:20px">🩳 Joggers</button>
     <button class="cat-filter-btn btn btn-sm" data-cat="hoodies" style="white-space:nowrap;border-radius:20px">🧥 Hoodies</button>
-    <button class="cat-filter-btn btn btn-sm" data-cat="fullset" style="white-space:nowrap;border-radius:20px">🧑‍🎤 Men Full Set</button>
     <button class="cat-filter-btn btn btn-sm" data-cat="croptops" style="white-space:nowrap;border-radius:20px">👚 Crop Tops</button>
     <button class="cat-filter-btn btn btn-sm" data-cat="caps" style="white-space:nowrap;border-radius:20px">🧢 Caps</button>
     <button class="cat-filter-btn btn btn-sm" data-cat="cups" style="white-space:nowrap;border-radius:20px">☕ Cups</button>
@@ -121,9 +119,9 @@
       <div class="filter-card">
         <h4>Category</h4>
         <label class="filter-option"><input type="checkbox" checked onchange="filterByCategory(this,'all')"> All Products</label>
+        <label class="filter-option"><input type="checkbox"> Men Full Set</label>
         <label class="filter-option"><input type="checkbox"> T-Shirts</label>
         <label class="filter-option"><input type="checkbox"> Joggers</label>
-        <label class="filter-option"><input type="checkbox"> Shorts</label>
         <label class="filter-option"><input type="checkbox"> Caps</label>
         <label class="filter-option"><input type="checkbox"> Cups</label>
         <label class="filter-option"><input type="checkbox"> Crop Tops</label>

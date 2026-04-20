@@ -390,7 +390,7 @@ const products = [
 
 // ─── Render a single product card ──────────────────────────────────────────
 function renderProductCard(product) {
-  const APPAREL_CATS = ['tshirts','shorts','joggers','longsleeves','hoodies','croptops','fullset'];
+  const APPAREL_CATS = ['tshirts','joggers','longsleeves','hoodies','croptops','fullset'];
   const isApparel   = APPAREL_CATS.includes(product.category);
   const isFrame     = product.category === 'frames';
 
@@ -771,11 +771,10 @@ function renderAllShowcases(containerId) {
   const el = document.getElementById(containerId);
   if (!el) return;
   const cats = [
+    { key: 'fullset',  label: 'Men Full Set', icon: '🕴️' },
     { key: 'tshirts',  label: 'T-Shirts',    icon: '👕' },
-    { key: 'shorts',   label: 'Shorts',       icon: '🩲' },
     { key: 'joggers',  label: 'Joggers',      icon: '🏃' },
     { key: 'hoodies',  label: 'Hoodies',      icon: '🧥' },
-    { key: 'fullset',  label: 'Men Full Set', icon: '🕴️' },
     { key: 'croptops', label: 'Crop Tops',    icon: '👚' },
     { key: 'caps',     label: 'Caps',         icon: '🧢' },
   ];
