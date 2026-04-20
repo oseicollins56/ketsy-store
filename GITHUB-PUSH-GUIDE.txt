@@ -94,6 +94,45 @@ Your GitHub repository and GitHub Pages site will update automatically.
 
 
 ====================================================
+ ROUND 6 UPDATE – Push Commands
+ (New hero, category showcases, nav update, customized visuals)
+====================================================
+
+Run these commands in your Terminal:
+
+  git add .
+  git commit -m "Update: new hero layout, category swipe showcases, Shop Customized nav, SVG product visuals"
+  git push
+
+What changed in this update:
+  • index.html   — Brand-new hero with split layout (text left, product image right)
+                  No more background image fitting issues — image in a proper frame
+  • index.html   — Trust row: removed Free Delivery, removed Telecel — MTN only
+  • index.html   — Categories panel: Long Sleeves replaced with Crop Tops
+  • index.html   — Featured Products → Category Swipe Showcases
+                  Each category (T-Shirts, Joggers, Hoodies, etc.) is ONE swipeable
+                  card where customer swipes to see all products in that category
+  • index.html   — Customized section: emoji replaced with real SVG product mockups
+                  (T-shirt with print, cap with embroidery, crop top, mug with photo,
+                  frame with memory photo scene)
+  • All HTML     — Announcement bar: removed Free Delivery + Telecel
+  • All HTML     — Shop dropdown: removed Long Sleeves, removed Caps/Cups/Frames
+  • All HTML     — Added "Shop Customized" nav button with dropdown:
+                  Customized T-Shirt, Crop Top, Cap, Cup, Frame
+  • shop.html    — Filter pills: removed Long Sleeves button
+  • checkout.html— Removed Telecel Cash payment method
+  • js/products.js — renderCategoryShowcase() — swipeable category card
+  • js/products.js — renderAllShowcases() — renders all category cards
+  • js/products.js — showcaseNav() — gallery navigation
+  • js/products.js — bindShowcaseEvents() — cart + size events
+  • js/hero.js   — Updated to support new .hero-v2-slide class
+  • js/main.js   — Homepage now calls renderAllShowcases()
+  • css/style.css — Hero v2 split layout styles
+  • css/style.css — Showcase card grid styles
+  • css/style.css — Shop Customized nav button styles (orange highlight)
+  • css/style.css — Customized SVG card styles
+
+====================================================
  ROUND 5 UPDATE – Push Commands
  (Sizes, Frame Gallery, Hero Fix, Bug Fixes)
 ====================================================

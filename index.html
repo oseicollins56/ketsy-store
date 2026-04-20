@@ -33,7 +33,7 @@
     "@type": "Store",
     "name": "Ketsy Store",
     "description": "Fashion & custom gifts in Ghana",
-    "paymentAccepted": ["Mobile Money", "MTN MoMo", "Telecel Cash"],
+    "paymentAccepted": ["Mobile Money", "MTN MoMo"],
     "areaServed": "Ghana"
   }
   </script>
@@ -41,9 +41,7 @@
 <body>
 
 <!-- ===== ANNOUNCEMENT BAR ===== -->
-<div class="announcement-bar">
-  🎉 Free delivery on orders above GHS 200 &nbsp;|&nbsp; 📦 Custom orders welcome &nbsp;|&nbsp; 💳 Pay via Mobile Money
-</div>
+<div class="announcement-bar">🎨 Custom orders welcome &nbsp;|&nbsp; 💳 Pay via MTN Mobile Money &nbsp;|&nbsp; 🚀 Fast delivery across Ghana</div>
 
 <!-- ===== HEADER / NAVBAR ===== -->
 <header class="header" id="header">
@@ -61,15 +59,21 @@
             <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
             <li><a href="shop.html?cat=shorts">Shorts</a></li>
             <li><a href="shop.html?cat=joggers">Joggers</a></li>
-            <li><a href="shop.html?cat=longsleeves">Long Sleeves</a></li>
             <li><a href="shop.html?cat=hoodies">Hoodies</a></li>
             <li><a href="shop.html?cat=fullset">Men Full Set</a></li>
-            <li style="border-top:1px solid var(--border);margin-top:.3rem;padding-top:.3rem"><a href="shop.html?cat=caps" style="color:var(--text-muted);font-size:.83rem">↳ Caps</a></li>
-            <li><a href="shop.html?cat=cups" style="color:var(--text-muted);font-size:.83rem">↳ Cups</a></li>
-            <li><a href="shop.html?cat=frames" style="color:var(--text-muted);font-size:.83rem">↳ Frames</a></li>
+            <li><a href="shop.html?cat=croptops">Crop Tops</a></li>
           </ul>
         </li>
-        <li><a href="custom-order.html" class="nav-link">Custom Order</a></li>
+        <li class="dropdown">
+          <a href="custom-order.html" class="nav-link">Shop Customized <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="custom-order.html?type=tshirt">🎨 Customized T-Shirt</a></li>
+            <li><a href="custom-order.html?type=croptop">🎨 Customized Crop Top</a></li>
+            <li><a href="custom-order.html?type=cap">🎨 Customized Cap</a></li>
+            <li><a href="custom-order.html?type=cup">🎨 Customized Cup</a></li>
+            <li><a href="custom-order.html?type=frame">🎨 Customized Frame</a></li>
+          </ul>
+        </li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
@@ -109,51 +113,72 @@
   </div>
 </aside>
 
-<!-- ===== HERO SECTION (photo carousel) ===== -->
-<section class="hero">
-  <div class="hero-slides" id="hero-slides">
+<!-- ===== HERO SECTION (split-layout carousel) ===== -->
+<section class="hero-v2">
+  <div class="hero-v2-slides" id="hero-slides">
 
-    <div class="hero-slide hero-photo active">
-      <div class="hero-bg" style="background-image:url('images/fullset/fullset-9.jpg')"></div>
-      <div class="container">
-        <div class="hero-content">
+    <!-- Slide 1: Men's Full Set -->
+    <div class="hero-v2-slide active" style="--hero-bg1:#1A2744;--hero-bg2:#2D4A7A;">
+      <div class="hero-v2-bg"></div>
+      <div class="container hero-v2-inner">
+        <div class="hero-v2-text">
           <span class="hero-tag">🔥 New Arrivals</span>
-          <h1>Wear Your <br><span>Style</span></h1>
-          <p>Premium t-shirts, joggers, hoodies and matching sets — delivered across Ghana.</p>
+          <h1>Wear Your<br><span>Style</span></h1>
+          <p>Premium matching sets, joggers and everyday essentials — delivered across Ghana.</p>
           <div class="hero-btns">
-            <a href="shop.html" class="btn btn-primary">Shop Now</a>
+            <a href="shop.html?cat=fullset" class="btn btn-primary">Shop Full Sets</a>
             <a href="custom-order.html" class="btn btn-outline-white">Customize</a>
           </div>
+        </div>
+        <div class="hero-v2-img-wrap">
+          <div class="hero-v2-img-frame">
+            <img src="images/fullset/fullset-9.jpg" alt="Nike Sport Set" loading="eager">
+          </div>
+          <div class="hero-v2-img-badge">GHS 350</div>
         </div>
       </div>
     </div>
 
-    <div class="hero-slide hero-photo">
-      <div class="hero-bg" style="background-image:url('images/croptops/croptop-3.jpg')"></div>
-      <div class="container">
-        <div class="hero-content">
+    <!-- Slide 2: Ladies Crop Top -->
+    <div class="hero-v2-slide" style="--hero-bg1:#6B1A4A;--hero-bg2:#A0275E;">
+      <div class="hero-v2-bg"></div>
+      <div class="container hero-v2-inner">
+        <div class="hero-v2-text">
           <span class="hero-tag">💖 For The Ladies</span>
-          <h1>Bold, Bright &amp; <span>Beautiful</span></h1>
+          <h1>Bold, Bright &amp;<br><span>Beautiful</span></h1>
           <p>Fresh crop tops, vibrant prints — designed to stand out.</p>
           <div class="hero-btns">
             <a href="shop.html?cat=croptops" class="btn btn-primary">Shop Crop Tops</a>
             <a href="custom-order.html?type=croptop" class="btn btn-outline-white">Custom Design</a>
           </div>
         </div>
+        <div class="hero-v2-img-wrap">
+          <div class="hero-v2-img-frame">
+            <img src="images/croptops/croptop-3.jpg" alt="Pink Crop Top" loading="lazy">
+          </div>
+          <div class="hero-v2-img-badge">GHS 72</div>
+        </div>
       </div>
     </div>
 
-    <div class="hero-slide hero-photo">
-      <div class="hero-bg" style="background-image:url('images/hoodies/hoodie-1.jpg')"></div>
-      <div class="container">
-        <div class="hero-content">
-          <span class="hero-tag">🧥 Cozy Season</span>
-          <h1>Hoodies That <span>Hit Different</span></h1>
-          <p>Premium fleece hoodies, graphic tees and everyday essentials.</p>
+    <!-- Slide 3: Hoodie -->
+    <div class="hero-v2-slide" style="--hero-bg1:#1A3A1A;--hero-bg2:#2E5E2E;">
+      <div class="hero-v2-bg"></div>
+      <div class="container hero-v2-inner">
+        <div class="hero-v2-text">
+          <span class="hero-tag">🧥 Premium Hoodies</span>
+          <h1>Hoodies That<br><span>Hit Different</span></h1>
+          <p>Premium fleece hoodies — warm, stylish and perfect for every occasion.</p>
           <div class="hero-btns">
             <a href="shop.html?cat=hoodies" class="btn btn-primary">Shop Hoodies</a>
             <a href="shop.html" class="btn btn-outline-white">Browse All</a>
           </div>
+        </div>
+        <div class="hero-v2-img-wrap">
+          <div class="hero-v2-img-frame">
+            <img src="images/hoodies/hoodie-1.jpg" alt="Navy Hoodie" loading="lazy">
+          </div>
+          <div class="hero-v2-img-badge">GHS 150</div>
         </div>
       </div>
     </div>
@@ -162,7 +187,6 @@
 
   <button class="hero-arrow prev" id="hero-prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
   <button class="hero-arrow next" id="hero-next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
-
   <div class="hero-dots" id="hero-dots">
     <span class="dot active" data-slide="0"></span>
     <span class="dot" data-slide="1"></span>
@@ -173,12 +197,12 @@
 <!-- ===== TRUST / SHIPPING BADGES ===== -->
 <section class="trust-row">
   <div class="trust-item">
-    <i class="fas fa-shipping-fast"></i>
-    <div><strong>Free Delivery</strong>Orders above GHS 200</div>
+    <i class="fas fa-mobile-alt"></i>
+    <div><strong>MTN Mobile Money</strong>Easy, secure payment</div>
   </div>
   <div class="trust-item">
-    <i class="fas fa-mobile-alt"></i>
-    <div><strong>Mobile Money</strong>MTN &amp; Telecel</div>
+    <i class="fas fa-paint-brush"></i>
+    <div><strong>Custom Orders</strong>Design anything</div>
   </div>
   <div class="trust-item">
     <i class="fas fa-shield-alt"></i>
@@ -199,7 +223,7 @@
         Browse Categories
       </span>
       <span class="categories-toggle-right">
-        <span class="cat-preview">T-Shirts &nbsp;·&nbsp; Shorts &nbsp;·&nbsp; Joggers &nbsp;·&nbsp; Long Sleeves &nbsp;·&nbsp; Hoodies &nbsp;·&nbsp; Men Full Set</span>
+        <span class="cat-preview">T-Shirts &nbsp;·&nbsp; Shorts &nbsp;·&nbsp; Joggers &nbsp;·&nbsp; Hoodies &nbsp;·&nbsp; Men Full Set &nbsp;·&nbsp; Crop Tops</span>
         <i class="fas fa-chevron-down categories-chevron"></i>
       </span>
     </button>
@@ -219,9 +243,9 @@
           <div class="category-icon-new" style="background:#D9F0FF"><i class="fas fa-running" style="color:#0096D6"></i></div>
           <span>Joggers</span>
         </a>
-        <a href="shop.html?cat=longsleeves" class="category-card-new">
-          <div class="category-icon-new" style="background:#E8D9FF"><i class="fas fa-user-tie" style="color:#7C3AED"></i></div>
-          <span>Long Sleeves</span>
+        <a href="shop.html?cat=croptops" class="category-card-new">
+          <div class="category-icon-new" style="background:#FFD9EC"><i class="fas fa-female" style="color:#E91E8C"></i></div>
+          <span>Crop Tops</span>
         </a>
         <a href="shop.html?cat=hoodies" class="category-card-new">
           <div class="category-icon-new" style="background:#D9F0FF"><i class="fas fa-user-circle" style="color:#0096D6"></i></div>
@@ -239,32 +263,40 @@
       </div>
       <!-- Sub-items for Customized Items -->
       <div class="custom-subitems" id="custom-subitems">
-        <a href="shop.html?cat=caps" class="custom-subitem">
+        <a href="custom-order.html?type=tshirt" class="custom-subitem">
+          <div class="subitem-icon" style="background:#FFE5D9"><i class="fas fa-tshirt" style="color:#FF6B35"></i></div>
+          <span>Custom Tee</span>
+        </a>
+        <a href="custom-order.html?type=cap" class="custom-subitem">
           <div class="subitem-icon" style="background:#FFF3D9"><i class="fas fa-hat-cowboy" style="color:#F4A800"></i></div>
-          <span>Caps</span>
+          <span>Custom Cap</span>
         </a>
-        <a href="shop.html?cat=cups" class="custom-subitem">
+        <a href="custom-order.html?type=cup" class="custom-subitem">
           <div class="subitem-icon" style="background:#F3D9FF"><i class="fas fa-mug-hot" style="color:#9B59B6"></i></div>
-          <span>Cups</span>
+          <span>Custom Cup</span>
         </a>
-        <a href="shop.html?cat=frames" class="custom-subitem">
+        <a href="custom-order.html?type=frame" class="custom-subitem">
           <div class="subitem-icon" style="background:#D9FFF3"><i class="fas fa-image" style="color:#00C896"></i></div>
-          <span>Frames</span>
+          <span>Custom Frame</span>
+        </a>
+        <a href="custom-order.html?type=croptop" class="custom-subitem">
+          <div class="subitem-icon" style="background:#FFD9EC"><i class="fas fa-female" style="color:#E91E8C"></i></div>
+          <span>Custom Crop Top</span>
         </a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ===== FEATURED PRODUCTS ===== -->
-<section class="section" style="background:#f8f9fa">
+<!-- ===== CATEGORY SHOWCASES ===== -->
+<section class="section showcase-section" style="background:#f8f9fa">
   <div class="container">
     <div class="section-header">
-      <h2>Featured Products</h2>
+      <h2>Shop by Category</h2>
       <a href="shop.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
     </div>
-    <div class="products-grid" id="featured-products">
-      <!-- Dynamically filled by JS -->
+    <div class="showcase-grid" id="showcase-grid">
+      <!-- Dynamically filled by JS via renderAllShowcases() -->
     </div>
   </div>
 </section>
@@ -292,38 +324,87 @@
 <section class="section customized-section">
   <div class="container">
     <div class="section-header">
-      <h2>Customized</h2>
-      <p>Design it your way — we'll make it happen</p>
+      <h2>Shop Customized</h2>
+      <p>Design it your way — we print, embroider and create just for you</p>
     </div>
     <div class="customized-grid">
 
+      <!-- Customized T-Shirt -->
       <a href="custom-order.html?type=tshirt" class="customized-card">
-        <div class="customized-img" style="background:linear-gradient(135deg,#FFE5D9,#FFDCC8)">
-          <span>👕</span>
+        <div class="customized-img" style="background:linear-gradient(135deg,#FF6B35 0%,#FF8F65 100%)">
+          <!-- SVG T-shirt mockup with custom print -->
+          <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" class="custom-product-svg">
+            <!-- T-shirt body -->
+            <path d="M40 30 L20 55 L38 60 L38 130 L122 130 L122 60 L140 55 L120 30 Q110 20 95 22 Q88 10 80 10 Q72 10 65 22 Q50 20 40 30Z"
+                  fill="#fff" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <!-- Sleeve shading -->
+            <path d="M40 30 L20 55 L38 60 L38 50Z" fill="rgba(0,0,0,0.08)"/>
+            <path d="M120 30 L140 55 L122 60 L122 50Z" fill="rgba(0,0,0,0.08)"/>
+            <!-- Custom print design on chest -->
+            <rect x="58" y="55" width="44" height="44" rx="4" fill="#FF6B35"/>
+            <text x="80" y="73" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="bold" fill="white">KETSY</text>
+            <text x="80" y="84" text-anchor="middle" font-family="Arial,sans-serif" font-size="5" fill="white">★ ★ ★</text>
+            <text x="80" y="94" text-anchor="middle" font-family="Arial,sans-serif" font-size="5.5" fill="white">YOUR NAME</text>
+            <!-- Collar -->
+            <path d="M65 22 Q72 34 80 36 Q88 34 95 22 Q88 18 80 18 Q72 18 65 22Z" fill="#ffe8d6"/>
+          </svg>
           <div class="customized-overlay"><i class="fas fa-paint-brush"></i> Customize</div>
         </div>
         <div class="customized-info">
           <h4>Customized T-Shirt</h4>
-          <p>Your text, logo or design printed on a premium tee</p>
+          <p>Your name, logo or artwork printed on a premium tee</p>
           <span class="customized-cta">Order Now <i class="fas fa-arrow-right"></i></span>
         </div>
       </a>
 
+      <!-- Customized Cap -->
       <a href="custom-order.html?type=cap" class="customized-card">
-        <div class="customized-img" style="background:linear-gradient(135deg,#FFF3D9,#FFE9B0)">
-          <span>🧢</span>
+        <div class="customized-img" style="background:linear-gradient(135deg,#2D3142 0%,#4A5070 100%)">
+          <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" class="custom-product-svg">
+            <!-- Brim -->
+            <ellipse cx="80" cy="110" rx="68" ry="12" fill="#1a1a2e"/>
+            <rect x="12" y="100" width="136" height="14" rx="6" fill="#22243a"/>
+            <!-- Cap body -->
+            <path d="M25 100 Q20 60 80 45 Q140 60 135 100Z" fill="#FF6B35"/>
+            <!-- Panel seam lines -->
+            <line x1="80" y1="45" x2="80" y2="100" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+            <line x1="52" y1="50" x2="45" y2="100" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line x1="108" y1="50" x2="115" y2="100" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <!-- Embroidery on front panel -->
+            <text x="80" y="78" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="white" letter-spacing="1">KS</text>
+            <circle cx="80" cy="44" r="4" fill="#1a1a2e"/>
+            <!-- Stitch detail -->
+            <path d="M55 65 Q80 60 105 65" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+          </svg>
           <div class="customized-overlay"><i class="fas fa-paint-brush"></i> Customize</div>
         </div>
         <div class="customized-info">
           <h4>Customized Cap</h4>
-          <p>Embroidered or printed caps for any occasion</p>
+          <p>Embroidered or printed caps for any style or occasion</p>
           <span class="customized-cta">Order Now <i class="fas fa-arrow-right"></i></span>
         </div>
       </a>
 
+      <!-- Customized Crop Top -->
       <a href="custom-order.html?type=croptop" class="customized-card">
-        <div class="customized-img" style="background:linear-gradient(135deg,#FFD9EC,#FFC2E0)">
-          <span>👚</span>
+        <div class="customized-img" style="background:linear-gradient(135deg,#E91E8C 0%,#FF6EB5 100%)">
+          <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" class="custom-product-svg">
+            <!-- Crop top body (shorter) -->
+            <path d="M45 35 L25 58 L42 63 L42 115 L118 115 L118 63 L135 58 L115 35 Q107 25 96 27 Q90 16 80 16 Q70 16 64 27 Q53 25 45 35Z"
+                  fill="#fff" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <!-- Sleeve shading -->
+            <path d="M45 35 L25 58 L42 63 L42 54Z" fill="rgba(0,0,0,0.07)"/>
+            <path d="M115 35 L135 58 L118 63 L118 54Z" fill="rgba(0,0,0,0.07)"/>
+            <!-- Crop hemline detail -->
+            <line x1="42" y1="115" x2="118" y2="115" stroke="#E91E8C" stroke-width="2.5"/>
+            <!-- Design on chest -->
+            <text x="80" y="72" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="bold" fill="#E91E8C">KETSY</text>
+            <path d="M60 78 Q80 88 100 78" stroke="#E91E8C" stroke-width="1.5" fill="none"/>
+            <circle cx="80" cy="90" r="6" fill="#E91E8C" opacity="0.7"/>
+            <text x="80" y="93" text-anchor="middle" font-family="Arial,sans-serif" font-size="5" fill="white">★</text>
+            <!-- V-neck collar -->
+            <path d="M64 27 Q72 40 80 42 Q88 40 96 27" fill="none" stroke="#f5c5c5" stroke-width="1.5"/>
+          </svg>
           <div class="customized-overlay"><i class="fas fa-paint-brush"></i> Customize</div>
         </div>
         <div class="customized-info">
@@ -333,21 +414,77 @@
         </div>
       </a>
 
-      <a href="custom-order.html?type=mug" class="customized-card">
-        <div class="customized-img" style="background:linear-gradient(135deg,#F3D9FF,#E8C2FF)">
-          <span>☕</span>
+      <!-- Customized Cup/Mug -->
+      <a href="custom-order.html?type=cup" class="customized-card">
+        <div class="customized-img" style="background:linear-gradient(135deg,#7C3AED 0%,#A855F7 100%)">
+          <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" class="custom-product-svg">
+            <!-- Mug body -->
+            <path d="M42 45 L50 135 L110 135 L118 45Z" fill="#fff" rx="4"/>
+            <rect x="42" y="42" width="76" height="10" rx="4" fill="#e0e0e0"/>
+            <!-- Handle -->
+            <path d="M118 70 Q145 70 145 95 Q145 120 118 120" stroke="#e0e0e0" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M118 70 Q138 70 138 95 Q138 120 118 120" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <!-- Photo/design on mug face -->
+            <rect x="55" y="58" width="50" height="55" rx="3" fill="#7C3AED"/>
+            <!-- Photo frame effect -->
+            <rect x="58" y="61" width="44" height="38" rx="2" fill="#9B59D0"/>
+            <!-- Person silhouette in photo -->
+            <circle cx="80" cy="71" r="6" fill="rgba(255,255,255,0.5)"/>
+            <path d="M68 85 Q80 78 92 85" stroke="rgba(255,255,255,0.5)" stroke-width="4" fill="none"/>
+            <!-- Text below photo -->
+            <text x="80" y="124" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="bold" fill="#7C3AED">Your Photo Here</text>
+            <!-- Steam -->
+            <path d="M62 35 Q65 28 62 21" stroke="rgba(255,255,255,0.6)" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M80 32 Q83 25 80 18" stroke="rgba(255,255,255,0.6)" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M98 35 Q101 28 98 21" stroke="rgba(255,255,255,0.6)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
           <div class="customized-overlay"><i class="fas fa-paint-brush"></i> Customize</div>
         </div>
         <div class="customized-info">
-          <h4>Customized Mug</h4>
-          <p>Photo mugs, name mugs and branded cups</p>
+          <h4>Customized Cup</h4>
+          <p>Photo mugs, name cups and branded designs</p>
           <span class="customized-cta">Order Now <i class="fas fa-arrow-right"></i></span>
         </div>
       </a>
 
+      <!-- Customized Frame -->
       <a href="custom-order.html?type=frame" class="customized-card">
-        <div class="customized-img" style="background:linear-gradient(135deg,#D9FFF3,#B0FFE8)">
-          <span>🖼️</span>
+        <div class="customized-img" style="background:linear-gradient(135deg,#1A3A1A 0%,#2E6B2E 100%)">
+          <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" class="custom-product-svg">
+            <!-- Outer frame -->
+            <rect x="22" y="22" width="116" height="116" rx="6" fill="#C49A2A"/>
+            <!-- Frame border detail -->
+            <rect x="26" y="26" width="108" height="108" rx="4" fill="#8B6914"/>
+            <rect x="30" y="30" width="100" height="100" rx="3" fill="#C49A2A"/>
+            <!-- Inner mat -->
+            <rect x="36" y="36" width="88" height="88" rx="2" fill="#f5f0e0"/>
+            <!-- Photo area -->
+            <rect x="42" y="42" width="76" height="76" rx="2" fill="#e8dfc8"/>
+            <!-- Photo content: couple/memory scene -->
+            <rect x="42" y="42" width="76" height="76" rx="2" fill="url(#photoGrad)"/>
+            <defs>
+              <linearGradient id="photoGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#87CEEB"/>
+                <stop offset="60%" stop-color="#98D4A0"/>
+                <stop offset="100%" stop-color="#8B7355"/>
+              </linearGradient>
+            </defs>
+            <!-- Sun -->
+            <circle cx="105" cy="55" r="8" fill="#FFD700" opacity="0.8"/>
+            <!-- Two people silhouettes -->
+            <circle cx="68" cy="88" r="7" fill="rgba(50,30,10,0.7)"/>
+            <path d="M60 108 Q68 96 76 108" fill="rgba(50,30,10,0.7)"/>
+            <circle cx="88" cy="85" r="8" fill="rgba(50,30,10,0.7)"/>
+            <path d="M79 108 Q88 94 97 108" fill="rgba(50,30,10,0.7)"/>
+            <!-- Caption text area -->
+            <rect x="42" y="112" width="76" height="6" rx="1" fill="rgba(255,255,255,0.7)"/>
+            <text x="80" y="117" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" fill="#5C4213">Your Memory Here</text>
+            <!-- Corner ornaments on frame -->
+            <circle cx="30" cy="30" r="3" fill="#FFD700"/>
+            <circle cx="130" cy="30" r="3" fill="#FFD700"/>
+            <circle cx="30" cy="130" r="3" fill="#FFD700"/>
+            <circle cx="130" cy="130" r="3" fill="#FFD700"/>
+          </svg>
           <div class="customized-overlay"><i class="fas fa-paint-brush"></i> Customize</div>
         </div>
         <div class="customized-info">
@@ -430,7 +567,7 @@
       <p>&copy; 2024 Ketsy Store. All rights reserved.</p>
       <div class="payment-badges">
         <span class="payment-badge"><i class="fas fa-mobile-alt"></i> MTN MoMo</span>
-        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> Telecel Cash</span>
+        
       </div>
     </div>
   </div>

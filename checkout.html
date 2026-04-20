@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="announcement-bar">🔒 Secure Checkout &nbsp;|&nbsp; 💳 Pay via Mobile Money (MTN MoMo & Telecel Cash)</div>
+<div class="announcement-bar">🎨 Custom orders welcome &nbsp;|&nbsp; 💳 Pay via MTN Mobile Money &nbsp;|&nbsp; 🚀 Fast delivery across Ghana</div>
 
 <header class="header" id="header">
   <div class="container">
@@ -24,15 +24,21 @@
             <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
             <li><a href="shop.html?cat=shorts">Shorts</a></li>
             <li><a href="shop.html?cat=joggers">Joggers</a></li>
-            <li><a href="shop.html?cat=longsleeves">Long Sleeves</a></li>
             <li><a href="shop.html?cat=hoodies">Hoodies</a></li>
             <li><a href="shop.html?cat=fullset">Men Full Set</a></li>
-            <li style="border-top:1px solid var(--border);margin-top:.3rem;padding-top:.3rem"><a href="shop.html?cat=caps" style="color:var(--text-muted);font-size:.83rem">↳ Caps</a></li>
-            <li><a href="shop.html?cat=cups" style="color:var(--text-muted);font-size:.83rem">↳ Cups</a></li>
-            <li><a href="shop.html?cat=frames" style="color:var(--text-muted);font-size:.83rem">↳ Frames</a></li>
+            <li><a href="shop.html?cat=croptops">Crop Tops</a></li>
           </ul>
         </li>
-        <li><a href="custom-order.html" class="nav-link">Custom Order</a></li>
+        <li class="dropdown">
+          <a href="custom-order.html" class="nav-link">Shop Customized <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="custom-order.html?type=tshirt">🎨 Customized T-Shirt</a></li>
+            <li><a href="custom-order.html?type=croptop">🎨 Customized Crop Top</a></li>
+            <li><a href="custom-order.html?type=cap">🎨 Customized Cap</a></li>
+            <li><a href="custom-order.html?type=cup">🎨 Customized Cup</a></li>
+            <li><a href="custom-order.html?type=frame">🎨 Customized Frame</a></li>
+          </ul>
+        </li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
@@ -213,22 +219,8 @@
           </div>
 
           <!-- Telecel -->
-          <div class="payment-method" data-method="telecel">
-            <input type="radio" name="payment" value="telecel"/>
-            <div class="payment-method-icon telecel-icon">
-              <span style="font-size:0.75rem;font-weight:800;color:#E63946">TEL</span>
-            </div>
-            <div class="payment-method-info">
-              <strong>Telecel Cash</strong>
-              <span>Pay securely with Telecel Cash</span>
-            </div>
-          </div>
 
-          <div id="momo-fields-telecel" class="momo-fields" style="display:none">
-            <div class="form-group" style="margin-bottom:.75rem">
-              <label>Telecel Number *</label>
-              <input type="tel" placeholder="e.g. 020 XXX XXXX" required/>
-            </div>
+          
             <div class="form-group" style="margin-bottom:0">
               <label>Account Name</label>
               <input type="text" placeholder="Name on Telecel account"/>
@@ -307,7 +299,7 @@
       <p>&copy; 2024 Ketsy Store. All rights reserved.</p>
       <div class="payment-badges">
         <span class="payment-badge"><i class="fas fa-mobile-alt"></i> MTN MoMo</span>
-        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> Telecel Cash</span>
+        
       </div>
     </div>
   </div>

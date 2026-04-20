@@ -72,10 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ----- Featured Products (Home page) -----
+  // ----- Category Showcases (Home page) -----
+  if (document.getElementById('showcase-grid')) {
+    renderAllShowcases('showcase-grid');
+  }
+  // Fallback: if old featured-products div still exists
   const featuredEl = document.getElementById('featured-products');
   if (featuredEl) {
-    // Representative mix across categories
     const featuredIds = [1, 10, 21, 25, 33, 43, 45, 48];
     const featured = featuredIds.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
     featuredEl.innerHTML = featured.map(renderProductCard).join('');

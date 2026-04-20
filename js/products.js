@@ -662,3 +662,165 @@ function renderStars(rating) {
   const empty = 5 - full - half;
   return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
 }
+
+// ─── Category Showcase Card (swipeable gallery of all products in a category) ──
+function renderCategoryShowcase(category, title, icon) {
+  const items = getProductsByCategory(category).filter(p => p.category === category);
+  if (!items.length) return '';
+  const galleryId = 'sc-' + category;
+
+  const slides = items.map((p, i) => {
+    const isFullset = p.category === 'fullset';
+    const imgHTML = p.img
+      ? `<img src="${p.img}" alt="${p.name}" loading="lazy" style="${isFullset ? 'object-position:top center;' : ''}"
+             onerror="this.style.display='none'">`
+      : `<span class="sc-icon-fallback">${p.icon}</span>`;
+
+    const sizesBtns = p.sizes && p.sizes.length && !['cups'].includes(p.category)
+      ? `<div class="sc-sizes">${p.sizes.slice(0,4).map((s,si) =>
+          `<button class="card-size-btn${si===0?' active':''}" data-size="${s}">${s}</button>`
+        ).join('')}</div>`
+      : '';
+
+    return `
+    <div class="sc-slide ${i === 0 ? 'active' : ''}" data-id="${p.id}">
+      <a href="product.html?id=${p.id}" class="sc-img-link">
+        <div class="sc-img">${imgHTML}</div>
+      </a>
+      <div class="sc-info">
+        <p class="sc-name">${p.name}</p>
+        <p class="sc-price">GHS ${p.price.toFixed(2)}${p.oldPrice ? `<span class="sc-old">GHS ${p.oldPrice.toFixed(2)}</span>` : ''}</p>
+        ${sizesBtns}
+      </div>
+    </div>`;
+  }).join('');
+
+  const dots = items.map((_,i) =>
+    `<span class="sc-dot${i===0?' active':''}" data-idx="${i}"></span>`
+  ).join('');
+
+  return `
+  <div class="showcase-card">
+    <div class="showcase-card-header">
+      <span class="showcase-cat-icon">${icon}</span>
+      <h3>${title}</h3>
+      <a href="shop.html?cat=${category}" class="showcase-view-all">All ${items.length} <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="sc-gallery" id="${galleryId}" data-current="0" data-total="${items.length}">
+      <div class="sc-track">${slides}</div>
+      <button class="sc-nav sc-prev" onclick="showcaseNav(event,'${category}',-1)" aria-label="Previous">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="sc-nav sc-next" onclick="showcaseNav(event,'${category}',1)" aria-label="Next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="sc-counter" id="sc-counter-${category}">1 / ${items.length}</div>
+    </div>
+    <div class="sc-dots">${dots}</div>
+    <div class="showcase-card-footer">
+      <button class="btn btn-primary btn-sm sc-cart-btn" data-category="${category}" type="button">
+        <i class="fas fa-cart-plus"></i> Add to Cart
+      </button>
+      <a href="shop.html?cat=${category}" class="btn btn-outline btn-sm">
+        <i class="fas fa-eye"></i> View All
+      </a>
+    </div>
+  </div>`;
+}
+
+// ─── Showcase gallery navigation ─────────────────────────────────────────────
+function showcaseNav(event, category, direction) {
+  if (event) { event.preventDefault(); event.stopPropagation(); }
+  const gallery  = document.getElementById('sc-' + category);
+  if (!gallery) return;
+
+  let current = parseInt(gallery.dataset.current, 10) || 0;
+  const total  = parseInt(gallery.dataset.total, 10)   || 1;
+  const slides = gallery.querySelectorAll('.sc-slide');
+
+  // dots are siblings of the gallery inside the .showcase-card
+  const card = gallery.closest('.showcase-card');
+  const dots = card ? card.querySelectorAll('.sc-dot') : [];
+  const counter = document.getElementById('sc-counter-' + category);
+
+  if (slides[current]) slides[current].classList.remove('active');
+  if (dots[current])   dots[current].classList.remove('active');
+
+  current = (current + direction + total) % total;
+  gallery.dataset.current = current;
+
+  if (slides[current]) slides[current].classList.add('active');
+  if (dots[current])   dots[current].classList.add('active');
+  if (counter)         counter.textContent = `${current + 1} / ${total}`;
+
+  // Bind size btns on newly visible slide
+  const activeSlide = slides[current];
+  if (activeSlide) {
+    activeSlide.querySelectorAll('.card-size-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault(); e.stopPropagation();
+        activeSlide.querySelectorAll('.card-size-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  }
+}
+
+// ─── Render all category showcases into a container ──────────────────────────
+function renderAllShowcases(containerId) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const cats = [
+    { key: 'tshirts',  label: 'T-Shirts',    icon: '👕' },
+    { key: 'shorts',   label: 'Shorts',       icon: '🩲' },
+    { key: 'joggers',  label: 'Joggers',      icon: '🏃' },
+    { key: 'hoodies',  label: 'Hoodies',      icon: '🧥' },
+    { key: 'fullset',  label: 'Men Full Set', icon: '🕴️' },
+    { key: 'croptops', label: 'Crop Tops',    icon: '👚' },
+    { key: 'caps',     label: 'Caps',         icon: '🧢' },
+  ];
+  el.innerHTML = cats.map(c => renderCategoryShowcase(c.key, c.label, c.icon)).join('');
+  bindShowcaseEvents(el);
+}
+
+// ─── Bind cart + size events for all showcase cards ──────────────────────────
+function bindShowcaseEvents(container) {
+  // Size pills
+  container.querySelectorAll('.sc-slide.active .card-size-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault(); e.stopPropagation();
+      btn.closest('.sc-sizes')?.querySelectorAll('.card-size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+  // Dot navigation
+  container.querySelectorAll('.sc-dot').forEach(dot => {
+    dot.addEventListener('click', e => {
+      e.stopPropagation();
+      const card = dot.closest('.showcase-card');
+      const gallery = card?.querySelector('.sc-gallery');
+      if (!gallery) return;
+      const category = gallery.id.replace('sc-','');
+      const target = parseInt(dot.dataset.idx, 10);
+      const current = parseInt(gallery.dataset.current, 10) || 0;
+      showcaseNav(null, category, target - current);
+    });
+  });
+  // Add-to-cart for active slide
+  container.querySelectorAll('.sc-cart-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const category = btn.dataset.category;
+      const gallery  = document.getElementById('sc-' + category);
+      if (!gallery) return;
+      const current  = parseInt(gallery.dataset.current, 10) || 0;
+      const slide    = gallery.querySelectorAll('.sc-slide')[current];
+      const id       = slide ? +slide.dataset.id : null;
+      if (!id) return;
+      const size  = slide.querySelector('.card-size-btn.active')?.dataset.size  || '';
+      const color = slide.querySelector('.color-dot.active')?.dataset.color || '';
+      const variant = [size, color].filter(Boolean).join(' / ');
+      if (typeof addToCart === 'function') addToCart(id, 1, variant);
+    });
+  });
+}

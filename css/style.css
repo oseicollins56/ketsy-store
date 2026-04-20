@@ -2097,3 +2097,311 @@ img[loading="lazy"] { transition: opacity .4s ease; }
   background-position: center top;
 }
 
+/* ═══════════════════════════════════════════════════
+   KETSY v4 — Hero v2 Split Layout, Category Showcases,
+   Shop Customized nav, Customized SVG cards
+   ═══════════════════════════════════════════════════ */
+
+/* ── Hero v2 (split: text left, image right) ── */
+.hero-v2 {
+  position: relative;
+  overflow: hidden;
+}
+.hero-v2-slides {
+  position: relative;
+}
+.hero-v2-slide {
+  display: none;
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+}
+.hero-v2-slide.active { display: flex; }
+.hero-v2-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--hero-bg1, #1A2744) 0%, var(--hero-bg2, #2D4A7A) 100%);
+  z-index: 0;
+}
+/* Decorative blob shape for depth */
+.hero-v2-bg::after {
+  content: '';
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+.hero-v2-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  padding: 2.5rem 1.5rem;
+  height: 100%;
+}
+.hero-v2-text { flex: 1; color: #fff; }
+.hero-v2-text .hero-tag {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.3);
+  backdrop-filter: blur(6px);
+  display: inline-block;
+  padding: .35rem 1rem;
+  border-radius: 20px;
+  font-size: .85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.hero-v2-text h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: .9rem;
+}
+.hero-v2-text h1 span { color: var(--primary); }
+.hero-v2-text p { font-size: .98rem; color: rgba(255,255,255,.85); max-width: 380px; margin-bottom: 1.8rem; line-height: 1.6; }
+/* Product image on right */
+.hero-v2-img-wrap {
+  flex: 0 0 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.hero-v2-img-frame {
+  width: 230px;
+  height: 300px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,.4), 0 0 0 4px rgba(255,255,255,.12);
+  background: rgba(255,255,255,.1);
+}
+.hero-v2-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.hero-v2-img-badge {
+  margin-top: .7rem;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: .88rem;
+  padding: .35rem .9rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(255,107,53,.4);
+}
+/* Arrow buttons reuse .hero-arrow from existing CSS */
+.hero-v2 .hero-arrow { z-index: 5; }
+.hero-v2 .hero-dots  { position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%); z-index: 5; }
+.hero-v2 .hero-dots .dot { background: rgba(255,255,255,.4); }
+.hero-v2 .hero-dots .dot.active { background: #fff; transform: scale(1.4); }
+/* Mobile hero */
+@media (max-width: 720px) {
+  .hero-v2-slide { height: auto; min-height: 0; }
+  .hero-v2-inner { flex-direction: column-reverse; padding: 2rem 1rem 1.5rem; gap: 1rem; }
+  .hero-v2-img-wrap { flex: none; width: 100%; align-items: center; }
+  .hero-v2-img-frame { width: 160px; height: 200px; border-radius: 16px; }
+  .hero-v2-text { text-align: center; }
+  .hero-v2-text p { margin: 0 auto 1.2rem; }
+  .hero-btns { justify-content: center; }
+  .hero-v2-img-badge { font-size: .78rem; }
+}
+
+/* ── Category Showcase Grid ── */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+.showcase-card {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.showcase-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.showcase-card-header {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .85rem 1rem .6rem;
+  border-bottom: 1px solid var(--border);
+}
+.showcase-cat-icon { font-size: 1.3rem; }
+.showcase-card-header h3 { font-size: .95rem; font-weight: 700; flex: 1; color: var(--secondary); }
+.showcase-view-all { font-size: .75rem; color: var(--primary); font-weight: 600; white-space: nowrap; }
+.showcase-view-all:hover { text-decoration: underline; }
+
+/* Gallery inside showcase card */
+.sc-gallery {
+  position: relative;
+  background: #f8f9fa;
+  overflow: hidden;
+  height: 240px;
+}
+.sc-track {
+  height: 100%;
+  position: relative;
+}
+.sc-slide {
+  display: none;
+  height: 100%;
+  flex-direction: column;
+}
+.sc-slide.active { display: flex; }
+.sc-img-link { display: block; flex: 1; overflow: hidden; }
+.sc-img {
+  width: 100%;
+  height: 185px;
+  overflow: hidden;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sc-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform .4s ease;
+}
+.sc-img-link:hover .sc-img img { transform: scale(1.05); }
+.sc-icon-fallback { font-size: 3.5rem; }
+
+/* Fullset taller image in showcase */
+.showcase-card[data-category="fullset"] .sc-img,
+.sc-slide[data-category="fullset"] .sc-img { height: 220px; }
+
+.sc-info {
+  padding: .5rem .75rem .4rem;
+  background: #fff;
+}
+.sc-name { font-size: .8rem; font-weight: 600; color: var(--text); line-height: 1.3; margin-bottom: .2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sc-price { font-size: .88rem; font-weight: 700; color: var(--primary); }
+.sc-old { font-size: .72rem; color: var(--text-muted); text-decoration: line-through; margin-left: .3rem; }
+.sc-sizes { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
+/* Nav buttons on showcase */
+.sc-nav {
+  position: absolute;
+  top: 85px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,.92);
+  color: var(--secondary);
+  cursor: pointer;
+  font-size: .65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  z-index: 4;
+  transition: background .2s, color .2s;
+}
+.sc-nav:hover { background: var(--primary); color: #fff; }
+.sc-prev { left: .4rem; }
+.sc-next { right: .4rem; }
+.sc-counter {
+  position: absolute;
+  bottom: .35rem;
+  right: .5rem;
+  font-size: .68rem;
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 10px;
+  z-index: 3;
+}
+.sc-dots {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: .45rem 0 .3rem;
+  background: #fff;
+  border-top: 1px solid var(--border);
+}
+.sc-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.sc-dot.active { background: var(--primary); transform: scale(1.3); }
+/* Footer of showcase card */
+.showcase-card-footer {
+  display: flex;
+  gap: .5rem;
+  padding: .65rem .85rem;
+  border-top: 1px solid var(--border);
+  background: #fff;
+}
+.showcase-card-footer .btn { flex: 1; font-size: .78rem; padding: .5rem .5rem; }
+
+/* ── Shop Customized nav dropdown styling ── */
+.nav-list .dropdown:nth-child(3) > .nav-link {
+  background: var(--primary);
+  color: #fff !important;
+  border-radius: var(--border-radius-sm);
+  padding: .45rem .9rem;
+}
+.nav-list .dropdown:nth-child(3) > .nav-link:hover {
+  background: var(--primary-dark);
+}
+.nav-list .dropdown:nth-child(3) > .nav-link i { color: #fff; }
+
+/* ── Customized product SVG visuals ── */
+.custom-product-svg {
+  width: 100px;
+  height: 100px;
+}
+.customized-img {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+}
+.customized-img .customized-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: .9rem;
+  opacity: 0;
+  transition: opacity .3s;
+  border-radius: inherit;
+}
+.customized-card:hover .customized-overlay { opacity: 1; }
+
+/* ── Remove old hero gap rule (now using hero-v2) ── */
+.hero-v2 { margin-bottom: 0; }
+
+/* ── Mobile showcase responsive ── */
+@media (max-width: 600px) {
+  .showcase-grid { grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+  .sc-gallery { height: 200px; }
+  .sc-img { height: 148px; }
+  .showcase-card-footer .btn { font-size: .72rem; padding: .4rem .3rem; }
+}
+

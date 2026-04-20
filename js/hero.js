@@ -5,7 +5,8 @@
   const slidesWrap = document.getElementById('hero-slides');
   if (!slidesWrap) return;
 
-  const slides = slidesWrap.querySelectorAll('.hero-slide');
+  // Support both old .hero-slide and new .hero-v2-slide class names
+  const slides = slidesWrap.querySelectorAll('.hero-v2-slide, .hero-slide');
   const dots = document.querySelectorAll('#hero-dots .dot');
   const prevBtn = document.getElementById('hero-prev');
   const nextBtn = document.getElementById('hero-next');
