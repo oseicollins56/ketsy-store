@@ -45,44 +45,7 @@ const products = [
     colors: ['#3a3a3a'], sizes: ['S','M','L','XL']
   },
 
-  // ── SHORTS ────────────────────────────────────────────────────────────────
-  {
-    id: 7, name: 'Brown Fleece Shorts', category: 'shorts',
-    price: 70, oldPrice: null, rating: 4.5, reviews: 38,
-    badge: null, icon: '🩲',
-    img: 'images/shorts/shorts-1.jpg',
-    colors: ['#5c3a1e'], sizes: ['S','M','L','XL']
-  },
-  {
-    id: 8, name: 'Black Sport Shorts', category: 'shorts',
-    price: 65, oldPrice: null, rating: 4.6, reviews: 52,
-    badge: 'Bestseller', icon: '🩲',
-    img: 'images/shorts/shorts-2.jpg',
-    colors: ['#1a1a1a'], sizes: ['S','M','L','XL','XXL']
-  },
-  {
-    id: 9, name: 'Fleece Cargo Shorts', category: 'shorts',
-    price: 75, oldPrice: 95, rating: 4.4, reviews: 29,
-    badge: 'Sale', icon: '🩲',
-    img: 'images/shorts/shorts-3.jpg',
-    colors: ['#5c3a1e','#1a1a1a'], sizes: ['S','M','L','XL']
-  },
-
   // ── JOGGERS ───────────────────────────────────────────────────────────────
-  {
-    id: 10, name: 'Brown Fleece Joggers', category: 'joggers',
-    price: 110, oldPrice: null, rating: 4.7, reviews: 61,
-    badge: 'Bestseller', icon: '🩳',
-    img: 'images/joggers/joggers-1.jpg',
-    colors: ['#5c3a1e'], sizes: ['S','M','L','XL','XXL']
-  },
-  {
-    id: 11, name: 'Premium Fleece Joggers', category: 'joggers',
-    price: 110, oldPrice: 130, rating: 4.6, reviews: 44,
-    badge: 'Sale', icon: '🩳',
-    img: 'images/joggers/joggers-2.jpg',
-    colors: ['#5c3a1e'], sizes: ['S','M','L','XL']
-  },
   {
     id: 12, name: 'Black Cargo Joggers', category: 'joggers',
     price: 115, oldPrice: null, rating: 4.8, reviews: 77,
@@ -103,49 +66,49 @@ const products = [
     id: 14, name: 'Olive Button-Down Shirt', category: 'longsleeves',
     price: 130, oldPrice: null, rating: 4.8, reviews: 53,
     badge: 'New', icon: '👔',
-    img: 'images/longsleeves/longsleeve-1.jpg',
+    img: 'images/fullset/longsleeve-1.jpg',
     colors: ['#4a6741'], sizes: ['S','M','L','XL','XXL']
   },
   {
     id: 15, name: 'Black Oxford Shirt', category: 'longsleeves',
     price: 125, oldPrice: 150, rating: 4.7, reviews: 67,
     badge: 'Sale', icon: '👔',
-    img: 'images/longsleeves/longsleeve-2.jpg',
+    img: 'images/fullset/longsleeve-2.jpg',
     colors: ['#1a1a1a'], sizes: ['S','M','L','XL']
   },
   {
     id: 16, name: 'Brown Zara Long Sleeve', category: 'longsleeves',
     price: 140, oldPrice: null, rating: 4.9, reviews: 42,
     badge: 'Bestseller', icon: '👔',
-    img: 'images/longsleeves/longsleeve-3.jpg',
+    img: 'images/fullset/longsleeve-3.jpg',
     colors: ['#7d4e1e'], sizes: ['S','M','L','XL']
   },
   {
     id: 17, name: 'White Classic Shirt', category: 'longsleeves',
     price: 120, oldPrice: null, rating: 4.6, reviews: 58,
     badge: null, icon: '👔',
-    img: 'images/longsleeves/longsleeve-4.jpg',
+    img: 'images/fullset/longsleeve-4.jpg',
     colors: ['#ffffff'], sizes: ['S','M','L','XL','XXL']
   },
   {
     id: 18, name: 'White Slim Fit Shirt', category: 'longsleeves',
     price: 115, oldPrice: 135, rating: 4.5, reviews: 34,
     badge: 'Sale', icon: '👔',
-    img: 'images/longsleeves/longsleeve-5.jpg',
+    img: 'images/fullset/longsleeve-5.jpg',
     colors: ['#ffffff'], sizes: ['S','M','L','XL']
   },
   {
     id: 19, name: 'White & Black Smart Shirt', category: 'longsleeves',
     price: 120, oldPrice: null, rating: 4.7, reviews: 49,
     badge: null, icon: '👔',
-    img: 'images/longsleeves/longsleeve-6.jpg',
+    img: 'images/fullset/longsleeve-6.jpg',
     colors: ['#ffffff','#1a1a1a'], sizes: ['S','M','L','XL']
   },
   {
     id: 20, name: 'Maroon Oxford Shirt', category: 'longsleeves',
     price: 130, oldPrice: null, rating: 4.8, reviews: 36,
     badge: 'New', icon: '👔',
-    img: 'images/longsleeves/longsleeve-7.jpg',
+    img: 'images/fullset/longsleeve-7.jpg',
     colors: ['#7b1a2e'], sizes: ['S','M','L','XL']
   },
 
@@ -188,13 +151,6 @@ const products = [
     colors: ['#b5a99a','#1a1a1a'], sizes: ['S','M','L','XL']
   },
   {
-    id: 26, name: 'Blue Elegant Suit Set', category: 'fullset',
-    price: 450, oldPrice: 550, rating: 4.8, reviews: 29,
-    badge: 'Sale', icon: '🧑‍🎤',
-    img: 'images/fullset/fullset-2.jpg',
-    colors: ['#1a2a5e','#3d5a80','#4a6fa5'], sizes: ['S','M','L','XL','XXL']
-  },
-  {
     id: 27, name: 'Brown Tee & Chinos Set', category: 'fullset',
     price: 220, oldPrice: null, rating: 4.7, reviews: 51,
     badge: null, icon: '🧑‍🎤',
@@ -223,7 +179,7 @@ const products = [
     colors: ['#1a1a1a','#c9a96e'], sizes: ['S','M','L','XL']
   },
   {
-    id: 31, name: 'Navy Ribbed Polo Set (Zara)', category: 'fullset',
+    id: 31, name: 'Navy Ribbed Polo Set', category: 'fullset',
     price: 300, oldPrice: null, rating: 4.9, reviews: 62,
     badge: 'Bestseller', icon: '🧑‍🎤',
     img: 'images/fullset/fullset-7.jpg',
@@ -251,13 +207,6 @@ const products = [
     colors: ['#a8d8ea','#ffffff'], sizes: ['S','M','L','XL']
   },
   {
-    id: 35, name: 'Business Casual Uniform Set', category: 'fullset',
-    price: 320, oldPrice: null, rating: 4.7, reviews: 39,
-    badge: null, icon: '🧑‍🎤',
-    img: 'images/fullset/fullset-11.jpg',
-    colors: ['#6b8cba','#1a1a1a','#888888'], sizes: ['S','M','L','XL']
-  },
-  {
     id: 36, name: 'White Tee & Grey Denim Set', category: 'fullset',
     price: 210, oldPrice: null, rating: 4.6, reviews: 43,
     badge: null, icon: '🧑‍🎤',
@@ -281,7 +230,7 @@ const products = [
 
   // ── CAPS ──────────────────────────────────────────────────────────────────
   {
-    id: 39, name: 'Fitted MLB Snapback Caps', category: 'caps',
+    id: 39, name: 'Fitted MLB Snapback Cap', category: 'caps',
     price: 90, oldPrice: null, rating: 4.7, reviews: 94,
     badge: 'Bestseller', icon: '🧢',
     img: 'images/caps/caps-1.jpg',
@@ -307,29 +256,6 @@ const products = [
     badge: 'New', icon: '🧢',
     img: 'images/caps/caps-4.jpg',
     colors: ['#2c6e49'], sizes: ['One Size']
-  },
-
-  // ── CROP TOPS ─────────────────────────────────────────────────────────────
-  {
-    id: 43, name: 'Black Graphic Crop Top', category: 'croptops',
-    price: 75, oldPrice: null, rating: 4.7, reviews: 66,
-    badge: 'New', icon: '👚',
-    img: 'images/croptops/croptop-1.jpg',
-    colors: ['#1a1a1a'], sizes: ['XS','S','M','L']
-  },
-  {
-    id: 44, name: '"Be Kind" Blue Crop Top', category: 'croptops',
-    price: 70, oldPrice: 85, rating: 4.8, reviews: 82,
-    badge: 'Sale', icon: '👚',
-    img: 'images/croptops/croptop-2.jpg',
-    colors: ['#a8d8ea'], sizes: ['XS','S','M','L']
-  },
-  {
-    id: 45, name: 'Pink Square-Neck Crop Top', category: 'croptops',
-    price: 72, oldPrice: null, rating: 4.9, reviews: 74,
-    badge: 'Bestseller', icon: '👚',
-    img: 'images/croptops/croptop-3.jpg',
-    colors: ['#f5c5c5'], sizes: ['XS','S','M','L']
   },
 
   // ── CUPS ──────────────────────────────────────────────────────────────────

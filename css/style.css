@@ -2098,124 +2098,227 @@ img[loading="lazy"] { transition: opacity .4s ease; }
 }
 
 /* ═══════════════════════════════════════════════════
-   KETSY v4 — Hero v2 Split Layout, Category Showcases,
-   Shop Customized nav, Customized SVG cards
+   KETSY v5 — Lookbook Hero, Category Showcases
    ═══════════════════════════════════════════════════ */
 
-/* ── Hero v2 (split: text left, image right) ── */
-.hero-v2 {
+/* ── Lookbook Hero ── */
+.hero-lb {
   position: relative;
+  height: 620px;
   overflow: hidden;
+  background: #0a0a0a;
 }
-.hero-v2-slides {
-  position: relative;
-}
-.hero-v2-slide {
+
+.hero-lb-slides { height: 100%; }
+
+.hero-lb-slide {
   display: none;
-  height: 420px;
-  position: relative;
-  overflow: hidden;
-  align-items: center;
-}
-.hero-v2-slide.active { display: flex; }
-.hero-v2-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--hero-bg1, #1A2744) 0%, var(--hero-bg2, #2D4A7A) 100%);
-  z-index: 0;
-}
-/* Decorative blob shape for depth */
-.hero-v2-bg::after {
-  content: '';
-  position: absolute;
-  right: -80px;
-  top: -80px;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.06);
-}
-.hero-v2-inner {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  width: 100%;
-  padding: 2.5rem 1.5rem;
   height: 100%;
-}
-.hero-v2-text { flex: 1; color: #fff; }
-.hero-v2-text .hero-tag {
-  background: rgba(255,255,255,.18);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.3);
-  backdrop-filter: blur(6px);
-  display: inline-block;
-  padding: .35rem 1rem;
-  border-radius: 20px;
-  font-size: .85rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-.hero-v2-text h1 {
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  font-weight: 800;
-  line-height: 1.15;
-  color: #fff;
-  margin-bottom: .9rem;
-}
-.hero-v2-text h1 span { color: var(--primary); }
-.hero-v2-text p { font-size: .98rem; color: rgba(255,255,255,.85); max-width: 380px; margin-bottom: 1.8rem; line-height: 1.6; }
-/* Product image on right */
-.hero-v2-img-wrap {
-  flex: 0 0 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
 }
-.hero-v2-img-frame {
-  width: 380px;
-  height: 500px;
-  border-radius: 24px;
+.hero-lb-slide.active { display: grid; grid-template-columns: 58% 42%; }
+
+/* Left: full-bleed product photo */
+.hero-lb-img {
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(0,0,0,.4), 0 0 0 4px rgba(255,255,255,.12);
-  background: rgba(255,255,255,.1);
 }
-.hero-v2-img-frame img {
+.hero-lb-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
   display: block;
+  transition: transform 8s ease;
 }
-.hero-v2-img-badge {
-  margin-top: .7rem;
+.hero-lb-slide.active .hero-lb-img img { transform: scale(1.04); }
+.hero-lb-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,.15) 60%, #0a0a0a 100%);
+}
+
+/* Right: text panel */
+.hero-lb-content {
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.5rem 3rem 3.5rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+/* Decorative large number watermark */
+.hero-lb-content::before {
+  content: attr(data-num);
+  position: absolute;
+  bottom: -1rem;
+  right: -1rem;
+  font-size: 14rem;
+  font-weight: 900;
+  color: rgba(255,255,255,.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-lb-eyebrow {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--primary);
+  border-left: 3px solid var(--primary);
+  padding-left: .75rem;
+  margin-bottom: 1.4rem;
+}
+
+.hero-lb-title {
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 900;
+  line-height: .95;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  margin-bottom: 1.4rem;
+}
+
+.hero-lb-desc {
+  font-size: .9rem;
+  color: rgba(255,255,255,.55);
+  max-width: 280px;
+  line-height: 1.7;
+  margin-bottom: 1.4rem;
+}
+
+.hero-lb-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.hero-lb-price {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.hero-lb-badge {
+  font-size: .72rem;
+  font-weight: 700;
   background: var(--primary);
   color: #fff;
-  font-weight: 700;
-  font-size: .88rem;
-  padding: .35rem .9rem;
+  padding: .3rem .8rem;
   border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(255,107,53,.4);
+  letter-spacing: .04em;
 }
-/* Arrow buttons reuse .hero-arrow from existing CSS */
-.hero-v2 .hero-arrow { z-index: 5; }
-.hero-v2 .hero-dots  { position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%); z-index: 5; }
-.hero-v2 .hero-dots .dot { background: rgba(255,255,255,.4); }
-.hero-v2 .hero-dots .dot.active { background: #fff; transform: scale(1.4); }
+
+.hero-lb-btns {
+  display: flex;
+  gap: .85rem;
+  flex-wrap: wrap;
+}
+
+.btn-ghost-white {
+  background: transparent;
+  color: rgba(255,255,255,.75);
+  border: 1.5px solid rgba(255,255,255,.25);
+  padding: .75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-size: .9rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: var(--transition);
+}
+.btn-ghost-white:hover {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  border-color: rgba(255,255,255,.5);
+}
+
+.hero-lb-counter {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  color: rgba(255,255,255,.3);
+}
+
+/* Arrow nav */
+.hero-lb-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: .9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.hero-lb-arrow:hover { background: var(--primary); border-color: var(--primary); }
+.hero-lb-prev { left: 1.5rem; }
+.hero-lb-next { right: 1.5rem; }
+
+/* Progress bar */
+.hero-lb-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255,255,255,.1);
+  z-index: 10;
+}
+.hero-lb-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+}
+
+/* Dot indicators */
+.hero-lb-dots {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 6px;
+}
+.hero-lb-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.3);
+  cursor: pointer;
+  transition: background .3s, transform .3s, width .3s;
+}
+.hero-lb-dot.active {
+  background: var(--primary);
+  width: 22px;
+  border-radius: 3px;
+}
+
 /* Mobile hero */
 @media (max-width: 720px) {
-  .hero-v2-slide { height: auto; min-height: 0; }
-  .hero-v2-inner { flex-direction: column-reverse; padding: 2rem 1rem 1.5rem; gap: 1rem; }
-  .hero-v2-img-wrap { flex: none; width: 100%; align-items: center; }
-  .hero-v2-img-frame { width: 220px; height: 290px; border-radius: 16px; }
-  .hero-v2-text { text-align: center; }
-  .hero-v2-text p { margin: 0 auto 1.2rem; }
-  .hero-btns { justify-content: center; }
-  .hero-v2-img-badge { font-size: .78rem; }
+  .hero-lb { height: auto; min-height: 0; }
+  .hero-lb-slide.active { grid-template-columns: 1fr; grid-template-rows: 320px auto; }
+  .hero-lb-content { padding: 2rem 1.5rem 3rem; }
+  .hero-lb-title { font-size: 2.6rem; }
+  .hero-lb-arrow { display: none; }
 }
 
 /* ── Category Showcase Grid ── */
@@ -2394,21 +2497,8 @@ img[loading="lazy"] { transition: opacity .4s ease; }
 }
 .customized-card:hover .customized-overlay { opacity: 1; }
 
-/* ── Remove old hero gap rule (now using hero-v2) ── */
+/* ── Legacy hero gap rule (kept for safety) ── */
 .hero-v2 { margin-bottom: 0; }
-
-/* ── Hero centered (no image) ── */
-.hero-v2-slide { height: 420px; }
-.hero-center {
-  justify-content: center;
-  text-align: center;
-}
-.hero-text-center {
-  max-width: 680px;
-  text-align: center;
-}
-.hero-text-center p { margin-left: auto; margin-right: auto; }
-.hero-btns-center { justify-content: center; }
 
 /* ── Featured Men Full Sets Section ── */
 .featured-fullset {
