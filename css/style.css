@@ -1532,5 +1532,386 @@ input, textarea, select, button { font-family: var(--font); }
 
 @media (max-width: 400px) {
   .categories-grid { grid-template-columns: repeat(2,1fr); }
-  .products-grid { grid-template-columns: 1fr; }
+  /* Keep 2 columns even on very small screens — looks more like a shop */
+  .products-grid { grid-template-columns: repeat(2,1fr); gap: 0.75rem; }
 }
+
+/* ===================================================================
+   KETSY v2 — PATCHES (product images, hero photos, WhatsApp, mobile)
+   =================================================================== */
+
+/* ----- Fix: Product card image area (used by renderProductCard) ----- */
+.product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f5f5f5;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+.product-card:hover .product-image img { transform: scale(1.06); }
+
+/* Overlay that appears on hover over a product card */
+.product-overlay {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  gap: .5rem;
+  padding: .75rem;
+  background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0));
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all .3s ease;
+  z-index: 3;
+}
+/* On mobile, always show the overlay since there is no hover */
+@media (hover: none) {
+  .product-overlay {
+    transform: none;
+    opacity: 1;
+    background: transparent;
+    position: static;
+    padding: 0 .75rem .75rem;
+  }
+  .product-card .product-overlay .btn {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+  .product-card .product-overlay .btn.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+}
+.product-card:hover .product-overlay { transform: translateY(0); opacity: 1; }
+.product-overlay .btn { flex: 1; padding: .55rem .75rem; font-size: .8rem; }
+.product-overlay .btn-outline { background: #fff; }
+
+/* Wishlist heart button */
+.wishlist-btn {
+  position: absolute;
+  top: .6rem;
+  right: .6rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,.92);
+  color: #555;
+  font-size: .95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  z-index: 4;
+  transition: var(--transition);
+}
+.product-badge { z-index: 4; }
+.wishlist-btn:hover { background: #fff; color: var(--danger); transform: scale(1.08); }
+.wishlist-btn.active { background: var(--danger); color: #fff; }
+
+/* Product badge variants used by products.js */
+.product-badge.badge-bestseller { background: var(--warning); color: #fff; }
+.product-badge.badge-sale        { background: var(--danger);  color: #fff; }
+.product-badge.badge-new         { background: var(--success); color: #fff; }
+.product-badge.badge-custom      { background: #7C3AED; color: #fff; }
+
+/* Color dots in product card */
+.product-colors {
+  display: flex;
+  gap: .35rem;
+  align-items: center;
+  margin-top: .35rem;
+}
+.color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.08) inset;
+}
+
+/* ----- HERO with real photos ----- */
+.hero { min-height: 540px; }
+
+.hero-slide.hero-photo {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  min-height: 540px;
+}
+.hero-slide.hero-photo .hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(.72);
+  transform: scale(1);
+  transition: transform 8s ease;
+}
+.hero-slide.hero-photo.active .hero-bg { transform: scale(1.08); }
+.hero-slide.hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(20,20,30,.72) 0%, rgba(20,20,30,.35) 55%, rgba(20,20,30,.05) 100%);
+  z-index: 1;
+}
+.hero-slide.hero-photo .container {
+  position: relative;
+  z-index: 2;
+  min-height: 540px;
+  padding: 4rem 1.5rem;
+}
+.hero-slide.hero-photo .hero-content { color: #fff; max-width: 640px; }
+.hero-slide.hero-photo .hero-tag {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.35);
+  backdrop-filter: blur(8px);
+}
+.hero-slide.hero-photo .hero-content h1 { color: #fff; font-size: clamp(2.2rem, 6vw, 4rem); }
+.hero-slide.hero-photo .hero-content h1 span { color: var(--primary); }
+.hero-slide.hero-photo .hero-content p { color: rgba(255,255,255,.9); font-size: 1.05rem; }
+
+/* Hide non-active slides */
+.hero-slides { position: relative; }
+.hero-slide {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  inset: 0;
+  transition: opacity .8s ease;
+}
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+/* Hero navigation arrows */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,.9);
+  color: var(--secondary);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  z-index: 5;
+  transition: var(--transition);
+}
+.hero-arrow:hover { background: var(--primary); color: #fff; }
+.hero-arrow.prev { left: 1rem; }
+.hero-arrow.next { right: 1rem; }
+
+.hero-dots .dot {
+  background: rgba(255,255,255,.5);
+}
+.hero-dots .dot.active { background: #fff; transform: scale(1.4); }
+
+/* ----- WhatsApp float button ----- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  left: 1.25rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 22px rgba(37,211,102,.45);
+  z-index: 900;
+  animation: waPulse 2.2s infinite;
+  text-decoration: none;
+}
+.whatsapp-float:hover { transform: translateY(-3px) scale(1.05); background: #1ebe57; }
+@keyframes waPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.55); }
+  70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+.whatsapp-float .wa-label {
+  position: absolute;
+  right: 68px;
+  background: #fff;
+  color: var(--secondary);
+  padding: .4rem .8rem;
+  border-radius: 20px;
+  font-size: .78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  transform: translateX(8px);
+  transition: var(--transition);
+  pointer-events: none;
+}
+.whatsapp-float:hover .wa-label { opacity: 1; transform: translateX(0); }
+
+/* ----- Trust / shipping badges row ----- */
+.trust-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1.25rem 0;
+  background: #fff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .5rem .75rem;
+  font-size: .82rem;
+  color: var(--text-light);
+}
+.trust-item i {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #FFF1EA;
+  color: var(--primary);
+  font-size: .95rem;
+  flex-shrink: 0;
+}
+.trust-item strong { display: block; color: var(--text); font-weight: 700; font-size: .88rem; margin-bottom: 2px; }
+
+/* ----- Better touch targets & mobile polish ----- */
+@media (max-width: 900px) {
+  .hero { min-height: 460px; }
+  .hero-slide.hero-photo,
+  .hero-slide.hero-photo .container { min-height: 460px; padding: 3rem 1.25rem; }
+  .hero-slide.hero-photo .hero-content h1 { font-size: 2.3rem; }
+  .hero-image { display: none; }
+
+  /* Keep the hero visible on mobile (was hidden before) */
+  .hero-slide.hero-photo { display: flex; }
+
+  .back-to-top { bottom: 5.5rem; right: 1rem; width: 42px; height: 42px; }
+  .whatsapp-float { bottom: 1rem; left: 1rem; width: 52px; height: 52px; font-size: 1.45rem; }
+
+  .icon-btn { padding: .4rem; }
+  .logo { font-size: 1.3rem; }
+
+  .trust-row { grid-template-columns: repeat(2, 1fr); gap: .5rem; padding: 1rem .5rem; }
+  .trust-item { font-size: .76rem; padding: .35rem .5rem; }
+
+  .hero-arrow { width: 36px; height: 36px; font-size: .85rem; }
+  .hero-arrow.prev { left: .5rem; }
+  .hero-arrow.next { right: .5rem; }
+}
+
+@media (max-width: 600px) {
+  .product-info { padding: .75rem; }
+  .product-name { font-size: .86rem; line-height: 1.3; }
+  .price-current { font-size: .95rem; }
+  .product-badge { font-size: .65rem; padding: .15rem .5rem; }
+  .product-overlay { padding: .5rem; gap: .3rem; }
+  .product-overlay .btn { font-size: .72rem; padding: .4rem .5rem; }
+  .wishlist-btn { width: 32px; height: 32px; font-size: .8rem; top: .4rem; right: .4rem; }
+
+  .hero-content h1 { font-size: 2rem; }
+  .hero-slide.hero-photo .hero-content h1 { font-size: 2rem; line-height: 1.15; }
+  .hero-slide.hero-photo .hero-content p { font-size: .95rem; }
+  .hero-slide.hero-photo .container { padding: 2.5rem 1rem; }
+
+  .btn { padding: .65rem 1.25rem; font-size: .9rem; }
+
+  .section { padding: 3rem 0; }
+  .section-header h2 { font-size: 1.4rem; }
+
+  .features-strip .container { gap: 1.5rem; padding-left: 1rem; padding-right: 1rem; }
+  .feature-item { gap: .5rem; }
+  .feature-item i { font-size: 1.2rem; }
+  .feature-item strong { font-size: .8rem; }
+  .feature-item span { font-size: .68rem; }
+
+  .announcement-bar { font-size: .72rem; padding: .5rem; }
+}
+
+/* Safe-area padding for phones with notches */
+@supports (padding: max(0px)) {
+  .header .container,
+  .container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  .whatsapp-float { left: max(1rem, env(safe-area-inset-left)); }
+  .back-to-top    { right: max(1rem, env(safe-area-inset-right)); }
+}
+
+/* Improve tap highlight */
+a, button { -webkit-tap-highlight-color: rgba(255,107,53,.15); }
+
+/* Lazy-loaded image fade-in */
+img[loading="lazy"] { transition: opacity .4s ease; }
+
+/* ----- Announcement bar: marquee on very small screens ----- */
+@media (max-width: 600px) {
+  .announcement-bar { white-space: nowrap; overflow: hidden; }
+}
+
+/* ----- Improve mobile nav ----- */
+@media (max-width: 900px) {
+  .nav { padding: 2rem; }
+  .nav-list { gap: 1rem !important; }
+  .nav-list .nav-link {
+    padding: .6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 1.05rem;
+    display: inline-block;
+  }
+  .nav-list .nav-link.active { background: var(--primary); color: #fff; }
+  .dropdown-menu { text-align: center; margin-top: .5rem; }
+  .dropdown-menu a { padding: .35rem 0; font-size: .95rem; }
+}
+
+/* ----- Product card polish ----- */
+.product-card { display: flex; flex-direction: column; }
+.product-card .product-info { display: flex; flex-direction: column; flex: 1; }
+.product-card a.product-name { color: inherit; }
+.product-card a.product-name:hover { color: var(--primary); }
+
+/* Stars for product rating in card */
+.product-rating .stars {
+  letter-spacing: 1px;
+  font-size: .85rem;
+}
+
+/* Sale strikethrough color */
+.price-old {
+  font-size: .8rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  margin-left: .3rem;
+}
+
+/* Toast — make visible over the WhatsApp float */
+.toast { z-index: 2000; }
+

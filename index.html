@@ -2,12 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ketsy Store – Fashion & Custom Gifts</title>
-  <meta name="description" content="Shop the latest t-shirts, joggers, shorts, caps, cups, ladies crop tops and customized frames at Ketsy Store."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#FF6B35"/>
+  <title>Ketsy Store – Fashion & Custom Gifts in Ghana</title>
+  <meta name="description" content="Shop the latest t-shirts, joggers, shorts, hoodies, caps, cups, ladies crop tops and customized frames. Pay with Mobile Money. Fast delivery across Ghana."/>
+  <meta name="keywords" content="Ketsy Store, Ghana fashion, custom t-shirts Ghana, joggers, hoodies, caps, custom mugs, custom frames, mobile money shopping"/>
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="Ketsy Store – Fashion & Custom Gifts"/>
+  <meta property="og:description" content="Trendy fashion and personalized gifts in Ghana. Pay with Mobile Money."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="images/fullset/fullset-9.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <link rel="icon" type="image/png" href="images/tshirts/tshirt-1.jpg"/>
+  <link rel="apple-touch-icon" href="images/tshirts/tshirt-1.jpg"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com"/>
+
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Ketsy Store",
+    "description": "Fashion & custom gifts in Ghana",
+    "paymentAccepted": ["Mobile Money", "MTN MoMo", "Telecel Cash"],
+    "areaServed": "Ghana"
+  }
+  </script>
 </head>
 <body>
 
@@ -80,30 +109,100 @@
   </div>
 </aside>
 
-<!-- ===== HERO SECTION ===== -->
+<!-- ===== HERO SECTION (photo carousel) ===== -->
 <section class="hero">
-  <div class="hero-slides">
-    <div class="hero-slide active" style="background: linear-gradient(135deg,#FF6B35 0%,#F7C59F 100%);">
-      <div class="hero-content">
-        <span class="hero-tag">New Arrivals 🔥</span>
-        <h1>Wear Your <br><span>Style</span></h1>
-        <p>Discover our fresh collection of t-shirts, joggers, shorts and more.</p>
-        <div class="hero-btns">
-          <a href="shop.html" class="btn btn-primary">Shop Now</a>
-          <a href="custom-order.html" class="btn btn-outline-white">Custom Order</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <div class="hero-shape">
-          <i class="fas fa-tshirt hero-icon"></i>
+  <div class="hero-slides" id="hero-slides">
+
+    <div class="hero-slide hero-photo active">
+      <div class="hero-bg" style="background-image:url('images/fullset/fullset-9.jpg')"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-tag">🔥 New Arrivals</span>
+          <h1>Wear Your <br><span>Style</span></h1>
+          <p>Premium t-shirts, joggers, hoodies and matching sets — delivered across Ghana.</p>
+          <div class="hero-btns">
+            <a href="shop.html" class="btn btn-primary">Shop Now</a>
+            <a href="custom-order.html" class="btn btn-outline-white">Customize</a>
+          </div>
         </div>
       </div>
     </div>
+
+    <div class="hero-slide hero-photo">
+      <div class="hero-bg" style="background-image:url('images/croptops/croptop-3.jpg')"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-tag">💖 For The Ladies</span>
+          <h1>Bold, Bright &amp; <span>Beautiful</span></h1>
+          <p>Fresh crop tops, vibrant prints — designed to stand out.</p>
+          <div class="hero-btns">
+            <a href="shop.html?cat=croptops" class="btn btn-primary">Shop Crop Tops</a>
+            <a href="custom-order.html?type=croptop" class="btn btn-outline-white">Custom Design</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide hero-photo">
+      <div class="hero-bg" style="background-image:url('images/hoodies/hoodie-1.jpg')"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-tag">🧥 Cozy Season</span>
+          <h1>Hoodies That <span>Hit Different</span></h1>
+          <p>Premium fleece hoodies, graphic tees and everyday essentials.</p>
+          <div class="hero-btns">
+            <a href="shop.html?cat=hoodies" class="btn btn-primary">Shop Hoodies</a>
+            <a href="shop.html" class="btn btn-outline-white">Browse All</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide hero-photo">
+      <div class="hero-bg" style="background-image:url('images/caps/caps-1.jpg')"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-tag">🎨 Personalized Gifts</span>
+          <h1>Make It <span>Yours</span></h1>
+          <p>Custom frames, mugs, caps & tees — design it, we make it.</p>
+          <div class="hero-btns">
+            <a href="custom-order.html" class="btn btn-primary">Place Custom Order</a>
+            <a href="shop.html?cat=caps" class="btn btn-outline-white">Shop Caps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <div class="hero-dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
+
+  <button class="hero-arrow prev" id="hero-prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+  <button class="hero-arrow next" id="hero-next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+
+  <div class="hero-dots" id="hero-dots">
+    <span class="dot active" data-slide="0"></span>
+    <span class="dot" data-slide="1"></span>
+    <span class="dot" data-slide="2"></span>
+    <span class="dot" data-slide="3"></span>
+  </div>
+</section>
+
+<!-- ===== TRUST / SHIPPING BADGES ===== -->
+<section class="trust-row">
+  <div class="trust-item">
+    <i class="fas fa-shipping-fast"></i>
+    <div><strong>Free Delivery</strong>Orders above GHS 200</div>
+  </div>
+  <div class="trust-item">
+    <i class="fas fa-mobile-alt"></i>
+    <div><strong>Mobile Money</strong>MTN &amp; Telecel</div>
+  </div>
+  <div class="trust-item">
+    <i class="fas fa-shield-alt"></i>
+    <div><strong>Secure Checkout</strong>Safe &amp; reliable</div>
+  </div>
+  <div class="trust-item">
+    <i class="fas fa-headset"></i>
+    <div><strong>24/7 Support</strong>Via WhatsApp</div>
   </div>
 </section>
 
@@ -392,8 +491,16 @@
   <i class="fas fa-chevron-up"></i>
 </button>
 
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/233000000000?text=Hi%20Ketsy%20Store%2C%20I%27d%20like%20to%20order%20something."
+   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-label">Chat with us</span>
+</a>
+
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/main.js"></script>
+<script src="js/hero.js"></script>
 </body>
 </html>

@@ -217,12 +217,22 @@ function initProductPage() {
   const colorSwatches = product.colors.map(c => `<span class="color-swatch" style="background:${c}" onclick="selectColor(this)" title="${c}"></span>`).join('');
   const badge = product.badge ? `<span class="product-badge ${product.badge === 'Sale' ? 'sale' : 'new'}">${product.badge}</span>` : '';
 
+  const mainMedia = product.img
+    ? `<img src="${product.img}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`
+    : `${product.icon}`;
+
   root.innerHTML = `
     <div class="product-detail-grid">
       <div class="product-gallery">
-        <div class="gallery-main" id="gallery-main">${product.icon}</div>
+        <div class="gallery-main" id="gallery-main" style="position:relative;overflow:hidden">${mainMedia}</div>
         <div class="gallery-thumbs">
-          ${[1,2,3,4].map(i => `<div class="gallery-thumb ${i===1?'active':''}" onclick="selectThumb(this)">${product.icon}</div>`).join('')}
+          ${[1,2,3,4].map(i => `
+            <div class="gallery-thumb ${i===1?'active':''}" onclick="selectThumb(this)" style="position:relative;overflow:hidden">
+              ${product.img
+                ? `<img src="${product.img}" alt="" style="width:100%;height:100%;object-fit:cover">`
+                : product.icon}
+            </div>
+          `).join('')}
         </div>
       </div>
       <div class="product-detail-info">

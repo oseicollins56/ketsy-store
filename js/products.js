@@ -364,11 +364,11 @@ const products = [
 // ─── Render a single product card ──────────────────────────────────────────
 function renderProductCard(product) {
   const imgHTML = product.img
-    ? `<img src="${product.img}" alt="${product.name}"
-           style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:inherit"
-           onerror="this.style.display='none';document.getElementById('icon-${product.id}').style.display='flex'">
-       <span id="icon-${product.id}" style="display:none;font-size:4rem;width:100%;height:100%;align-items:center;justify-content:center;position:absolute;inset:0">${product.icon}</span>`
-    : `<span style="font-size:4rem;width:100%;height:100%;display:flex;align-items:center;justify-content:center">${product.icon}</span>`;
+    ? `<img src="${product.img}" alt="${product.name}" loading="lazy"
+           onerror="this.style.display='none';var s=document.getElementById('icon-${product.id}');if(s){s.style.display='flex'}">
+       <span id="icon-${product.id}"
+             style="display:none;font-size:4rem;position:absolute;inset:0;align-items:center;justify-content:center;background:#f5f5f5;color:#bbb">${product.icon}</span>`
+    : `<span style="font-size:4rem;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#f5f5f5;color:#bbb">${product.icon}</span>`;
 
   const categoryLabel = {
     tshirts:'T-Shirts', shorts:'Shorts', joggers:'Joggers',
@@ -378,18 +378,19 @@ function renderProductCard(product) {
 
   return `
   <div class="product-card" data-id="${product.id}" data-category="${product.category}" data-price="${product.price}">
-    <div class="product-image" style="position:relative;overflow:hidden;background:#f8f8f8">
+    <div class="product-image">
+      <a href="product.html?id=${product.id}" class="product-image-link" aria-label="${product.name}" style="position:absolute;inset:0;z-index:1"></a>
       ${imgHTML}
       ${product.badge ? `<span class="product-badge badge-${product.badge.toLowerCase().replace(/\s/g,'-')}">${product.badge}</span>` : ''}
       <div class="product-overlay">
-        <button class="btn btn-primary btn-sm quick-add" data-id="${product.id}">
-          <i class="fas fa-shopping-cart"></i> Add to Cart
+        <button class="btn btn-primary btn-sm quick-add" data-id="${product.id}" type="button">
+          <i class="fas fa-shopping-cart"></i> Add
         </button>
         <a href="product.html?id=${product.id}" class="btn btn-outline btn-sm">
           <i class="fas fa-eye"></i> View
         </a>
       </div>
-      <button class="wishlist-btn ${isWishlisted(product.id) ? 'active' : ''}" data-id="${product.id}" title="Wishlist">
+      <button class="wishlist-btn ${isWishlisted(product.id) ? 'active' : ''}" data-id="${product.id}" title="Wishlist" type="button">
         <i class="fa${isWishlisted(product.id) ? 's' : 'r'} fa-heart"></i>
       </button>
     </div>
@@ -445,23 +446,27 @@ function bindProductCardEvents(container) {
   container.querySelectorAll('.quick-add').forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
-      const p = products.find(x => x.id === +btn.dataset.id);
-      if (p && typeof addToCart === 'function') addToCart(p);
+      e.stopPropagation();
+      const id = +btn.dataset.id;
+      if (typeof addToCart === 'function') addToCart(id);
     });
   });
   container.querySelectorAll('.wishlist-btn').forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
+      e.stopPropagation();
       const id = +btn.dataset.id;
       let w = JSON.parse(localStorage.getItem('ketsy_wishlist') || '[]');
       if (w.includes(id)) {
         w = w.filter(x => x !== id);
         btn.classList.remove('active');
         btn.innerHTML = '<i class="far fa-heart"></i>';
+        if (typeof showToast === 'function') showToast('Removed from wishlist', '');
       } else {
         w.push(id);
         btn.classList.add('active');
         btn.innerHTML = '<i class="fas fa-heart"></i>';
+        if (typeof showToast === 'function') showToast('💖 Added to wishlist!', 'success');
       }
       localStorage.setItem('ketsy_wishlist', JSON.stringify(w));
       document.querySelectorAll('#wishlist-count').forEach(el => el.textContent = w.length);
@@ -471,3 +476,35 @@ function bindProductCardEvents(container) {
 
 // Keep backward-compatible alias (some pages may reference PRODUCTS)
 const PRODUCTS = products;
+
+// ─── Helpers referenced by cart.js / main.js ───────────────────────────────
+function getProductById(id) {
+  const n = typeof id === 'string' ? parseInt(id, 10) : id;
+  const p = products.find(x => x.id === n);
+  if (!p) return null;
+  // Attach a few handy display fields so other pages don't crash
+  const labelMap = {
+    tshirts:'T-Shirts', shorts:'Shorts', joggers:'Joggers',
+    longsleeves:'Long Sleeves', hoodies:'Hoodies', fullset:'Men Full Set',
+    caps:'Caps', cups:'Cups', croptops:'Crop Tops', frames:'Frames'
+  };
+  return {
+    ...p,
+    categoryLabel: labelMap[p.category] || p.category,
+    inStock: true,
+    description: p.description || `${p.name} — premium quality, available in multiple sizes and colors. Delivered across Ghana with fast, reliable shipping from Ketsy Store.`,
+    originalPrice: p.oldPrice || null
+  };
+}
+
+function getProductsByCategory(category) {
+  if (!category || category === 'all') return products.slice();
+  return products.filter(p => p.category === category);
+}
+
+function renderStars(rating) {
+  const full = Math.floor(rating);
+  const half = (rating - full) >= 0.5 ? 1 : 0;
+  const empty = 5 - full - half;
+  return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
+}
