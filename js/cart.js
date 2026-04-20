@@ -62,18 +62,19 @@ function updateCartUI() {
     itemsEl.innerHTML = `<div class="cart-empty"><i class="fas fa-shopping-bag"></i><p>Your cart is empty</p></div>`;
     if (footerEl) footerEl.style.display = 'none';
   } else {
-    itemsEl.innerHTML = cart.map(item => `
-      <div class="cart-item">
+    // Use data attributes to avoid quoting issues with variants containing special chars
+    itemsEl.innerHTML = cart.map((item, idx) => `
+      <div class="cart-item" data-cart-idx="${idx}">
         <div class="cart-item-img">${item.icon}</div>
         <div class="cart-item-info">
           <p class="cart-item-name">${item.name}</p>
-          <p class="cart-item-variant">${item.variant || item.category}</p>
+          <p class="cart-item-variant">${item.variant || item.category || ''}</p>
           <div class="cart-item-actions">
-            <button class="qty-btn" onclick="updateQty(${item.id}, '${item.variant}', -1)">−</button>
+            <button class="qty-btn" data-action="dec" data-idx="${idx}">−</button>
             <span class="qty-value">${item.qty}</span>
-            <button class="qty-btn" onclick="updateQty(${item.id}, '${item.variant}', 1)">+</button>
+            <button class="qty-btn" data-action="inc" data-idx="${idx}">+</button>
             <span class="cart-item-price">GHS ${(item.price * item.qty).toFixed(2)}</span>
-            <button class="remove-item" onclick="removeFromCart(${item.id}, '${item.variant}')"><i class="fas fa-trash-alt"></i></button>
+            <button class="remove-item" data-action="remove" data-idx="${idx}"><i class="fas fa-trash-alt"></i></button>
           </div>
         </div>
       </div>
@@ -96,7 +97,7 @@ function closeCart() {
 }
 
 // Wishlist (simple)
-let wishlist = JSON.parse(localStorage.getItem('ketsyWishlist') || '[]');
+let wishlist = JSON.parse(localStorage.getItem('ketsy_wishlist') || '[]');
 
 function addToWishlist(productId) {
   const product = getProductById(productId);
@@ -106,15 +107,27 @@ function addToWishlist(productId) {
     return;
   }
   wishlist.push(productId);
-  localStorage.setItem('ketsyWishlist', JSON.stringify(wishlist));
+  localStorage.setItem('ketsy_wishlist', JSON.stringify(wishlist));
   const wCount = document.getElementById('wishlist-count');
   if (wCount) wCount.textContent = wishlist.length;
   showToast(`❤️ Added "${product.name}" to wishlist!`);
 }
 
-// Init wishlist count
+// Init wishlist count + cart item event delegation
 document.addEventListener('DOMContentLoaded', () => {
   const wCount = document.getElementById('wishlist-count');
   if (wCount) wCount.textContent = wishlist.length;
   updateCartUI();
+
+  // Event delegation for cart item buttons (qty / remove)
+  document.getElementById('cart-items')?.addEventListener('click', e => {
+    const btn = e.target.closest('[data-action]');
+    if (!btn) return;
+    const idx = parseInt(btn.dataset.idx, 10);
+    if (isNaN(idx) || !cart[idx]) return;
+    const action = btn.dataset.action;
+    if (action === 'inc')    { cart[idx].qty = Math.min(99, cart[idx].qty + 1); saveCart(); }
+    if (action === 'dec')    { cart[idx].qty = Math.max(1,  cart[idx].qty - 1); saveCart(); }
+    if (action === 'remove') { cart.splice(idx, 1); saveCart(); }
+  });
 });

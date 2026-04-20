@@ -94,6 +94,39 @@ Your GitHub repository and GitHub Pages site will update automatically.
 
 
 ====================================================
+ ROUND 5 UPDATE – Push Commands
+ (Sizes, Frame Gallery, Hero Fix, Bug Fixes)
+====================================================
+
+Run these commands in your Terminal to push the latest update:
+
+  git add .
+  git commit -m "Update: size selectors on shirts, frame swipe gallery, hero fix, bug fixes"
+  git push
+
+What changed in this update:
+  • js/products.js  — Size pills on all apparel product cards (S/M/L/XL)
+  • js/products.js  — Color dot active selection on product cards
+  • js/products.js  — Frame gallery: 5 swipeable style options per frame
+  • js/products.js  — New frame product: Collage Memory Frame (#50)
+  • js/products.js  — frameNav() function for frame gallery navigation
+  • js/products.js  — Quick-add now captures selected size + color
+  • js/main.js      — Featured products now calls bindProductCardEvents (bug fix)
+  • js/main.js      — Shop page price range raised to GHS 600 (was 300)
+  • js/main.js      — Shop grid now binds card events after render (bug fix)
+  • js/cart.js      — Fixed wishlist localStorage key mismatch (bug fix)
+  • js/cart.js      — Cart buttons use event delegation (safer, no quote issues)
+  • index.html      — Hero reduced to 3 rotating slides (was 4)
+  • index.html      — Removed duplicate features-strip (gap fix)
+  • shop.html       — Added Crop Tops, Caps, Cups, Frames filter buttons
+  • shop.html       — Price range max raised to GHS 600
+  • css/style.css   — Size pill styles (.card-size-btn)
+  • css/style.css   — Frame gallery styles (.frame-gallery, .frame-nav, etc.)
+  • css/style.css   — Men Full Set image: object-position top, taller aspect ratio
+  • css/style.css   — Color dot active ring style
+  • css/style.css   — Hero gap fix between hero and trust row
+
+====================================================
  ROUND 4 UPDATE – Push Commands
  (Added: Long Sleeves, Hoodies, Men Full Set)
 ====================================================
@@ -160,14 +193,17 @@ ketsy-store/
 
 ✅ 10 Product Categories (T-Shirts, Shorts, Joggers, Long Sleeves,
    Hoodies, Men Full Set, Caps, Cups, Crop Tops, Frames)
-✅ 36 Products with ratings, badges, variants
-✅ Shopping Cart with quantity controls
+✅ 50 Products with ratings, badges, variants
+✅ Size selector pills on every apparel product card (S/M/L/XL)
+✅ Color swatch selection on every product card
+✅ Frame swipe gallery — 5 style options per frame (swipe to choose)
+✅ Shopping Cart with quantity controls (safe event delegation)
 ✅ Wishlist functionality
 ✅ Product Detail pages with size/color selection
 ✅ Checkout page with Mobile Money (MTN MoMo + Telecel Cash)
 ✅ Promo code support (try KETSY10)
 ✅ Custom Order request form
-✅ Shop page with filters and sorting
+✅ Shop page with ALL category filters and sorting (price up to GHS 600)
 ✅ About, Contact, and FAQ pages
 ✅ Newsletter subscription
 ✅ Fully responsive (mobile, tablet, desktop)
@@ -176,6 +212,7 @@ ketsy-store/
 ✅ Announcement bar
 ✅ Toast notifications & success modals
 ✅ Back-to-top button
+✅ Men Full Set images show full outfit (portrait crop, top-aligned)
 
 
 ====================================================

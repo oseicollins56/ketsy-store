@@ -332,43 +332,67 @@ const products = [
     colors: ['#f5c5c5'], sizes: ['XS','S','M','L']
   },
 
-  // ── CUPS (add images when available) ──────────────────────────────────────
+  // ── CUPS ──────────────────────────────────────────────────────────────────
   {
     id: 46, name: 'Custom Printed Mug', category: 'cups',
     price: 55, oldPrice: null, rating: 4.6, reviews: 38,
     badge: 'Custom', icon: '☕', img: null,
-    colors: ['#ffffff','#1a1a1a'], sizes: ['11oz','15oz']
+    colors: ['#ffffff','#1a1a1a','#c0392b','#2d3142'], sizes: ['11oz','15oz']
   },
   {
     id: 47, name: 'Travel Tumbler', category: 'cups',
     price: 75, oldPrice: null, rating: 4.7, reviews: 29,
     badge: null, icon: '🥤', img: null,
-    colors: ['#1a1a1a','#c0392b','#2d3142'], sizes: ['16oz','20oz']
+    colors: ['#1a1a1a','#c0392b','#2d3142','#4ECDC4'], sizes: ['16oz','20oz']
   },
 
-  // ── FRAMES (add images when available) ────────────────────────────────────
+  // ── FRAMES ────────────────────────────────────────────────────────────────
   {
     id: 48, name: 'Custom Photo Frame', category: 'frames',
     price: 120, oldPrice: null, rating: 4.8, reviews: 45,
     badge: 'Custom', icon: '🖼️', img: null,
-    colors: ['#1a1a1a','#c9a96e','#ffffff'], sizes: ['4×6','5×7','8×10']
+    colors: ['#1a1a1a','#c9a96e','#ffffff'], sizes: ['4×6','5×7','8×10'],
+    frameStyles: [
+      { name: 'Classic Wood',  bg: 'linear-gradient(135deg,#6B4B1A,#C49A2A)', border: '#4A3010', inner: '#F5EFE0' },
+      { name: 'Sleek Black',   bg: 'linear-gradient(135deg,#1a1a1a,#3d3d3d)', border: '#000',    inner: '#f5f5f5' },
+      { name: 'Rose Gold',     bg: 'linear-gradient(135deg,#C28A6B,#E8B89A)', border: '#8B5E3C', inner: '#FFF5F0' },
+      { name: 'White Modern',  bg: 'linear-gradient(135deg,#f0f0f0,#ddd)',    border: '#bbb',    inner: '#fff'    },
+      { name: 'Rustic Brown',  bg: 'linear-gradient(135deg,#5C3A1E,#8B6040)', border: '#3A2010', inner: '#FFF8F0' }
+    ]
   },
   {
     id: 49, name: 'LED Light Frame', category: 'frames',
     price: 180, oldPrice: 220, rating: 4.9, reviews: 31,
     badge: 'Sale', icon: '🖼️', img: null,
-    colors: ['#1a1a1a','#ffffff'], sizes: ['5×7','8×10']
+    colors: ['#1a1a1a','#ffffff','#c0392b','#2d6e9e'], sizes: ['5×7','8×10','10×12'],
+    frameStyles: [
+      { name: 'LED Warm Gold', bg: 'linear-gradient(135deg,#1a1200,#3d2800)', border: '#FFD700',  inner: '#0d0d0d', glow: '#FFD700' },
+      { name: 'LED Cool Blue', bg: 'linear-gradient(135deg,#000d1a,#001a33)', border: '#00BFFF',  inner: '#050505', glow: '#00BFFF' },
+      { name: 'LED Red Neon',  bg: 'linear-gradient(135deg,#1a0000,#330000)', border: '#FF2222',  inner: '#0d0000', glow: '#FF2222' },
+      { name: 'LED Pink',      bg: 'linear-gradient(135deg,#1a001a,#330033)', border: '#FF69B4',  inner: '#0d000d', glow: '#FF69B4' },
+      { name: 'LED Green',     bg: 'linear-gradient(135deg,#001a00,#003300)', border: '#39FF14',  inner: '#000d00', glow: '#39FF14' }
+    ]
+  },
+  {
+    id: 50, name: 'Collage Memory Frame', category: 'frames',
+    price: 145, oldPrice: null, rating: 4.7, reviews: 22,
+    badge: 'New', icon: '🖼️', img: null,
+    colors: ['#1a1a1a','#c9a96e','#4a6741'], sizes: ['8×10','A4','A3'],
+    frameStyles: [
+      { name: 'Gold Ornate',   bg: 'linear-gradient(135deg,#7A5C10,#D4A820)', border: '#C4901A', inner: '#FAF0D0' },
+      { name: 'Silver Metal',  bg: 'linear-gradient(135deg,#555,#999)',        border: '#888',    inner: '#f8f8f8' },
+      { name: 'Dark Walnut',   bg: 'linear-gradient(135deg,#2d1a0e,#5C3A1E)', border: '#1a0d00', inner: '#FFF8F0' },
+      { name: 'Bright White',  bg: 'linear-gradient(135deg,#f8f8f8,#e8e8e8)', border: '#ccc',    inner: '#fff'    },
+      { name: 'Navy Blue',     bg: 'linear-gradient(135deg,#0d1a2d,#1a2d4a)', border: '#2d4a6e', inner: '#f5f8ff' }
+    ]
   }
 ];
 
 // ─── Render a single product card ──────────────────────────────────────────
 function renderProductCard(product) {
-  const imgHTML = product.img
-    ? `<img src="${product.img}" alt="${product.name}" loading="lazy"
-           onerror="this.style.display='none';var s=document.getElementById('icon-${product.id}');if(s){s.style.display='flex'}">
-       <span id="icon-${product.id}"
-             style="display:none;font-size:4rem;position:absolute;inset:0;align-items:center;justify-content:center;background:#f5f5f5;color:#bbb">${product.icon}</span>`
-    : `<span style="font-size:4rem;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#f5f5f5;color:#bbb">${product.icon}</span>`;
+  const APPAREL_CATS = ['tshirts','shorts','joggers','longsleeves','hoodies','croptops','fullset'];
+  const isApparel   = APPAREL_CATS.includes(product.category);
+  const isFrame     = product.category === 'frames';
 
   const categoryLabel = {
     tshirts:'T-Shirts', shorts:'Shorts', joggers:'Joggers',
@@ -376,12 +400,84 @@ function renderProductCard(product) {
     caps:'Caps', cups:'Cups', croptops:'Crop Tops', frames:'Frames'
   }[product.category] || product.category;
 
+  // ── image / media area ──────────────────────────────────────────────────
+  let imgHTML;
+
+  if (isFrame && product.frameStyles && product.frameStyles.length) {
+    // Swipeable frame-style gallery
+    const slides = product.frameStyles.map((s, i) => {
+      const glowStyle = s.glow
+        ? `box-shadow:0 0 12px 3px ${s.glow},0 0 24px 6px ${s.glow}40;`
+        : '';
+      return `
+      <div class="frame-slide ${i === 0 ? 'active' : ''}" style="background:${s.bg}">
+        <div class="frame-preview-wrap">
+          <div class="frame-border-box" style="border-color:${s.border};${glowStyle}">
+            <div class="frame-inner" style="background:${s.inner}">
+              <i class="fas fa-image" style="font-size:1.4rem;color:#bbb"></i>
+            </div>
+          </div>
+        </div>
+        <span class="frame-style-label">${s.name}</span>
+      </div>`;
+    }).join('');
+
+    const dots = product.frameStyles.map((_,i) =>
+      `<span class="fdot${i===0?' active':''}"></span>`
+    ).join('');
+
+    imgHTML = `
+    <div class="frame-gallery" id="fg-${product.id}" data-current="0" data-total="${product.frameStyles.length}">
+      <div class="frame-slides-track">${slides}</div>
+      <button class="frame-nav frame-nav-prev" onclick="frameNav(event,'${product.id}',-1)" aria-label="Previous style">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="frame-nav frame-nav-next" onclick="frameNav(event,'${product.id}',1)" aria-label="Next style">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="frame-dots">${dots}</div>
+    </div>`;
+
+  } else if (product.img) {
+    const posStyle = product.category === 'fullset' ? 'object-position:top center;' : '';
+    imgHTML = `
+    <img src="${product.img}" alt="${product.name}" loading="lazy" style="${posStyle}"
+         onerror="this.style.display='none';var s=document.getElementById('icon-${product.id}');if(s)s.style.display='flex'">
+    <span id="icon-${product.id}"
+          style="display:none;font-size:4rem;position:absolute;inset:0;align-items:center;justify-content:center;background:#f5f5f5;color:#bbb">${product.icon}</span>`;
+  } else {
+    imgHTML = `<span style="font-size:4rem;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#f5f5f5;color:#bbb">${product.icon}</span>`;
+  }
+
+  // ── size pills (apparel only) ────────────────────────────────────────────
+  let sizesHTML = '';
+  if (isApparel && product.sizes && product.sizes.length) {
+    sizesHTML = `
+    <div class="card-sizes" role="group" aria-label="Select size">
+      ${product.sizes.map((s, i) =>
+        `<button class="card-size-btn${i===0?' active':''}" data-size="${s}" type="button" aria-label="Size ${s}">${s}</button>`
+      ).join('')}
+    </div>`;
+  }
+
+  // ── color dots ───────────────────────────────────────────────────────────
+  let colorsHTML = '';
+  if (product.colors && product.colors.length) {
+    colorsHTML = `
+    <div class="product-colors">
+      ${product.colors.map((c,i) =>
+        `<span class="color-dot${i===0?' active':''}" data-color="${c}" style="background:${c};border:${(c==='#ffffff'||c==='#f5f0e8'||c==='#f5f5f5')?'1.5px solid #ddd':'none'}" title="${c}"></span>`
+      ).join('')}
+    </div>`;
+  }
+
   return `
   <div class="product-card" data-id="${product.id}" data-category="${product.category}" data-price="${product.price}">
-    <div class="product-image">
-      <a href="product.html?id=${product.id}" class="product-image-link" aria-label="${product.name}" style="position:absolute;inset:0;z-index:1"></a>
+    <div class="product-image${isFrame?' product-image--frame':''}">
+      ${!isFrame ? `<a href="product.html?id=${product.id}" class="product-image-link" aria-label="View ${product.name}" style="position:absolute;inset:0;z-index:1"></a>` : ''}
       ${imgHTML}
       ${product.badge ? `<span class="product-badge badge-${product.badge.toLowerCase().replace(/\s/g,'-')}">${product.badge}</span>` : ''}
+      ${!isFrame ? `
       <div class="product-overlay">
         <button class="btn btn-primary btn-sm quick-add" data-id="${product.id}" type="button">
           <i class="fas fa-shopping-cart"></i> Add
@@ -389,8 +485,8 @@ function renderProductCard(product) {
         <a href="product.html?id=${product.id}" class="btn btn-outline btn-sm">
           <i class="fas fa-eye"></i> View
         </a>
-      </div>
-      <button class="wishlist-btn ${isWishlisted(product.id) ? 'active' : ''}" data-id="${product.id}" title="Wishlist" type="button">
+      </div>` : ''}
+      <button class="wishlist-btn ${isWishlisted(product.id) ? 'active' : ''}" data-id="${product.id}" title="Add to Wishlist" type="button" style="z-index:6">
         <i class="fa${isWishlisted(product.id) ? 's' : 'r'} fa-heart"></i>
       </button>
     </div>
@@ -405,12 +501,39 @@ function renderProductCard(product) {
         <span class="price-current">GHS ${product.price.toFixed(2)}</span>
         ${product.oldPrice ? `<span class="price-old">GHS ${product.oldPrice.toFixed(2)}</span>` : ''}
       </div>
-      ${product.colors && product.colors.length ? `
-      <div class="product-colors">
-        ${product.colors.map(c=>`<span class="color-dot" style="background:${c};border:${c==='#ffffff'||c==='#f5f0e8'?'1px solid #ddd':'none'}" title="${c}"></span>`).join('')}
-      </div>` : ''}
+      ${colorsHTML}
+      ${sizesHTML}
+      ${isFrame ? `
+      <a href="product.html?id=${product.id}" class="btn btn-primary btn-sm" style="width:100%;margin-top:.5rem;font-size:.82rem">
+        <i class="fas fa-paint-brush"></i> Customize &amp; Order
+      </a>` : ''}
     </div>
   </div>`;
+}
+
+// ─── Frame gallery navigation (global) ─────────────────────────────────────
+function frameNav(event, productId, direction) {
+  event.preventDefault();
+  event.stopPropagation();
+  const gallery = document.getElementById('fg-' + productId);
+  if (!gallery) return;
+
+  let current = parseInt(gallery.dataset.current, 10) || 0;
+  const total  = parseInt(gallery.dataset.total,   10) || 1;
+  const slides = gallery.querySelectorAll('.frame-slide');
+  const dots   = gallery.querySelectorAll('.fdot');
+
+  // Deactivate current
+  if (slides[current]) slides[current].classList.remove('active');
+  if (dots[current])   dots[current].classList.remove('active');
+
+  // Move
+  current = (current + direction + total) % total;
+  gallery.dataset.current = current;
+
+  // Activate new
+  if (slides[current]) slides[current].classList.add('active');
+  if (dots[current])   dots[current].classList.add('active');
 }
 
 // ─── Wishlist helper ────────────────────────────────────────────────────────
@@ -441,16 +564,47 @@ function renderProducts(containerId, opts = {}) {
   return filtered.length;
 }
 
-// ─── Bind add-to-cart & wishlist events on rendered cards ──────────────────
+// ─── Bind add-to-cart, size pills & wishlist events on rendered cards ───────
 function bindProductCardEvents(container) {
+  // Size pill selection
+  container.querySelectorAll('.card-sizes').forEach(group => {
+    group.querySelectorAll('.card-size-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        group.querySelectorAll('.card-size-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  });
+
+  // Color dot selection
+  container.querySelectorAll('.product-colors').forEach(group => {
+    group.querySelectorAll('.color-dot').forEach(dot => {
+      dot.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        group.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+        dot.classList.add('active');
+      });
+    });
+  });
+
+  // Quick-add to cart (captures selected size & color)
   container.querySelectorAll('.quick-add').forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
       e.stopPropagation();
-      const id = +btn.dataset.id;
-      if (typeof addToCart === 'function') addToCart(id);
+      const id   = +btn.dataset.id;
+      const card = btn.closest('.product-card');
+      const selectedSize  = card?.querySelector('.card-size-btn.active')?.dataset.size  || '';
+      const selectedColor = card?.querySelector('.color-dot.active')?.dataset.color || '';
+      const variant = [selectedSize, selectedColor].filter(Boolean).join(' / ');
+      if (typeof addToCart === 'function') addToCart(id, 1, variant);
     });
   });
+
+  // Wishlist toggle
   container.querySelectorAll('.wishlist-btn').forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();

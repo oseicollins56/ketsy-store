@@ -75,8 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // ----- Featured Products (Home page) -----
   const featuredEl = document.getElementById('featured-products');
   if (featuredEl) {
-    const featured = PRODUCTS.slice(0, 8);
+    // Representative mix across categories
+    const featuredIds = [1, 10, 21, 25, 33, 43, 45, 48];
+    const featured = featuredIds.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
     featuredEl.innerHTML = featured.map(renderProductCard).join('');
+    bindProductCardEvents(featuredEl);
   }
 
   // ----- Newsletter -----
@@ -145,7 +148,7 @@ function initShopPage() {
   const params = new URLSearchParams(window.location.search);
   let activeCategory = params.get('cat') || 'all';
   let sortBy = 'featured';
-  let priceMax = 300;
+  let priceMax = 600;
 
   const grid = document.getElementById('shop-products-grid');
   const countEl = document.getElementById('results-count');
@@ -163,7 +166,12 @@ function initShopPage() {
     filtered = filtered.filter(p => p.price <= priceMax);
 
     if (countEl) countEl.textContent = `${filtered.length} products`;
-    if (grid) grid.innerHTML = filtered.length ? filtered.map(renderProductCard).join('') : `<div class="empty-state" style="grid-column:1/-1"><i class="fas fa-search"></i><h3>No products found</h3><p>Try adjusting your filters.</p></div>`;
+    if (grid) {
+      grid.innerHTML = filtered.length
+        ? filtered.map(renderProductCard).join('')
+        : `<div class="empty-state" style="grid-column:1/-1"><i class="fas fa-search"></i><h3>No products found</h3><p>Try adjusting your filters.</p></div>`;
+      if (filtered.length) bindProductCardEvents(grid);
+    }
   }
 
   // Category filter buttons
