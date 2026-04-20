@@ -775,8 +775,6 @@ function renderAllShowcases(containerId) {
     { key: 'tshirts',  label: 'T-Shirts',    icon: '👕' },
     { key: 'joggers',  label: 'Joggers',      icon: '🏃' },
     { key: 'hoodies',  label: 'Hoodies',      icon: '🧥' },
-    { key: 'croptops', label: 'Crop Tops',    icon: '👚' },
-    { key: 'caps',     label: 'Caps',         icon: '🧢' },
   ];
   el.innerHTML = cats.map(c => renderCategoryShowcase(c.key, c.label, c.icon)).join('');
   bindShowcaseEvents(el);
