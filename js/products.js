@@ -7,6 +7,7 @@ const products = [
     price: 85, oldPrice: null, rating: 4.8, reviews: 124,
     badge: 'Bestseller', icon: '👕',
     img: 'images/tshirts/tshirt-1.jpg',
+    description: 'A clean everyday essential — premium cotton crew-neck tee with a relaxed fit and smooth finish. Styled here over slim dark jeans with white low-top sneakers. Simple, versatile, and incredibly comfortable for all-day wear.',
     colors: ['#1a1a1a','#4a4a4a','#6c8ebf','#d9d9d9'], sizes: ['S','M','L','XL','XXL']
   },
   {
@@ -14,6 +15,7 @@ const products = [
     price: 80, oldPrice: 100, rating: 4.7, reviews: 89,
     badge: 'Sale', icon: '👕',
     img: 'images/tshirts/tshirt-2.jpg',
+    description: 'A bold two-tone black and white graphic tee with a slightly oversized fit. Worn here with black slim-fit joggers and black-and-white chunky sneakers. A strong, street-ready look that pairs with almost anything in your wardrobe.',
     colors: ['#1a1a1a','#ffffff'], sizes: ['S','M','L','XL']
   },
   {
@@ -21,6 +23,7 @@ const products = [
     price: 120, oldPrice: null, rating: 4.9, reviews: 56,
     badge: 'New', icon: '👕',
     img: 'images/tshirts/tshirt-3.jpg',
+    description: 'A premium white Diesel-branded sleeveless muscle tee — fitted cut that shows off your physique. The clean white tone pairs effortlessly with black cargo shorts, dark joggers, or denim. Styled here with clean white athletic shoes.',
     colors: ['#ffffff'], sizes: ['S','M','L','XL']
   },
   {
@@ -28,6 +31,7 @@ const products = [
     price: 120, oldPrice: null, rating: 4.9, reviews: 48,
     badge: 'New', icon: '👕',
     img: 'images/tshirts/tshirt-4.jpg',
+    description: 'The all-black version of the premium Diesel muscle tee — sleeveless, fitted, and sharp. A go-to for gym sessions, casual events, or layering under a jacket. Paired here with grey sweatpants and black-sole sneakers for a coordinated look.',
     colors: ['#1a1a1a'], sizes: ['S','M','L','XL']
   },
   {
@@ -35,6 +39,7 @@ const products = [
     price: 75, oldPrice: 90, rating: 4.6, reviews: 73,
     badge: 'Sale', icon: '👕',
     img: 'images/tshirts/tshirt-5.jpg',
+    description: 'A pack of vibrant colour-block tees — available in bold shades including yellow, brown, blue, and purple. Relaxed fit with a rounded hem. Shown styled with neutral shorts or joggers and white canvas sneakers for a colourful, fun everyday look.',
     colors: ['#f5c518','#5c3a1e','#1a6dc0','#5b2d8e'], sizes: ['S','M','L','XL','XXL']
   },
   {
@@ -42,6 +47,7 @@ const products = [
     price: 95, oldPrice: null, rating: 4.5, reviews: 41,
     badge: null, icon: '👕',
     img: 'images/tshirts/tshirt-6.jpg',
+    description: 'A dark charcoal graphic tee featuring a bold flag-inspired print across the chest. Slightly oversized with dropped shoulders for that streetwear feel. Best paired with dark cargo trousers and chunky black sneakers for a full urban look.',
     colors: ['#3a3a3a'], sizes: ['S','M','L','XL']
   },
 
@@ -51,6 +57,7 @@ const products = [
     price: 115, oldPrice: null, rating: 4.8, reviews: 77,
     badge: 'New', icon: '🩳',
     img: 'images/joggers/joggers-3.jpg',
+    description: 'Slim-fit black cargo joggers with multiple pockets on the sides and thighs. Elastic waistband and tapered ankle cuff. Styled here with a plain white tee and black high-top sneakers — a clean, street-ready combo that works day or night.',
     colors: ['#1a1a1a'], sizes: ['S','M','L','XL','XXL']
   },
   {
@@ -58,6 +65,7 @@ const products = [
     price: 100, oldPrice: 120, rating: 4.5, reviews: 35,
     badge: 'Sale', icon: '🩳',
     img: 'images/joggers/joggers-4.jpg',
+    description: 'Comfortable fleece sweat joggers available in multiple bold colours. Elastic waist with drawstring, ribbed ankle cuffs, and a relaxed tapered fit. Shown here paired with a matching coloured hoodie and fresh white-sole sneakers for a full coordinated tracksuit vibe.',
     colors: ['#1a1a1a','#c0392b','#2c6e49','#ffffff','#2d3142'], sizes: ['S','M','L','XL']
   },
 
@@ -67,6 +75,7 @@ const products = [
     price: 130, oldPrice: null, rating: 4.8, reviews: 53,
     badge: 'New', icon: '👔',
     img: 'images/fullset/longsleeve-1.jpg',
+    description: 'A slim-fit olive green button-down shirt with a clean collar and chest pocket. Versatile enough to wear tucked or untucked. Styled here with khaki chino trousers and tan suede loafers — smart-casual perfection for the well-dressed man.',
     colors: ['#4a6741'], sizes: ['S','M','L','XL','XXL']
   },
   {
@@ -74,6 +83,7 @@ const products = [
     price: 125, oldPrice: 150, rating: 4.7, reviews: 67,
     badge: 'Sale', icon: '👔',
     img: 'images/fullset/longsleeve-2.jpg',
+    description: 'A sharp all-black Oxford long-sleeve shirt with a structured collar and button-front design. Slim fit, looks great tucked into dark trousers. Worn here with black slim-fit chinos and polished black Oxford shoes — a powerful, clean look for any formal occasion.',
     colors: ['#1a1a1a'], sizes: ['S','M','L','XL']
   },
   {
@@ -81,6 +91,7 @@ const products = [
     price: 140, oldPrice: null, rating: 4.9, reviews: 42,
     badge: 'Bestseller', icon: '👔',
     img: 'images/fullset/longsleeve-3.jpg',
+    description: 'A premium rich brown Zara long-sleeve shirt with a smooth fabric finish and clean button-down front. Styled here with beige chino trousers and tan leather shoes — an earth-toned outfit that reads sophisticated and stylish in any setting.',
     colors: ['#7d4e1e'], sizes: ['S','M','L','XL']
   },
   {
@@ -88,6 +99,7 @@ const products = [
     price: 120, oldPrice: null, rating: 4.6, reviews: 58,
     badge: null, icon: '👔',
     img: 'images/fullset/longsleeve-4.jpg',
+    description: 'A timeless crisp white long-sleeve shirt — a wardrobe essential every man should own. Structured collar, clean cut, and smooth fabric that holds its shape all day. Worn here with navy blue trousers and black leather shoes for a classic office or church look.',
     colors: ['#ffffff'], sizes: ['S','M','L','XL','XXL']
   },
   {
@@ -95,6 +107,7 @@ const products = [
     price: 115, oldPrice: 135, rating: 4.5, reviews: 34,
     badge: 'Sale', icon: '👔',
     img: 'images/fullset/longsleeve-5.jpg',
+    description: 'A slim-fit white dress shirt designed to hug the body cleanly. Features a fine fabric with a subtle sheen. Styled here with dark grey slim trousers and white leather sneakers — works equally well for smart casual or semi-formal settings.',
     colors: ['#ffffff'], sizes: ['S','M','L','XL']
   },
   {
@@ -102,6 +115,7 @@ const products = [
     price: 120, oldPrice: null, rating: 4.7, reviews: 49,
     badge: null, icon: '👔',
     img: 'images/fullset/longsleeve-6.jpg',
+    description: 'A smart two-tone white and black patterned long-sleeve shirt — bold yet refined. Slim fit with a button-front and clean collar. Paired here with black slim trousers and black dress shoes. A standout choice for events, meetings, or dinner outings.',
     colors: ['#ffffff','#1a1a1a'], sizes: ['S','M','L','XL']
   },
   {
@@ -109,6 +123,7 @@ const products = [
     price: 130, oldPrice: null, rating: 4.8, reviews: 36,
     badge: 'New', icon: '👔',
     img: 'images/fullset/longsleeve-7.jpg',
+    description: 'A deep maroon Oxford long-sleeve shirt with a classic collar and buttoned cuffs. Rich colour that stands out without being loud. Styled here with beige or light chino trousers and dark brown leather shoes — a confident look for any occasion.',
     colors: ['#7b1a2e'], sizes: ['S','M','L','XL']
   },
 
@@ -118,6 +133,7 @@ const products = [
     price: 150, oldPrice: null, rating: 4.8, reviews: 82,
     badge: 'Bestseller', icon: '🧥',
     img: 'images/hoodies/hoodie-1.jpg',
+    description: 'A thick premium fleece pullover hoodie in deep navy. Features a front kangaroo pocket, adjustable drawstring hood, and ribbed cuffs. Styled with slim-fit dark joggers and clean white low-top sneakers for a sharp casual look.',
     colors: ['#1a2a5e'], sizes: ['S','M','L','XL','XXL']
   },
   {
@@ -125,20 +141,15 @@ const products = [
     price: 160, oldPrice: 190, rating: 4.7, reviews: 55,
     badge: 'Sale', icon: '🧥',
     img: 'images/hoodies/hoodie-2.jpg',
+    description: 'A statement cream/off-white oversized hoodie with bold "81" graphic print on the chest. Relaxed fit with a large front pocket. Worn here with black cargo pants and matching off-white chunky sneakers for a streetwear finish.',
     colors: ['#f5f0e8'], sizes: ['S','M','L','XL']
-  },
-  {
-    id: 23, name: 'Black Zip-Up Hoodie', category: 'hoodies',
-    price: 170, oldPrice: null, rating: 4.9, reviews: 63,
-    badge: 'New', icon: '🧥',
-    img: 'images/hoodies/hoodie-3.jpg',
-    colors: ['#1a1a1a'], sizes: ['S','M','L','XL','XXL']
   },
   {
     id: 24, name: 'Baby Blue Graphic Hoodie', category: 'hoodies',
     price: 155, oldPrice: null, rating: 4.6, reviews: 40,
     badge: null, icon: '🧥',
     img: 'images/hoodies/hoodie-4.jpg',
+    description: 'A soft pastel baby blue hoodie with a subtle graphic print on the chest. Medium-weight fleece, relaxed fit. Paired here with light wash denim jeans and white court sneakers — a clean, easy everyday look.',
     colors: ['#a8d8ea'], sizes: ['S','M','L','XL']
   },
 
@@ -148,6 +159,7 @@ const products = [
     price: 280, oldPrice: null, rating: 4.9, reviews: 37,
     badge: 'New', icon: '🧑‍🎤',
     img: 'images/fullset/fullset-1.jpg',
+    description: 'A coordinated quarter-zip pullover with matching tapered trousers in a warm neutral tone. The top features a clean zip collar and subtle texture. Completed with white leather sneakers — an effortlessly smart look for outings or events.',
     colors: ['#b5a99a','#1a1a1a'], sizes: ['S','M','L','XL']
   },
   {
@@ -155,6 +167,7 @@ const products = [
     price: 220, oldPrice: null, rating: 4.7, reviews: 51,
     badge: null, icon: '🧑‍🎤',
     img: 'images/fullset/fullset-3.jpg',
+    description: 'A fitted brown premium tee paired with matching slim-fit chino trousers. Clean, simple, and versatile. Styled with brown suede loafers that tie the earthy tones together perfectly — great for casual outings or a relaxed date look.',
     colors: ['#5c3a1e','#f5f0e8'], sizes: ['S','M','L','XL']
   },
   {
@@ -162,6 +175,7 @@ const products = [
     price: 230, oldPrice: null, rating: 4.8, reviews: 44,
     badge: 'Bestseller', icon: '🧑‍🎤',
     img: 'images/fullset/fullset-4.jpg',
+    description: 'An olive-green fitted tee matched with clean straight-leg denim jeans. The contrast of earthy olive and classic blue denim creates a sharp, effortless outfit. Finished with white and tan canvas sneakers for a clean street-ready look.',
     colors: ['#4a6741','#5b8ad4'], sizes: ['S','M','L','XL','XXL']
   },
   {
@@ -169,6 +183,7 @@ const products = [
     price: 260, oldPrice: 300, rating: 4.6, reviews: 33,
     badge: 'Sale', icon: '🧑‍🎤',
     img: 'images/fullset/fullset-5.jpg',
+    description: 'A classic striped knit sweater in charcoal and cream tones, paired with straight-cut blue denim jeans. A timeless smart-casual combination. Styled with clean white leather sneakers and worn with a relaxed, confident posture.',
     colors: ['#3a3a3a','#5b8ad4'], sizes: ['S','M','L','XL']
   },
   {
@@ -176,6 +191,7 @@ const products = [
     price: 240, oldPrice: null, rating: 4.7, reviews: 48,
     badge: null, icon: '🧑‍🎤',
     img: 'images/fullset/fullset-6.jpg',
+    description: 'A slim-fit black polo shirt paired with tailored khaki/beige chino trousers. A sharp contrast that works for both semi-formal and casual occasions. Completed with tan leather dress shoes that elevate the entire outfit.',
     colors: ['#1a1a1a','#c9a96e'], sizes: ['S','M','L','XL']
   },
   {
@@ -183,6 +199,7 @@ const products = [
     price: 300, oldPrice: null, rating: 4.9, reviews: 62,
     badge: 'Bestseller', icon: '🧑‍🎤',
     img: 'images/fullset/fullset-7.jpg',
+    description: 'A premium navy ribbed polo top with matching tailored navy trousers. The ribbed texture adds depth and structure to the silhouette. Paired with white clean-sole sneakers and worn with confidence — one of our most complimented outfits.',
     colors: ['#1a2a5e','#f5f0e8'], sizes: ['S','M','L','XL']
   },
   {
@@ -190,6 +207,7 @@ const products = [
     price: 420, oldPrice: 500, rating: 4.8, reviews: 25,
     badge: 'Sale', icon: '🧑‍🎤',
     img: 'images/fullset/fullset-8.jpg',
+    description: 'A tailored light blue two-piece suit — blazer and matching slim-fit trousers. Crisp and formal with a modern fit. The look is completed with a white dress shirt underneath and polished black Oxford shoes — perfect for events, church, or formal occasions.',
     colors: ['#a8d8ea','#ffffff'], sizes: ['S','M','L','XL']
   },
   {
@@ -197,6 +215,7 @@ const products = [
     price: 350, oldPrice: null, rating: 4.9, reviews: 71,
     badge: 'New', icon: '🧑‍🎤',
     img: 'images/fullset/fullset-9.jpg',
+    description: 'A full Nike sport matching set — Nike graphic top with matching Nike jogger trousers in dark tones. Designed for movement and style. Styled with Nike Air Max sneakers that complete the head-to-toe athletic look. Built for the gym, the streets, or both.',
     colors: ['#3a3a3a','#1a1a1a'], sizes: ['S','M','L','XL','XXL']
   },
   {
@@ -204,6 +223,7 @@ const products = [
     price: 380, oldPrice: 450, rating: 4.8, reviews: 58,
     badge: 'Sale', icon: '🧑‍🎤',
     img: 'images/fullset/fullset-10.jpg',
+    description: 'A matching baby blue Nike tracksuit — zip-up jacket with Nike logo and matching tracksuit bottoms. Soft, lightweight, and incredibly comfortable. Finished with fresh white Nike trainers — a clean sporty look that stands out wherever you go.',
     colors: ['#a8d8ea','#ffffff'], sizes: ['S','M','L','XL']
   },
   {
@@ -211,6 +231,7 @@ const products = [
     price: 210, oldPrice: null, rating: 4.6, reviews: 43,
     badge: null, icon: '🧑‍🎤',
     img: 'images/fullset/fullset-12.jpg',
+    description: 'A clean white fitted tee paired with grey straight-leg denim jeans. Simple, fresh, and versatile — this combo works for any casual occasion. Finished with white-sole sneakers and optional silver accessories to complete the minimalist look.',
     colors: ['#ffffff','#888888'], sizes: ['S','M','L','XL','XXL']
   },
   {
@@ -218,6 +239,7 @@ const products = [
     price: 290, oldPrice: null, rating: 4.8, reviews: 47,
     badge: 'New', icon: '🧑‍🎤',
     img: 'images/fullset/fullset-13.jpg',
+    description: 'A coordinated slate blue-grey quarter-zip sweatshirt with matching tapered jogger trousers. The muted cool tone is modern and easy to style. Worn with white leather chunky sneakers that contrast beautifully against the slate grey outfit.',
     colors: ['#5a7a8a'], sizes: ['S','M','L','XL']
   },
   {
@@ -225,6 +247,7 @@ const products = [
     price: 480, oldPrice: 580, rating: 4.9, reviews: 31,
     badge: 'Sale', icon: '🧑‍🎤',
     img: 'images/fullset/fullset-14.jpg',
+    description: 'A sharp all-black formal two-piece suit — fitted blazer with peak lapels and matching slim trousers. A crisp white dress shirt is visible underneath. Completed with polished black leather Oxford shoes. The ultimate power look for formal events, weddings, and business meetings.',
     colors: ['#1a1a1a','#ffffff'], sizes: ['S','M','L','XL']
   },
 
@@ -234,6 +257,7 @@ const products = [
     price: 90, oldPrice: null, rating: 4.7, reviews: 94,
     badge: 'Bestseller', icon: '🧢',
     img: 'images/caps/caps-1.jpg',
+    description: 'A premium fitted MLB-style snapback cap with a structured crown and flat brim. Available in bold colour options. Pairs with almost any casual outfit — tees, hoodies, or full sets. Adjustable snap closure for a perfect fit.',
     colors: ['#c0392b','#1a1a1a'], sizes: ['S/M','L/XL']
   },
   {
@@ -241,6 +265,7 @@ const products = [
     price: 80, oldPrice: null, rating: 4.6, reviews: 67,
     badge: null, icon: '🧢',
     img: 'images/caps/caps-2.jpg',
+    description: 'A classic military-style camo cap with a curved brim and adjustable strap at the back. The green camo print gives it a rugged, outdoor aesthetic. Works well with cargo trousers, khakis, or any street-style outfit.',
     colors: ['#4a5e3a'], sizes: ['One Size']
   },
   {
@@ -248,6 +273,7 @@ const products = [
     price: 85, oldPrice: 100, rating: 4.5, reviews: 53,
     badge: 'Sale', icon: '🧢',
     img: 'images/caps/caps-3.jpg',
+    description: 'A bold trucker-style cap with a mesh back panel and structured front. Available in deep maroon, all-black, and dark navy. The curved brim and adjustable snap back give it a comfortable all-day fit. Best worn with graphic tees, hoodies, or casual outfits.',
     colors: ['#7b1a2e','#1a1a1a','#2d3142'], sizes: ['One Size']
   },
   {
@@ -255,6 +281,7 @@ const products = [
     price: 95, oldPrice: null, rating: 4.8, reviews: 41,
     badge: 'New', icon: '🧢',
     img: 'images/caps/caps-4.jpg',
+    description: 'A fresh forest green trucker cap with a clean front panel and breathable mesh back. The deep green tone pairs brilliantly with earth-toned outfits, olive shirts, khaki trousers, or full sets. Adjustable back closure for a perfect custom fit.',
     colors: ['#2c6e49'], sizes: ['One Size']
   },
 
