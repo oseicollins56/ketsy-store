@@ -211,14 +211,6 @@ const products = [
     colors: ['#a8d8ea','#ffffff'], sizes: ['S','M','L','XL']
   },
   {
-    id: 33, name: 'Nike Sport Set', category: 'fullset',
-    price: 350, oldPrice: null, rating: 4.9, reviews: 71,
-    badge: 'New', icon: '🧑‍🎤',
-    img: 'images/fullset/fullset-9.jpg',
-    description: 'A full Nike sport matching set — Nike graphic top with matching Nike jogger trousers in dark tones. Designed for movement and style. Styled with Nike Air Max sneakers that complete the head-to-toe athletic look. Built for the gym, the streets, or both.',
-    colors: ['#3a3a3a','#1a1a1a'], sizes: ['S','M','L','XL','XXL']
-  },
-  {
     id: 34, name: 'Baby Blue Nike Tracksuit', category: 'fullset',
     price: 380, oldPrice: 450, rating: 4.8, reviews: 58,
     badge: 'Sale', icon: '🧑‍🎤',
@@ -643,6 +635,7 @@ function renderCategoryShowcase(category, title, icon) {
       <div class="sc-info">
         <p class="sc-name">${p.name}</p>
         <p class="sc-price">GHS ${p.price.toFixed(2)}${p.oldPrice ? `<span class="sc-old">GHS ${p.oldPrice.toFixed(2)}</span>` : ''}</p>
+        ${p.description ? `<p class="sc-look">${p.description.split('.')[0]}.</p>` : ''}
         ${sizesBtns}
       </div>
     </div>`;
