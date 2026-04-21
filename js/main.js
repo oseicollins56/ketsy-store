@@ -34,19 +34,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
 
+  function closeNav() {
+    hamburger?.classList.remove('active');
+    nav?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   if (hamburger && nav) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       nav.classList.toggle('open');
       document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
     });
-    // Close nav when a link is clicked
+
+    // Dropdown toggle buttons — expand/collapse submenus on mobile
+    nav.querySelectorAll('.dropdown-toggle').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        const dropdown = btn.closest('.dropdown');
+        const isOpen = dropdown.classList.toggle('open');
+        // Close other dropdowns
+        nav.querySelectorAll('.dropdown').forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        btn.setAttribute('aria-expanded', isOpen);
+      });
+    });
+
+    // Close nav when a nav-link (page link) is clicked — but NOT the toggle buttons
     nav.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        nav.classList.remove('open');
-        document.body.style.overflow = '';
+        closeNav();
       });
+    });
+
+    // Close nav when clicking outside
+    document.addEventListener('click', e => {
+      if (nav.classList.contains('open') && !nav.contains(e.target) && !hamburger.contains(e.target)) {
+        closeNav();
+      }
     });
   }
 

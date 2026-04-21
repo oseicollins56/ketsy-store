@@ -722,7 +722,7 @@ input, textarea, select, button { font-family: var(--font); }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  grid-template-columns: 1.5fr 1fr 1fr;
   gap: 3rem;
   margin-bottom: 3rem;
 }
@@ -1490,10 +1490,56 @@ input, textarea, select, button { font-family: var(--font); }
 }
 
 @media (max-width: 900px) {
-  .nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; z-index: 999; flex-direction: column; align-items: center; justify-content: center; }
+  .nav {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #fff;
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 5rem 2rem 2rem;
+  }
   .nav.open { display: flex; }
-  .nav-list { flex-direction: column; align-items: center; gap: 0.5rem; font-size: 1.1rem; }
-  .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; padding: 0 0 0 1.5rem; background: transparent; }
+  .nav-list { flex-direction: column; align-items: center; gap: 0; width: 100%; max-width: 320px; }
+
+  /* Dropdown toggle button — visible only on mobile */
+  .dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+    padding: .3rem .5rem;
+    display: inline-flex;
+    align-items: center;
+    font-size: .85rem;
+    transition: transform .3s;
+  }
+  .dropdown.open > .dropdown-toggle i { transform: rotate(180deg); }
+
+  /* Each dropdown li: row of text + chevron */
+  .dropdown { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; width: 100%; }
+  .dropdown > .nav-link { flex: 1; text-align: center; }
+
+  /* Submenu: hidden by default, shown when .open */
+  .dropdown-menu {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #FFF8F5 !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: .5rem 0 !important;
+    width: 100%;
+    display: none;
+  }
+  .dropdown.open > .dropdown-menu { display: block; }
+  .dropdown-menu li a { text-align: center; padding: .5rem 1rem; font-size: .95rem; }
+
   .hamburger { display: flex; z-index: 1000; }
 
   .hero-slide .container { flex-direction: column; text-align: center; }
@@ -1879,17 +1925,22 @@ img[loading="lazy"] { transition: opacity .4s ease; }
 
 /* ----- Improve mobile nav ----- */
 @media (max-width: 900px) {
-  .nav { padding: 2rem; }
-  .nav-list { gap: 1rem !important; }
+  .nav-list { gap: .5rem !important; width: 100%; }
+  .nav-list > li { width: 100%; text-align: center; }
   .nav-list .nav-link {
-    padding: .6rem 1.2rem;
+    padding: .75rem 1.5rem;
     border-radius: 20px;
     font-size: 1.05rem;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   .nav-list .nav-link.active { background: var(--primary); color: #fff; }
-  .dropdown-menu { text-align: center; margin-top: .5rem; }
-  .dropdown-menu a { padding: .35rem 0; font-size: .95rem; }
+}
+
+/* Hide dropdown-toggle on desktop — hover handles it */
+@media (min-width: 901px) {
+  .dropdown-toggle { display: none; }
 }
 
 /* ----- Product card polish ----- */
@@ -2604,5 +2655,122 @@ img[loading="lazy"] { transition: opacity .4s ease; }
   .sc-gallery { height: 420px; }
   .sc-img { height: 360px; }
   .showcase-card-footer .btn { font-size: .72rem; padding: .4rem .3rem; }
+}
+
+/* =====================================================
+   KETSY — MOBILE-FIRST POLISH
+   ===================================================== */
+
+/* ── Header tighter on small screens ── */
+@media (max-width: 480px) {
+  .header .container { padding: 0 .85rem; }
+  .logo { font-size: 1.2rem; }
+  .icon-btn { width: 36px; height: 36px; font-size: 1rem; }
+  .header-actions { gap: .1rem; }
+  .announcement-bar { font-size: .68rem; padding: .35rem .75rem; }
+}
+
+/* ── Hero lookbook mobile ── */
+@media (max-width: 480px) {
+  .hero-lb-slide.active { grid-template-rows: 260px auto; }
+  .hero-lb-title { font-size: 2rem; line-height: 1; }
+  .hero-lb-desc { font-size: .82rem; max-width: 100%; }
+  .hero-lb-price { font-size: 1.3rem; }
+  .hero-lb-content { padding: 1.5rem 1.25rem 2.5rem; }
+  .hero-lb-eyebrow { font-size: .63rem; margin-bottom: 1rem; }
+  .hero-lb-meta { margin-bottom: 1.2rem; }
+  .hero-lb-btns { gap: .6rem; }
+  .hero-lb-btns .btn, .hero-lb-btns .btn-ghost-white { padding: .65rem 1.1rem; font-size: .82rem; }
+  .hero-lb-dots { bottom: 1rem; }
+}
+
+/* ── Featured full sets mobile ── */
+@media (max-width: 480px) {
+  .featured-fullset-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .featured-fs-img { height: 320px; }
+  .featured-fs-info { padding: .85rem 1rem; }
+  .featured-fs-info h3 { font-size: .95rem; }
+  .featured-fs-price { font-size: 1rem; }
+}
+
+/* ── Products grid — 2 columns down to 360px ── */
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: repeat(2,1fr); gap: .75rem; }
+  .product-name { font-size: .78rem; }
+  .price-current { font-size: .88rem; }
+  .product-info { padding: .6rem .65rem; }
+}
+
+/* ── Shop filter pills — always horizontal scroll ── */
+@media (max-width: 600px) {
+  .cat-filter-pill-bar { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .cat-filter-pill-bar::-webkit-scrollbar { display: none; }
+}
+
+/* ── Showcase cards — single col on mobile ── */
+@media (max-width: 480px) {
+  .showcase-grid { grid-template-columns: 1fr; }
+  .sc-gallery { height: 380px; }
+  .sc-img { height: 320px; }
+}
+
+/* ── Trust row — 2 col then 1 col ── */
+@media (max-width: 480px) {
+  .trust-row { grid-template-columns: 1fr 1fr; gap: .4rem; padding: .75rem .5rem; }
+  .trust-item { font-size: .72rem; padding: .5rem; }
+  .trust-item i { font-size: .9rem; }
+}
+
+/* ── Footer mobile ── */
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .footer { padding: 2.5rem 0 0; }
+  .footer-brand { text-align: center; }
+  .footer-brand .social-links { justify-content: center; }
+  .footer-col h4 { font-size: .9rem; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: .75rem; }
+}
+
+/* ── Checkout/form mobile ── */
+@media (max-width: 480px) {
+  .form-group input,
+  .form-group select,
+  .form-group textarea { font-size: 16px; /* prevent iOS zoom */ }
+  .btn { touch-action: manipulation; }
+}
+
+/* ── Section spacing tighter on mobile ── */
+@media (max-width: 480px) {
+  .section { padding: 2.5rem 0; }
+  .section-header h2 { font-size: 1.3rem; }
+  .section-header { margin-bottom: 1.5rem; }
+  .container { padding: 0 1rem; }
+}
+
+/* ── Cart sidebar full-width on small phones ── */
+@media (max-width: 480px) {
+  .cart-sidebar { width: 100vw; max-width: 100vw; }
+}
+
+/* ── Page hero (shop, about, contact pages) ── */
+@media (max-width: 480px) {
+  .page-hero { padding: 3rem 0 2rem; }
+  .page-hero h1 { font-size: 1.6rem; }
+  .page-hero p { font-size: .85rem; }
+}
+
+/* ── WhatsApp float + back-to-top always visible above thumb zone ── */
+@media (max-width: 480px) {
+  .whatsapp-float { bottom: 1rem; left: 1rem; width: 48px; height: 48px; font-size: 1.3rem; border-radius: 50%; }
+  .wa-label { display: none; }
+  .back-to-top { bottom: 1rem; right: 1rem; width: 40px; height: 40px; }
+}
+
+/* ── Larger tap targets throughout ── */
+@media (max-width: 900px) {
+  .btn { min-height: 44px; }
+  .filter-option { padding: .4rem 0; }
+  .filter-option input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
+  .card-size-btn { min-width: 36px; min-height: 36px; }
 }
 
