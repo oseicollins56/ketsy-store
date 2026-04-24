@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Account – Ketsy Store</title>
+  <meta name="description" content="Manage your Ketsy Store account — track orders, update details, view wishlist."/>
+  <link rel="icon" type="image/png" href="images/tshirts/tshirt-1.jpg"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="announcement-bar">🎨 Custom orders welcome &nbsp;|&nbsp; 💳 Pay via MTN MoMo or Card &nbsp;|&nbsp; 🚀 Fast delivery across Ghana</div>
+
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li class="dropdown">
+          <a href="shop.html" class="nav-link">Shop</a><button class="dropdown-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fas fa-chevron-down"></i></button>
+          <ul class="dropdown-menu">
+            <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
+            <li><a href="shop.html?cat=joggers">Joggers</a></li>
+            <li><a href="shop.html?cat=hoodies">Hoodies</a></li>
+            <li><a href="shop.html?cat=fullset">Men Full Set</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="custom-order.html" class="nav-link">Shop Customized</a><button class="dropdown-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fas fa-chevron-down"></i></button>
+          <ul class="dropdown-menu">
+            <li><a href="custom-order.html?type=tshirt">🎨 Customized T-Shirt</a></li>
+            <li><a href="custom-order.html?type=croptop">🎨 Customized Crop Top</a></li>
+            <li><a href="custom-order.html?type=cap">🎨 Customized Cap</a></li>
+            <li><a href="custom-order.html?type=cup">🎨 Customized Cup</a></li>
+            <li><a href="custom-order.html?type=frame">🎨 Customized Frame</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="search.html" class="icon-btn" title="Search"><i class="fas fa-search"></i></a>
+      <a href="account.html" class="icon-btn active" title="Account"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" class="icon-btn" title="Wishlist"><i class="fas fa-heart"></i><span class="badge" id="wishlist-count">0</span></a>
+      <button class="icon-btn cart-btn" id="cart-toggle" title="Cart">
+        <i class="fas fa-shopping-cart"></i><span class="badge" id="cart-count">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header"><h3><i class="fas fa-shopping-cart"></i> Your Cart</h3><button id="cart-close" class="cart-close"><i class="fas fa-times"></i></button></div>
+  <div class="cart-items" id="cart-items"><div class="cart-empty"><i class="fas fa-shopping-bag"></i><p>Your cart is empty</p></div></div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-total"><span>Subtotal:</span><span id="cart-total">GHS 0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+  </div>
+</aside>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <h1><i class="fas fa-user" style="font-size:.85em;margin-right:.3rem"></i> My Account</h1>
+    <p>Track your orders and manage your details</p>
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Account</span>
+    </nav>
+  </div>
+</section>
+
+<div class="container" style="padding:3rem 1rem;max-width:700px">
+
+  <!-- Quick Links -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:2.5rem">
+    <a href="shop.html" style="display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:1.5rem 1rem;background:#fff;border:1px solid var(--border);border-radius:var(--border-radius);text-decoration:none;color:var(--text-dark);transition:box-shadow .2s" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow='none'">
+      <i class="fas fa-shopping-bag" style="font-size:1.8rem;color:var(--primary)"></i>
+      <strong>Shop Now</strong>
+    </a>
+    <a href="wishlist.html" style="display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:1.5rem 1rem;background:#fff;border:1px solid var(--border);border-radius:var(--border-radius);text-decoration:none;color:var(--text-dark);transition:box-shadow .2s" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow='none'">
+      <i class="fas fa-heart" style="font-size:1.8rem;color:#e74c3c"></i>
+      <strong>My Wishlist</strong>
+    </a>
+    <a href="custom-order.html" style="display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:1.5rem 1rem;background:#fff;border:1px solid var(--border);border-radius:var(--border-radius);text-decoration:none;color:var(--text-dark);transition:box-shadow .2s" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow='none'">
+      <i class="fas fa-paint-brush" style="font-size:1.8rem;color:#7C3AED"></i>
+      <strong>Custom Order</strong>
+    </a>
+    <a href="contact.html" style="display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:1.5rem 1rem;background:#fff;border:1px solid var(--border);border-radius:var(--border-radius);text-decoration:none;color:var(--text-dark);transition:box-shadow .2s" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow='none'">
+      <i class="fas fa-headset" style="font-size:1.8rem;color:#0096D6"></i>
+      <strong>Support</strong>
+    </a>
+  </div>
+
+  <!-- Order Tracking -->
+  <div style="background:#fff;border-radius:var(--border-radius);padding:2rem;box-shadow:var(--shadow-sm);border:1px solid var(--border);margin-bottom:2rem">
+    <h2 style="font-size:1.15rem;margin-bottom:1.25rem"><i class="fas fa-box" style="color:var(--primary);margin-right:.5rem"></i> Track Your Order</h2>
+    <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:1rem">Enter your order reference number or phone number used during checkout.</p>
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+      <input type="text" id="order-ref" placeholder="e.g. KETSY-1714001234-AB12" style="flex:1;min-width:200px;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--border-radius-sm);font-family:inherit;font-size:.9rem;outline:none"/>
+      <button onclick="trackOrder()" class="btn btn-primary">Track</button>
+    </div>
+    <div id="track-result" style="margin-top:1rem"></div>
+  </div>
+
+  <!-- Contact for help -->
+  <div style="background:linear-gradient(135deg,var(--primary),#FF8F65);border-radius:var(--border-radius);padding:2rem;color:#fff;text-align:center">
+    <h3 style="margin-bottom:.5rem">Need help with your order?</h3>
+    <p style="opacity:.9;font-size:.9rem;margin-bottom:1.25rem">Our team is available 7 days a week. Reach us on WhatsApp for the fastest response.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/233256774859?text=Hi%20Ketsy%20Store%2C%20I%20need%20help%20with%20my%20order." target="_blank" rel="noopener" class="btn btn-white">
+        <i class="fab fa-whatsapp"></i> WhatsApp Us
+      </a>
+      <a href="contact.html" class="btn" style="background:rgba(255,255,255,.2);color:#fff;border:1.5px solid rgba(255,255,255,.5)">
+        <i class="fas fa-envelope"></i> Email Us
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+        <p>Your one-stop shop for trendy fashion and personalized gifts in Ghana.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-phone"></i> +233 25 677 4859</p>
+        <p><i class="fas fa-envelope"></i> hello@ketsystore.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="custom-order.html">Custom Orders</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Ketsy Store. All rights reserved. &nbsp;|&nbsp; <a href="privacy-policy.html" style="color:var(--text-muted)">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html" style="color:var(--text-muted)">Terms of Service</a></p>
+      <div class="payment-badges">
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> MTN MoMo</span>
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> Telecel Cash</span>
+        <span class="payment-badge"><i class="fas fa-credit-card"></i> Paystack</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/233256774859?text=Hi%20Ketsy%20Store%2C%20I%27d%20like%20to%20order%20something." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i><span class="wa-label">Chat with us</span></a>
+<button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+function trackOrder() {
+  const ref = document.getElementById('order-ref')?.value?.trim();
+  const result = document.getElementById('track-result');
+  if (!ref) { result.innerHTML = '<p style="color:var(--primary);font-size:.88rem">Please enter your order reference number.</p>'; return; }
+  result.innerHTML = `<div style="background:var(--bg-light);border-radius:8px;padding:1rem;font-size:.88rem;color:var(--text-light)">
+    <i class="fas fa-info-circle" style="color:var(--primary)"></i>
+    Order tracking is handled via WhatsApp. Please contact us with reference <strong>${ref}</strong> for a live update.
+    <br/><br/>
+    <a href="https://wa.me/233256774859?text=Hi%2C%20I%27d%20like%20to%20track%20order%20${encodeURIComponent(ref)}" target="_blank" class="btn btn-primary btn-sm">
+      <i class="fab fa-whatsapp"></i> Track via WhatsApp
+    </a>
+  </div>`;
+}
+</script>
+</body>
+</html>

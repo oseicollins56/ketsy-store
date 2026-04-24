@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search – Ketsy Store</title>
+  <meta name="description" content="Search for fashion, custom gifts, hoodies, joggers, T-shirts and more at Ketsy Store Ghana."/>
+  <link rel="icon" type="image/png" href="images/tshirts/tshirt-1.jpg"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="announcement-bar">🎨 Custom orders welcome &nbsp;|&nbsp; 💳 Pay via MTN MoMo or Card &nbsp;|&nbsp; 🚀 Fast delivery across Ghana</div>
+
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li class="dropdown">
+          <a href="shop.html" class="nav-link">Shop</a><button class="dropdown-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fas fa-chevron-down"></i></button>
+          <ul class="dropdown-menu">
+            <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
+            <li><a href="shop.html?cat=joggers">Joggers</a></li>
+            <li><a href="shop.html?cat=hoodies">Hoodies</a></li>
+            <li><a href="shop.html?cat=fullset">Men Full Set</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="custom-order.html" class="nav-link">Shop Customized</a><button class="dropdown-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fas fa-chevron-down"></i></button>
+          <ul class="dropdown-menu">
+            <li><a href="custom-order.html?type=tshirt">🎨 Customized T-Shirt</a></li>
+            <li><a href="custom-order.html?type=croptop">🎨 Customized Crop Top</a></li>
+            <li><a href="custom-order.html?type=cap">🎨 Customized Cap</a></li>
+            <li><a href="custom-order.html?type=cup">🎨 Customized Cup</a></li>
+            <li><a href="custom-order.html?type=frame">🎨 Customized Frame</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="search.html" class="icon-btn active" title="Search"><i class="fas fa-search"></i></a>
+      <a href="account.html" class="icon-btn" title="Account"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" class="icon-btn" title="Wishlist"><i class="fas fa-heart"></i><span class="badge" id="wishlist-count">0</span></a>
+      <button class="icon-btn cart-btn" id="cart-toggle" title="Cart">
+        <i class="fas fa-shopping-cart"></i><span class="badge" id="cart-count">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header"><h3><i class="fas fa-shopping-cart"></i> Your Cart</h3><button id="cart-close" class="cart-close"><i class="fas fa-times"></i></button></div>
+  <div class="cart-items" id="cart-items"><div class="cart-empty"><i class="fas fa-shopping-bag"></i><p>Your cart is empty</p></div></div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-total"><span>Subtotal:</span><span id="cart-total">GHS 0.00</span></div>
+    <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+    <a href="shop.html" class="btn btn-outline btn-block">Continue Shopping</a>
+  </div>
+</aside>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <h1><i class="fas fa-search" style="font-size:.85em;margin-right:.3rem"></i> Search Products</h1>
+    <p>Find exactly what you're looking for</p>
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Search</span>
+    </nav>
+  </div>
+</section>
+
+<!-- Search Bar -->
+<div style="background:#fff;padding:2rem 0;border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div style="max-width:640px;margin:0 auto">
+      <div style="position:relative">
+        <input type="text" id="search-input" placeholder="Search for hoodies, joggers, full sets, caps..." autofocus
+               style="width:100%;padding:1rem 3.5rem 1rem 1.25rem;border:2px solid var(--primary);border-radius:50px;font-size:1rem;font-family:inherit;outline:none;box-sizing:border-box"/>
+        <button id="search-btn" style="position:absolute;right:.5rem;top:50%;transform:translateY(-50%);background:var(--primary);border:none;color:#fff;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <!-- Quick filters -->
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;justify-content:center">
+        <button class="quick-filter btn btn-outline btn-sm" data-q="hoodie">Hoodies</button>
+        <button class="quick-filter btn btn-outline btn-sm" data-q="jogger">Joggers</button>
+        <button class="quick-filter btn btn-outline btn-sm" data-q="full set">Full Sets</button>
+        <button class="quick-filter btn btn-outline btn-sm" data-q="t-shirt">T-Shirts</button>
+        <button class="quick-filter btn btn-outline btn-sm" data-q="cap">Caps</button>
+        <button class="quick-filter btn btn-outline btn-sm" data-q="custom">Custom</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Results -->
+<section class="section" style="min-height:40vh">
+  <div class="container">
+    <p id="results-info" style="color:var(--text-muted);margin-bottom:1.5rem;font-size:.9rem"></p>
+    <div class="products-grid" id="search-results">
+      <div style="grid-column:1/-1;text-align:center;padding:4rem 1rem;color:var(--text-muted)">
+        <i class="fas fa-search" style="font-size:3rem;opacity:.3;margin-bottom:1rem"></i>
+        <p style="font-size:1.1rem">Type something above to search our collection</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo"><span class="logo-k">K</span>etsy <span class="logo-store">Store</span></a>
+        <p>Your one-stop shop for trendy fashion and personalized gifts in Ghana.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-phone"></i> +233 25 677 4859</p>
+        <p><i class="fas fa-envelope"></i> hello@ketsystore.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="custom-order.html">Custom Orders</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Ketsy Store. All rights reserved. &nbsp;|&nbsp; <a href="privacy-policy.html" style="color:var(--text-muted)">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html" style="color:var(--text-muted)">Terms of Service</a></p>
+      <div class="payment-badges">
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> MTN MoMo</span>
+        <span class="payment-badge"><i class="fas fa-mobile-alt"></i> Telecel Cash</span>
+        <span class="payment-badge"><i class="fas fa-credit-card"></i> Paystack</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/233256774859?text=Hi%20Ketsy%20Store%2C%20I%27d%20like%20to%20order%20something." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i><span class="wa-label">Chat with us</span></a>
+<button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  const resultsInfo = document.getElementById('results-info');
+
+  function doSearch(query) {
+    query = query.trim().toLowerCase();
+    if (!query) {
+      resultsInfo.textContent = '';
+      searchResults.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:4rem 1rem;color:var(--text-muted)"><i class="fas fa-search" style="font-size:3rem;opacity:.3;margin-bottom:1rem"></i><p style="font-size:1.1rem">Type something above to search our collection</p></div>`;
+      return;
+    }
+    const results = products.filter(p =>
+      p.name.toLowerCase().includes(query) ||
+      (p.category || '').toLowerCase().includes(query) ||
+      (p.description || '').toLowerCase().includes(query) ||
+      (p.badge || '').toLowerCase().includes(query)
+    );
+    resultsInfo.textContent = results.length
+      ? `Showing ${results.length} result${results.length !== 1 ? 's' : ''} for "${query}"`
+      : `No results for "${query}"`;
+    if (results.length) {
+      searchResults.innerHTML = results.map(renderProductCard).join('');
+      bindProductCardEvents(searchResults);
+    } else {
+      searchResults.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:4rem 1rem;color:var(--text-muted)"><i class="fas fa-box-open" style="font-size:3rem;opacity:.3;margin-bottom:1rem"></i><p style="font-size:1.1rem">No products match "<strong>${query}</strong>"</p><a href="shop.html" class="btn btn-primary" style="margin-top:1rem">Browse All Products</a></div>`;
+    }
+  }
+
+  // Auto-search from URL param ?q=
+  const urlQ = new URLSearchParams(window.location.search).get('q');
+  if (urlQ) { searchInput.value = urlQ; doSearch(urlQ); }
+
+  searchInput.addEventListener('input', () => doSearch(searchInput.value));
+  document.getElementById('search-btn').addEventListener('click', () => doSearch(searchInput.value));
+  searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(searchInput.value); });
+
+  document.querySelectorAll('.quick-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      searchInput.value = btn.dataset.q;
+      doSearch(btn.dataset.q);
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,279 +1,189 @@
-====================================================
- KETSY STORE – GitHub Push Guide
-====================================================
+╔══════════════════════════════════════════════════════════════════════════╗
+║           KETSY STORE — GITHUB PUSH & GODADDY DOMAIN GUIDE              ║
+║                  Updated: April 2026                                      ║
+╚══════════════════════════════════════════════════════════════════════════╝
 
-STEP 1: Install Git (if not already installed)
------------------------------------------------
-Download Git from: https://git-scm.com/downloads
-After installing, open Terminal (Mac/Linux) or Git Bash (Windows).
+Your GitHub repo: https://github.com/oseicollins56/ketsy-store
 
-Verify it's installed:
-  git --version
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PART 1 — PUSH YOUR LATEST CHANGES TO GITHUB
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+Open Terminal, then navigate to your KETSY STORE folder:
 
-STEP 2: Create a GitHub Account
---------------------------------
-Go to: https://github.com
-Sign up for a free account if you don't have one.
+    cd "/Users/mac/Documents/Claude/Projects/KETSY STORE (1)"
 
+Then run these 3 commands:
 
-STEP 3: Create a New Repository on GitHub
-------------------------------------------
-1. Log in to GitHub
-2. Click the "+" icon at the top right → "New repository"
-3. Repository name: ketsy-store
-4. Description: Ketsy Store – Fashion & Custom Gifts E-Commerce Website
-5. Set to Public (or Private if preferred)
-6. Do NOT check "Add a README file" (we already have our files)
-7. Click "Create repository"
-8. Copy the repository URL, e.g.:
-   https://github.com/YOUR-USERNAME/ketsy-store.git
+    git add .
+    git commit -m "Add Paystack, search/wishlist/account pages, privacy, terms, domain ready"
+    git push origin main
 
+If asked for credentials:
+  - Username: oseicollins56
+  - Password: your GitHub Personal Access Token
+    (Create at: https://github.com/settings/tokens → New token →
+     select "repo" scope → copy token and use as your password)
 
-STEP 4: Open Terminal and Navigate to Your Project
-----------------------------------------------------
-Mac/Linux:
-  cd ~/Documents/Claude/Projects/KETSY\ STORE\ \(1\)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PART 2 — HOST YOUR SITE FOR FREE WITH GITHUB PAGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Windows (Git Bash):
-  cd "C:/Users/YourName/Documents/Claude/Projects/KETSY STORE (1)"
+GitHub Pages hosts static HTML sites FREE. Steps:
 
+  1. Go to https://github.com/oseicollins56/ketsy-store
+  2. Click the "Settings" tab
+  3. Click "Pages" in the left sidebar
+  4. Under "Source", select "Deploy from a branch"
+  5. Set Branch = main, Folder = / (root)
+  6. Click Save
 
-STEP 5: Initialize Git and Push
----------------------------------
-Run these commands one by one in your terminal:
+Your site will go live at:
+  → https://oseicollins56.github.io/ketsy-store/
 
-  # Initialize git in the project folder
-  git init
+(Takes 1–5 minutes the first time)
 
-  # Add all project files
-  git add .
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PART 3 — CONNECT YOUR GODADDY DOMAIN TO GITHUB PAGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  # Create your first commit
-  git commit -m "Initial commit: Ketsy Store e-commerce website"
+STEP A — Create a CNAME file in your project folder
+  1. In your KETSY STORE folder, create a new text file named:  CNAME
+     (exactly that — no .txt extension)
+  2. Open it and type ONLY your domain name, for example:
+       ketsystore.com
+     (no "http://" or "www", just the bare domain)
+  3. Save the file, then push it:
+       git add CNAME
+       git commit -m "Add custom domain CNAME"
+       git push origin main
 
-  # Connect to your GitHub repository (replace YOUR-USERNAME)
-  git remote add origin https://github.com/YOUR-USERNAME/ketsy-store.git
+STEP B — Set custom domain in GitHub Pages
+  1. Go to https://github.com/oseicollins56/ketsy-store
+  2. Settings → Pages
+  3. Under "Custom domain", type your GoDaddy domain (e.g. ketsystore.com)
+  4. Click Save
+  5. Tick "Enforce HTTPS" — GitHub provides a FREE SSL certificate
 
-  # Push to GitHub
-  git branch -M main
-  git push -u origin main
+STEP C — Add DNS records in GoDaddy
+  1. Log in at https://www.godaddy.com
+  2. My Products → find your domain → click "DNS" or "Manage DNS"
+  3. Add these records:
 
-  ✅ Done! Your website is now on GitHub.
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  TYPE    NAME    VALUE                              TTL           │
+  ├──────────────────────────────────────────────────────────────────┤
+  │  A       @       185.199.108.153                   1 Hour        │
+  │  A       @       185.199.109.153                   1 Hour        │
+  │  A       @       185.199.110.153                   1 Hour        │
+  │  A       @       185.199.111.153                   1 Hour        │
+  │  CNAME   www     oseicollins56.github.io.           1 Hour        │
+  └──────────────────────────────────────────────────────────────────┘
 
+  HOW TO ADD IN GODADDY:
+  • Click "Add New Record" for each one above
+  • A record: Type=A, Name=@, Value=185.199.108.153, TTL=1 Hour → Save
+  • Repeat for the other 3 A records
+  • CNAME: Type=CNAME, Name=www, Value=oseicollins56.github.io. → Save
+  • ⚠️ Delete any old A records for @ that point to different IPs
 
-STEP 6: View Your Repository
-------------------------------
-Go to: https://github.com/YOUR-USERNAME/ketsy-store
-You'll see all your project files there.
+STEP D — Wait for DNS propagation
+  This takes 15 minutes to 48 hours. Check progress at:
+  → https://dnschecker.org (enter your domain name)
+  → Look for green checkmarks against the 4 IP addresses above
 
+STEP E — Verify it works
+  Visit your domain in a browser. You should see the Ketsy Store homepage
+  loading with a padlock (HTTPS) in the address bar.
 
-STEP 7: (Optional) Deploy Your Website FREE with GitHub Pages
---------------------------------------------------------------
-1. Go to your repository on GitHub
-2. Click "Settings" (top right area)
-3. Scroll down to "Pages" in the left sidebar
-4. Under "Source", select "Deploy from a branch"
-5. Choose branch: "main", folder: "/ (root)"
-6. Click Save
-7. Wait ~2 minutes, then your site will be live at:
-   https://YOUR-USERNAME.github.io/ketsy-store/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PART 4 — AFTER GOING LIVE: PAYSTACK SETTINGS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🌐 Your Ketsy Store website will be publicly accessible!
+Your Paystack key is already configured in js/paystack.js.
+After your domain is live, do the following:
 
+  1. Go to https://dashboard.paystack.com → Settings → API Keys & Webhooks
+  2. Under "Allowed Domains" (or "Whitelisted IPs"), add your domain:
+       https://ketsystore.com  (or whatever your domain is)
+  3. Confirm you are using the LIVE key starting with:  pk_live_...
+  4. Test a small real payment of GHS 1 to verify everything works
+  5. Check your Paystack dashboard to see the payment come through
 
-FUTURE UPDATES – How to Push Changes
---------------------------------------
-Whenever you make changes to the website, run:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PART 5 — FUTURE UPDATES (how to push changes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  git add .
-  git commit -m "Update: describe what you changed"
-  git push
+Every time you make changes, run these 3 commands:
 
-Your GitHub repository and GitHub Pages site will update automatically.
+    git add .
+    git commit -m "Short description of what you changed"
+    git push
 
+GitHub Pages will automatically redeploy your site within ~2 minutes.
 
-====================================================
- ROUND 6 UPDATE – Push Commands
- (New hero, category showcases, nav update, customized visuals)
-====================================================
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PART 6 — WHAT WAS UPDATED IN THIS VERSION (April 2026)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Run these commands in your Terminal:
+✅ Paystack payment integrated (Card, Bank Transfer, MTN/Telecel/AirtelTigo MoMo)
+✅ js/paystack.js — dedicated Paystack integration file
+✅ Telecel Cash payment method fixed in checkout (was broken before)
+✅ Real phone number: +233 25 677 4859 (updated on all pages)
+✅ WhatsApp links: wa.me/233256774859 (updated on all pages)
+✅ search.html — working full-text product search with quick filters
+✅ wishlist.html — view, manage and clear saved items
+✅ account.html — account hub with order tracking via WhatsApp
+✅ privacy-policy.html — full privacy policy for domain compliance
+✅ terms.html — terms of service
+✅ .gitignore — proper file to keep DS_Store etc out of git
+✅ All footers updated: Paystack badge + Privacy Policy + Terms links
+✅ Copyright updated to 2026
 
-  git add .
-  git commit -m "Update: new hero layout, category swipe showcases, Shop Customized nav, SVG product visuals"
-  git push
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPTIONAL: FASTER HOSTING ALTERNATIVES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-What changed in this update:
-  • index.html   — Brand-new hero with split layout (text left, product image right)
-                  No more background image fitting issues — image in a proper frame
-  • index.html   — Trust row: removed Free Delivery, removed Telecel — MTN only
-  • index.html   — Categories panel: Long Sleeves replaced with Crop Tops
-  • index.html   — Featured Products → Category Swipe Showcases
-                  Each category (T-Shirts, Joggers, Hoodies, etc.) is ONE swipeable
-                  card where customer swipes to see all products in that category
-  • index.html   — Customized section: emoji replaced with real SVG product mockups
-                  (T-shirt with print, cap with embroidery, crop top, mug with photo,
-                  frame with memory photo scene)
-  • All HTML     — Announcement bar: removed Free Delivery + Telecel
-  • All HTML     — Shop dropdown: removed Long Sleeves, removed Caps/Cups/Frames
-  • All HTML     — Added "Shop Customized" nav button with dropdown:
-                  Customized T-Shirt, Crop Top, Cap, Cup, Frame
-  • shop.html    — Filter pills: removed Long Sleeves button
-  • checkout.html— Removed Telecel Cash payment method
-  • js/products.js — renderCategoryShowcase() — swipeable category card
-  • js/products.js — renderAllShowcases() — renders all category cards
-  • js/products.js — showcaseNav() — gallery navigation
-  • js/products.js — bindShowcaseEvents() — cart + size events
-  • js/hero.js   — Updated to support new .hero-v2-slide class
-  • js/main.js   — Homepage now calls renderAllShowcases()
-  • css/style.css — Hero v2 split layout styles
-  • css/style.css — Showcase card grid styles
-  • css/style.css — Shop Customized nav button styles (orange highlight)
-  • css/style.css — Customized SVG card styles
+Netlify (free) — https://www.netlify.com
+  • Drag & drop your folder OR connect GitHub repo
+  • Custom GoDaddy domain with free HTTPS
+  • Faster global CDN than GitHub Pages
 
-====================================================
- ROUND 5 UPDATE – Push Commands
- (Sizes, Frame Gallery, Hero Fix, Bug Fixes)
-====================================================
+Vercel (free) — https://vercel.com
+  • Connect GitHub repo → auto-deploy on every push
 
-Run these commands in your Terminal to push the latest update:
+For either: the GoDaddy DNS setup is similar but use the CNAME value
+they provide instead of oseicollins56.github.io.
 
-  git add .
-  git commit -m "Update: size selectors on shirts, frame swipe gallery, hero fix, bug fixes"
-  git push
-
-What changed in this update:
-  • js/products.js  — Size pills on all apparel product cards (S/M/L/XL)
-  • js/products.js  — Color dot active selection on product cards
-  • js/products.js  — Frame gallery: 5 swipeable style options per frame
-  • js/products.js  — New frame product: Collage Memory Frame (#50)
-  • js/products.js  — frameNav() function for frame gallery navigation
-  • js/products.js  — Quick-add now captures selected size + color
-  • js/main.js      — Featured products now calls bindProductCardEvents (bug fix)
-  • js/main.js      — Shop page price range raised to GHS 600 (was 300)
-  • js/main.js      — Shop grid now binds card events after render (bug fix)
-  • js/cart.js      — Fixed wishlist localStorage key mismatch (bug fix)
-  • js/cart.js      — Cart buttons use event delegation (safer, no quote issues)
-  • index.html      — Hero reduced to 3 rotating slides (was 4)
-  • index.html      — Removed duplicate features-strip (gap fix)
-  • shop.html       — Added Crop Tops, Caps, Cups, Frames filter buttons
-  • shop.html       — Price range max raised to GHS 600
-  • css/style.css   — Size pill styles (.card-size-btn)
-  • css/style.css   — Frame gallery styles (.frame-gallery, .frame-nav, etc.)
-  • css/style.css   — Men Full Set image: object-position top, taller aspect ratio
-  • css/style.css   — Color dot active ring style
-  • css/style.css   — Hero gap fix between hero and trust row
-
-====================================================
- ROUND 4 UPDATE – Push Commands
- (Added: Long Sleeves, Hoodies, Men Full Set)
-====================================================
-
-After saving your product photos to the images/ folders
-(see IMAGE-SAVE-GUIDE.txt), run these commands:
-
-  git add .
-  git commit -m "Add Long Sleeves, Hoodies, Men Full Set categories with product images"
-  git push
-
-What changed in this update:
-  • products.js  — 36 products now (added Long Sleeves, Hoodies, Men Full Set)
-  • index.html   — 3 new category cards in the Browse Categories panel
-  • index.html   — Nav dropdown updated with new categories
-  • shop.html    — Filter pills updated (3 new category buttons)
-  • shop.html    — Nav dropdown updated
-  • product.html — Nav dropdown updated
-  • checkout.html      — Nav dropdown updated
-  • custom-order.html  — Nav dropdown updated
-  • about.html         — Nav dropdown updated
-  • contact.html       — Nav dropdown updated
-  • faq.html           — Nav dropdown updated
-  • images/tshirts/    — Folder ready for tshirt-1.jpg to tshirt-6.jpg
-  • images/longsleeves/— Folder ready for longsleeve-1.jpg to longsleeve-3.jpg
-  • images/hoodies/    — Folder ready for hoodie-1.jpg
-  • images/fullset/    — Folder ready for fullset-1.jpg to fullset-8.jpg
-  • IMAGE-SAVE-GUIDE.txt — Step-by-step photo saving instructions
-
-
-====================================================
- FILES INCLUDED IN THIS PROJECT
-====================================================
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROJECT FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ketsy-store/
 ├── index.html           ← Home page
 ├── shop.html            ← All products / shop page
-├── product.html         ← Individual product detail page
-├── checkout.html        ← Checkout with Mobile Money payment
+├── product.html         ← Individual product detail
+├── checkout.html        ← Checkout + Paystack + Mobile Money
 ├── custom-order.html    ← Custom order request form
-├── about.html           ← About Ketsy Store page
-├── contact.html         ← Contact us page
-├── faq.html             ← Frequently asked questions
-├── css/
-│   └── style.css        ← All styles (responsive, mobile-first)
+├── about.html           ← About Ketsy Store
+├── contact.html         ← Contact page
+├── faq.html             ← FAQ page
+├── search.html          ← Search page (NEW)
+├── wishlist.html        ← Wishlist page (NEW)
+├── account.html         ← Account / order tracking (NEW)
+├── privacy-policy.html  ← Privacy Policy (NEW)
+├── terms.html           ← Terms of Service (NEW)
+├── CNAME                ← Create this file with your domain
+├── .gitignore           ← Git ignore rules (NEW)
+├── css/style.css        ← All styles
 ├── js/
-│   ├── products.js      ← Product data (36 products, 10 categories)
+│   ├── products.js      ← Product catalogue
 │   ├── cart.js          ← Shopping cart logic
-│   └── main.js          ← Main site functionality
-├── images/
-│   ├── tshirts/         ← tshirt-1.jpg to tshirt-6.jpg
-│   ├── longsleeves/     ← longsleeve-1.jpg to longsleeve-3.jpg
-│   ├── hoodies/         ← hoodie-1.jpg
-│   ├── fullset/         ← fullset-1.jpg to fullset-8.jpg
-│   ├── shorts/          ← (no photos yet – emoji placeholder)
-│   └── joggers/         ← (no photos yet – emoji placeholder)
-├── IMAGE-SAVE-GUIDE.txt ← How to save your product photos
-└── GITHUB-PUSH-GUIDE.txt← This file
+│   ├── paystack.js      ← Paystack integration (NEW)
+│   ├── main.js          ← Main site JS
+│   └── hero.js          ← Hero slider
+└── images/              ← Product images
 
-
-====================================================
- FEATURES BUILT INTO KETSY STORE
-====================================================
-
-✅ 10 Product Categories (T-Shirts, Shorts, Joggers, Long Sleeves,
-   Hoodies, Men Full Set, Caps, Cups, Crop Tops, Frames)
-✅ 50 Products with ratings, badges, variants
-✅ Size selector pills on every apparel product card (S/M/L/XL)
-✅ Color swatch selection on every product card
-✅ Frame swipe gallery — 5 style options per frame (swipe to choose)
-✅ Shopping Cart with quantity controls (safe event delegation)
-✅ Wishlist functionality
-✅ Product Detail pages with size/color selection
-✅ Checkout page with Mobile Money (MTN MoMo + Telecel Cash)
-✅ Promo code support (try KETSY10)
-✅ Custom Order request form
-✅ Shop page with ALL category filters and sorting (price up to GHS 600)
-✅ About, Contact, and FAQ pages
-✅ Newsletter subscription
-✅ Fully responsive (mobile, tablet, desktop)
-✅ Sticky navigation with cart sidebar
-✅ Bright, modern design with Poppins font
-✅ Announcement bar
-✅ Toast notifications & success modals
-✅ Back-to-top button
-✅ Men Full Set images show full outfit (portrait crop, top-aligned)
-
-
-====================================================
- CUSTOMIZATION – Things to Update Before Going Live
-====================================================
-
-1. Phone number: Search for "+233 XX XXX XXXX" and replace with your real number
-2. Email: Search for "hello@ketsystore.com" and replace with your email
-3. WhatsApp: Search for "233XXXXXXXXX" and replace with your WhatsApp number
-4. Location: Update "Accra, Ghana" if different
-5. Product images: Add real product photos to /images/ folder and update
-   the icon emoji in js/products.js with <img> tags
-6. Social links: Update Facebook, Instagram, Twitter URLs
-7. Mobile Money: Add your actual MoMo merchant account number
-8. Prices: Update product prices in js/products.js to match your real prices
-
-
-====================================================
- SUPPORT
-====================================================
-
-Website built by Claude (Anthropic) for Ketsy Store.
-For technical help, contact your developer.
-
-====================================================
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Built with ❤️ for Ketsy Store, Ghana
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="announcement-bar">🎨 Custom orders welcome &nbsp;|&nbsp; 💳 Pay via MTN Mobile Money &nbsp;|&nbsp; 🚀 Fast delivery across Ghana</div>
+<div class="announcement-bar">🎨 Custom orders welcome &nbsp;|&nbsp; 💳 Pay via MTN MoMo or Card &nbsp;|&nbsp; 🚀 Fast delivery across Ghana</div>
 
 <header class="header" id="header">
   <div class="container">
@@ -114,7 +114,7 @@
         </div>
         <div class="form-group">
           <label>Phone Number *</label>
-          <input type="tel" placeholder="+233 XX XXX XXXX" required/>
+          <input type="tel" placeholder="+233 25 677 4859" required/>
         </div>
         <div class="form-group">
           <label>Delivery Address *</label>
@@ -190,22 +190,46 @@
         <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
 
         <div class="payment-methods">
-          <!-- MTN MoMo -->
-          <div class="payment-method active" data-method="mtn">
-            <input type="radio" name="payment" value="mtn" checked/>
+
+          <!-- Paystack (Card / Bank / MoMo via Paystack) -->
+          <div class="payment-method active" data-method="paystack">
+            <input type="radio" name="payment" value="paystack" checked/>
+            <div class="payment-method-icon" style="background:#00C3F7;border-radius:8px;display:flex;align-items:center;justify-content:center;width:52px;height:40px;flex-shrink:0">
+              <span style="font-size:.75rem;font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1.1;text-align:center">Pay<br>stack</span>
+            </div>
+            <div class="payment-method-info">
+              <strong>Card / Bank / MoMo</strong>
+              <span>Visa, Mastercard, Bank Transfer, Mobile Money</span>
+            </div>
+          </div>
+          <div id="momo-fields-paystack" class="momo-fields">
+            <div style="background:#E8F8FF;border:1px solid #9AE0F7;border-radius:8px;padding:.85rem;font-size:.82rem;color:#005f77;">
+              <i class="fas fa-credit-card"></i> You'll be redirected to a secure Paystack checkout page where you can pay with your <strong>debit/credit card</strong>, <strong>bank transfer</strong>, or <strong>MTN/Telecel/AirtelTigo Mobile Money</strong>. Powered by <strong>Paystack</strong> — Ghana's most trusted payment gateway.
+            </div>
+            <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/200px-Visa.svg.png" alt="Visa" style="height:22px;object-fit:contain;background:#fff;border-radius:4px;padding:2px 4px;border:1px solid #ddd">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png" alt="Mastercard" style="height:22px;object-fit:contain;background:#fff;border-radius:4px;padding:2px 4px;border:1px solid #ddd">
+              <span style="background:#FFD000;border-radius:4px;padding:2px 6px;font-size:.7rem;font-weight:700;color:#1a1a1a;border:1px solid #ddd">MTN MoMo</span>
+              <span style="background:#e8001c;border-radius:4px;padding:2px 6px;font-size:.7rem;font-weight:700;color:#fff;border:1px solid #ddd">Telecel</span>
+              <span style="background:#E40520;border-radius:4px;padding:2px 6px;font-size:.7rem;font-weight:700;color:#fff;border:1px solid #ddd">AirtelTigo</span>
+            </div>
+          </div>
+
+          <!-- MTN MoMo Direct -->
+          <div class="payment-method" data-method="mtn">
+            <input type="radio" name="payment" value="mtn"/>
             <div class="payment-method-icon mtn-icon">
               <span style="font-size:1rem;font-weight:800;color:#D4A017">MTN</span>
             </div>
             <div class="payment-method-info">
-              <strong>MTN Mobile Money</strong>
-              <span>Pay securely with MTN MoMo</span>
+              <strong>MTN Mobile Money (Direct)</strong>
+              <span>Pay directly via MTN MoMo prompt</span>
             </div>
           </div>
-
-          <div id="momo-fields-mtn" class="momo-fields">
+          <div id="momo-fields-mtn" class="momo-fields" style="display:none">
             <div class="form-group" style="margin-bottom:.75rem">
               <label>MTN MoMo Number *</label>
-              <input type="tel" id="momo-number" placeholder="e.g. 055 XXX XXXX" required/>
+              <input type="tel" id="momo-number" placeholder="e.g. 055 XXX XXXX"/>
             </div>
             <div class="form-group" style="margin-bottom:0">
               <label>Account Name</label>
@@ -216,15 +240,28 @@
             </div>
           </div>
 
-          <!-- Telecel -->
-
-          
+          <!-- Telecel Cash -->
+          <div class="payment-method" data-method="telecel">
+            <input type="radio" name="payment" value="telecel"/>
+            <div class="payment-method-icon" style="background:#FFE5E5">
+              <span style="font-size:.75rem;font-weight:800;color:#e8001c;letter-spacing:-.5px">VDF</span>
+            </div>
+            <div class="payment-method-info">
+              <strong>Telecel Cash</strong>
+              <span>Pay securely with Telecel / Vodafone Cash</span>
+            </div>
+          </div>
+          <div id="momo-fields-telecel" class="momo-fields" style="display:none">
+            <div class="form-group" style="margin-bottom:.75rem">
+              <label>Telecel Number *</label>
+              <input type="tel" id="telecel-number" placeholder="e.g. 020 XXX XXXX"/>
+            </div>
             <div class="form-group" style="margin-bottom:0">
               <label>Account Name</label>
               <input type="text" placeholder="Name on Telecel account"/>
             </div>
             <div style="background:#FFF0F0;border:1px solid #FFD0D0;border-radius:8px;padding:.85rem;margin-top:.75rem;font-size:.82rem;color:#c0392b">
-              <i class="fas fa-info-circle"></i> You'll receive a USSD prompt to approve payment after placing your order.
+              <i class="fas fa-info-circle"></i> You'll receive a USSD prompt on your Telecel phone to approve payment after placing your order.
             </div>
           </div>
 
@@ -244,15 +281,16 @@
               <i class="fas fa-check-circle"></i> You'll pay cash when your order is delivered. Available only in Accra.
             </div>
           </div>
+
         </div>
       </div>
 
       <!-- Place Order Button -->
-      <button type="submit" class="btn btn-primary btn-block" style="padding:1rem;font-size:1rem;border-radius:var(--border-radius)">
+      <button type="submit" class="btn btn-primary btn-block" id="place-order-btn" style="padding:1rem;font-size:1rem;border-radius:var(--border-radius)">
         <i class="fas fa-lock"></i> Place Order Securely
       </button>
       <p style="text-align:center;font-size:.78rem;color:var(--text-muted);margin-top:.75rem">
-        <i class="fas fa-shield-alt"></i> Your information is protected with 256-bit SSL encryption
+        <i class="fas fa-shield-alt"></i> Secured by Paystack &amp; 256-bit SSL encryption
       </p>
     </div>
 
@@ -307,7 +345,7 @@
       </div>
       <div class="footer-col">
         <h4>Contact Us</h4>
-        <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+        <p><i class="fas fa-phone"></i> +233 25 677 4859</p>
         <p><i class="fas fa-envelope"></i> hello@ketsystore.com</p>
         <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
       </div>
@@ -321,20 +359,120 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Ketsy Store. All rights reserved.</p>
+      <p>&copy; 2026 Ketsy Store. All rights reserved. &nbsp;|&nbsp; <a href="privacy-policy.html" style="color:var(--text-muted)">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html" style="color:var(--text-muted)">Terms of Service</a></p>
       <div class="payment-badges">
         <span class="payment-badge"><i class="fas fa-mobile-alt"></i> MTN MoMo</span>
         <span class="payment-badge"><i class="fas fa-mobile-alt"></i> Telecel Cash</span>
+        <span class="payment-badge"><i class="fas fa-credit-card"></i> Paystack</span>
       </div>
     </div>
   </div>
 </footer>
 
-<a href="https://wa.me/233000000000?text=Hi%20Ketsy%20Store%2C%20I%27d%20like%20help%20with%20an%20order." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i><span class="wa-label">Chat with us</span></a>
+<a href="https://wa.me/233256774859?text=Hi%20Ketsy%20Store%2C%20I%27d%20like%20help%20with%20an%20order." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i><span class="wa-label">Chat with us</span></a>
 <button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
 
+<script src="https://js.paystack.co/v1/inline.js"></script>
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
+<script src="js/paystack.js"></script>
 <script src="js/main.js"></script>
+
+<script>
+// ── Checkout page: Paystack override ──────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  // Show Paystack fields by default (active on load)
+  document.querySelectorAll('.momo-fields').forEach(f => f.style.display = 'none');
+  const paystackFields = document.getElementById('momo-fields-paystack');
+  if (paystackFields) paystackFields.style.display = 'block';
+
+  // Override the checkout form submit for Paystack
+  const form = document.getElementById('checkout-form');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const method = document.querySelector('.payment-method.active')?.dataset.method;
+
+    // Collect customer info
+    const firstNameEl = form.querySelector('input[placeholder="e.g. Kwame"]');
+    const lastNameEl  = form.querySelector('input[placeholder="e.g. Mensah"]');
+    const emailEl     = form.querySelector('input[type="email"]');
+    const phoneEl     = form.querySelector('input[type="tel"]');
+
+    const firstName = firstNameEl?.value?.trim() || '';
+    const lastName  = lastNameEl?.value?.trim() || '';
+    const email     = emailEl?.value?.trim() || '';
+    const phone     = phoneEl?.value?.trim() || '';
+
+    // Basic validation
+    if (!firstName || !lastName) { showToast('❌ Please enter your full name.', 'error'); return; }
+    if (!email) { showToast('❌ Please enter your email address.', 'error'); return; }
+    if (!phone) { showToast('❌ Please enter your phone number.', 'error'); return; }
+
+    // Calculate total with delivery
+    const deliveryMethod = document.querySelector('input[name="delivery"]:checked')?.value || 'standard';
+    const deliveryFee = deliveryMethod === 'express' ? 40 : deliveryMethod === 'pickup' ? 0 : 20;
+    const subtotal = getCartTotal();
+    const freeDelivery = subtotal >= 200;
+    const total = subtotal + (freeDelivery ? 0 : deliveryFee);
+
+    if (method === 'paystack') {
+      // Launch Paystack popup
+      const btn = document.getElementById('place-order-btn');
+      if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening payment...'; }
+
+      initiatePaystackPayment({
+        email:     email || 'customer@ketsystore.com',
+        amount:    total,
+        name:      `${firstName} ${lastName}`,
+        phone:     phone,
+        reference: generateReference(),
+        onSuccess: function(response) {
+          if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-lock"></i> Place Order Securely'; }
+          // Payment successful
+          showModal(
+            '🎉',
+            'Payment Successful!',
+            `Your payment of GHS ${total.toFixed(2)} was received. Reference: ${response.reference}. Order confirmation will be sent to ${email}. Thank you for shopping with Ketsy Store!`,
+            'Continue Shopping',
+            function() { cart = []; saveCart(); window.location.href = 'index.html'; }
+          );
+        },
+        onCancel: function() {
+          if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-lock"></i> Place Order Securely'; }
+          showToast('Payment cancelled. You can try again.', '');
+        }
+      });
+
+    } else if (method === 'mtn') {
+      const momoNum = document.getElementById('momo-number')?.value?.trim();
+      if (!momoNum) { showToast('❌ Please enter your MTN MoMo number.', 'error'); return; }
+      showModal('🎉', 'Order Placed!',
+        `Your order total is GHS ${total.toFixed(2)}. You'll receive a Mobile Money prompt on ${momoNum} to approve payment. Thank you for shopping with Ketsy Store!`,
+        'Continue Shopping',
+        function() { cart = []; saveCart(); window.location.href = 'index.html'; }
+      );
+
+    } else if (method === 'telecel') {
+      const telNum = document.getElementById('telecel-number')?.value?.trim();
+      if (!telNum) { showToast('❌ Please enter your Telecel number.', 'error'); return; }
+      showModal('🎉', 'Order Placed!',
+        `Your order total is GHS ${total.toFixed(2)}. You'll receive a USSD prompt on ${telNum} to approve the Telecel Cash payment. Thank you!`,
+        'Continue Shopping',
+        function() { cart = []; saveCart(); window.location.href = 'index.html'; }
+      );
+
+    } else if (method === 'cod') {
+      showModal('🎉', 'Order Confirmed!',
+        `Your order total is GHS ${total.toFixed(2)}. Please have exact cash ready for your delivery rider. We'll contact you on ${phone} to confirm delivery. Thank you!`,
+        'Continue Shopping',
+        function() { cart = []; saveCart(); window.location.href = 'index.html'; }
+      );
+    }
+  }, true); // use capture to override the existing listener in main.js
+});
+</script>
 </body>
 </html>

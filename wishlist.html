@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Product – Ketsy Store</title>
+  <title>My Wishlist – Ketsy Store</title>
+  <meta name="description" content="Your saved items at Ketsy Store Ghana."/>
+  <link rel="icon" type="image/png" href="images/tshirts/tshirt-1.jpg"/>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -19,7 +21,7 @@
       <ul class="nav-list">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li class="dropdown">
-          <a href="shop.html" class="nav-link active">Shop</a><button class="dropdown-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fas fa-chevron-down"></i></button>
+          <a href="shop.html" class="nav-link">Shop</a><button class="dropdown-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fas fa-chevron-down"></i></button>
           <ul class="dropdown-menu">
             <li><a href="shop.html?cat=tshirts">T-Shirts</a></li>
             <li><a href="shop.html?cat=joggers">Joggers</a></li>
@@ -42,11 +44,13 @@
       </ul>
     </nav>
     <div class="header-actions">
-      <a href="search.html" class="icon-btn"><i class="fas fa-search"></i></a>
-      <a href="account.html" class="icon-btn"><i class="fas fa-user"></i></a>
-      <a href="wishlist.html" class="icon-btn"><i class="fas fa-heart"></i><span class="badge" id="wishlist-count">0</span></a>
-      <button class="icon-btn" id="cart-toggle"><i class="fas fa-shopping-cart"></i><span class="badge" id="cart-count">0</span></button>
-      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <a href="search.html" class="icon-btn" title="Search"><i class="fas fa-search"></i></a>
+      <a href="account.html" class="icon-btn" title="Account"><i class="fas fa-user"></i></a>
+      <a href="wishlist.html" class="icon-btn active" title="Wishlist"><i class="fas fa-heart"></i><span class="badge" id="wishlist-count">0</span></a>
+      <button class="icon-btn cart-btn" id="cart-toggle" title="Cart">
+        <i class="fas fa-shopping-cart"></i><span class="badge" id="cart-count">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -58,35 +62,30 @@
   <div class="cart-footer" id="cart-footer" style="display:none">
     <div class="cart-total"><span>Subtotal:</span><span id="cart-total">GHS 0.00</span></div>
     <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+    <a href="shop.html" class="btn btn-outline btn-block">Continue Shopping</a>
   </div>
 </aside>
 
-<!-- Breadcrumb -->
-<div style="background:var(--bg-light);padding:.75rem 0;border-bottom:1px solid var(--border)">
+<!-- Page Hero -->
+<section class="page-hero">
   <div class="container">
-    <nav class="breadcrumb" style="justify-content:flex-start">
-      <a href="index.html">Home</a>
-      <i class="fas fa-chevron-right"></i>
-      <a href="shop.html">Shop</a>
-      <i class="fas fa-chevron-right"></i>
-      <span id="breadcrumb-name">Product</span>
+    <h1><i class="fas fa-heart" style="font-size:.85em;margin-right:.3rem"></i> My Wishlist</h1>
+    <p>Items you've saved — ready whenever you are</p>
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Wishlist</span>
     </nav>
   </div>
-</div>
+</section>
 
-<!-- Product Detail -->
-<div class="container product-detail">
-  <div id="product-detail-root"></div>
-</div>
-
-<!-- Related Products -->
-<section class="section" style="background:var(--bg-light)">
+<section class="section" style="min-height:40vh">
   <div class="container">
-    <div class="section-header">
-      <h2>You Might Also Like</h2>
-      <a href="shop.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:.75rem">
+      <p id="wishlist-count-label" style="color:var(--text-muted);font-size:.9rem"></p>
+      <button id="clear-wishlist" class="btn btn-outline btn-sm" style="display:none">
+        <i class="fas fa-trash"></i> Clear Wishlist
+      </button>
     </div>
-    <div class="products-grid" id="related-products"></div>
+    <div class="products-grid" id="wishlist-grid"></div>
   </div>
 </section>
 
@@ -116,6 +115,8 @@
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="custom-order.html">Custom Orders</a></li>
           <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
         </ul>
       </div>
     </div>
@@ -130,20 +131,48 @@
   </div>
 </footer>
 
-<a href="https://wa.me/233256774859?text=Hi%20Ketsy%20Store%2C%20I%27d%20like%20help%20with%20an%20order." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i><span class="wa-label">Chat with us</span></a>
-<button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+<a href="https://wa.me/233256774859?text=Hi%20Ketsy%20Store%2C%20I%27d%20like%20to%20order%20something." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i><span class="wa-label">Chat with us</span></a>
+<button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
 
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/main.js"></script>
 <script>
-  // Update breadcrumb
-  document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const product = getProductById(params.get('id'));
-    if (product) {
-      document.getElementById('breadcrumb-name').textContent = product.name;
+  document.addEventListener('DOMContentLoaded', function() {
+    const grid = document.getElementById('wishlist-grid');
+    const countLabel = document.getElementById('wishlist-count-label');
+    const clearBtn = document.getElementById('clear-wishlist');
+
+    function renderWishlist() {
+      const wishlistIds = JSON.parse(localStorage.getItem('ketsy_wishlist') || '[]');
+      const items = wishlistIds.map(id => getProductById(id)).filter(Boolean);
+
+      document.querySelectorAll('#wishlist-count').forEach(el => el.textContent = wishlistIds.length);
+      countLabel.textContent = items.length
+        ? `${items.length} saved item${items.length !== 1 ? 's' : ''}`
+        : '';
+      clearBtn.style.display = items.length ? 'inline-flex' : 'none';
+
+      if (!items.length) {
+        grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:4rem 1rem;color:var(--text-muted)">
+          <i class="fas fa-heart" style="font-size:3rem;opacity:.3;margin-bottom:1rem"></i>
+          <h3 style="margin-bottom:.5rem">Your wishlist is empty</h3>
+          <p>Browse our collection and heart the items you love.</p>
+          <a href="shop.html" class="btn btn-primary" style="margin-top:1.25rem">Shop Now</a>
+        </div>`;
+        return;
+      }
+      grid.innerHTML = items.map(renderProductCard).join('');
+      bindProductCardEvents(grid);
     }
+
+    renderWishlist();
+
+    clearBtn.addEventListener('click', () => {
+      localStorage.setItem('ketsy_wishlist', '[]');
+      renderWishlist();
+      showToast('Wishlist cleared', '');
+    });
   });
 </script>
 </body>
