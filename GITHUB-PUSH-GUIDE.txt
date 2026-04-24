@@ -51,7 +51,7 @@ STEP A — Create a CNAME file in your project folder
   1. In your KETSY STORE folder, create a new text file named:  CNAME
      (exactly that — no .txt extension)
   2. Open it and type ONLY your domain name, for example:
-       ketsystore.com
+       ketsy.shop
      (no "http://" or "www", just the bare domain)
   3. Save the file, then push it:
        git add CNAME
@@ -61,7 +61,7 @@ STEP A — Create a CNAME file in your project folder
 STEP B — Set custom domain in GitHub Pages
   1. Go to https://github.com/oseicollins56/ketsy-store
   2. Settings → Pages
-  3. Under "Custom domain", type your GoDaddy domain (e.g. ketsystore.com)
+  3. Under "Custom domain", type your GoDaddy domain (e.g. ketsy.shop)
   4. Click Save
   5. Tick "Enforce HTTPS" — GitHub provides a FREE SSL certificate
 
@@ -105,7 +105,7 @@ After your domain is live, do the following:
 
   1. Go to https://dashboard.paystack.com → Settings → API Keys & Webhooks
   2. Under "Allowed Domains" (or "Whitelisted IPs"), add your domain:
-       https://ketsystore.com  (or whatever your domain is)
+       https://ketsy.shop  (or whatever your domain is)
   3. Confirm you are using the LIVE key starting with:  pk_live_...
   4. Test a small real payment of GHS 1 to verify everything works
   5. Check your Paystack dashboard to see the payment come through
